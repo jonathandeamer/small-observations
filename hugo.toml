@@ -3,6 +3,7 @@ locale = "en-us"
 defaultContentLanguage = "en"
 title = "Small Observations"
 enableRobotsTXT = true
+theme = "notebook"
 
 # Cleaner pagination URLs: /posts/page/2/ instead of /posts/page/2/index.html
 pagination.pagerSize = 20
