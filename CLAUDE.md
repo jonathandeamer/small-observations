@@ -39,12 +39,13 @@ Merge/revert/fixup commits are exempt. If a commit fails the hook, fix the messa
 
 ## Two distinct subsystems
 
-### 1. Hugo site (`layouts/`, `assets/`, `content/`, `static/`, `hugo.toml`)
+### 1. Hugo site (`themes/notebook/`, `content/`, `assets/img/`, `hugo.toml`)
 
-- **No theme.** All layouts live directly under `layouts/`.
+- **One local theme**, `themes/notebook/`, containing all design files (layouts, CSS, font). Set via `theme = "notebook"` in `hugo.toml`. This is a *local* theme written from scratch — not a third-party download. Swap by changing the `theme` line, or layer designs with `theme = ["experimental", "notebook"]`.
+- **Content vs design split:** `content/` and `assets/img/` (the photos) live at the project root and are shared across themes. `themes/notebook/layouts/`, `themes/notebook/assets/css/`, and `themes/notebook/static/fonts/` are the theme-local design.
 - **No JavaScript anywhere.** Interactions are HTML+CSS only.
-- **One stylesheet** (`assets/css/site.css`), inlined into `<head>` via Hugo's resource pipeline. Hand-written, no preprocessor.
-- **One self-hosted font** (`static/fonts/fraunces-latin.woff2`) — Fraunces variable with all four axes (opsz, wght, SOFT, WONK). 134 KB. This exceeds the 80 KB budget in the spec; the overage was a deliberate choice — the SOFT and WONK axes are load-bearing for the masthead and browse-hover effect.
+- **One stylesheet** (`themes/notebook/assets/css/site.css`), inlined into `<head>` via Hugo's resource pipeline. Hand-written, no preprocessor.
+- **One self-hosted font** (`themes/notebook/static/fonts/fraunces-latin.woff2`) — Fraunces variable with all four axes (opsz, wght, SOFT, WONK). 134 KB. This exceeds the 80 KB budget in the spec; the overage was a deliberate choice — the SOFT and WONK axes are load-bearing for the masthead and browse-hover effect.
 - **Image pipeline** lives in `layouts/partials/photo.html` and `post-card.html`. Generates WebP + JPEG at three widths via `image.Process`. **AVIF is not used** — Hugo 0.161 extended on macOS doesn't ship with libavif.
 - **Taxonomies** are `tags`, `countries`, `cities`, `artists`, `years`. Favourites is a regular `tag` (`favourite`), not its own taxonomy — this was refactored away because `/favourites/favourite/` was an ugly URL.
 - **Post URLs** are `/<year>/<month>/<slug>/`. Year and month come from `date` (the *taken* date), not `publishDate`.
