@@ -56,9 +56,25 @@ def test_reverse_falls_back_when_city_missing(tmp_path: Path):
     assert result == ("Iceland", "Vík í Mýrdal")
 
 
-def test_reverse_returns_none_when_country_missing(tmp_path: Path):
+def test_reverse_uses_county_when_no_city(tmp_path: Path):
+    payload = {"address": {"country": "United Kingdom", "county": "Gwynedd"}}
+    cache = tmp_path / "geocode.json"
+    with patch("ingest.geocode.urlopen", _mock_urlopen(payload)):
+        result = geocode.reverse(52.93, -4.08, cache_path=cache)
+    assert result == ("United Kingdom", "Gwynedd")
+
+
+def test_reverse_returns_country_only_when_no_settlement(tmp_path: Path):
+    payload = {"address": {"country": "Antarctica"}}
+    cache = tmp_path / "geocode.json"
+    with patch("ingest.geocode.urlopen", _mock_urlopen(payload)):
+        result = geocode.reverse(-80, 0, cache_path=cache)
+    assert result == ("Antarctica", None)
+
+
+def test_reverse_returns_pair_of_nones_when_nothing(tmp_path: Path):
     payload = {"address": {}}
     cache = tmp_path / "geocode.json"
     with patch("ingest.geocode.urlopen", _mock_urlopen(payload)):
         result = geocode.reverse(0.0, 0.0, cache_path=cache)
-    assert result is None
+    assert result == (None, None)

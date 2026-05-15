@@ -43,9 +43,7 @@ def process(
     country: Optional[str] = None
     city: Optional[str] = None
     if data.lat is not None and data.lon is not None:
-        place = reverse_geocode(data.lat, data.lon, cache_path=cache_path)
-        if place is not None:
-            country, city = place
+        country, city = reverse_geocode(data.lat, data.lon, cache_path=cache_path)
 
     new_slug = slug.build(data.date, city=city, existing=existing_slugs)
     rel_photo = f"{data.date.year:04d}/{data.date.month:02d}/{new_slug}.jpg"

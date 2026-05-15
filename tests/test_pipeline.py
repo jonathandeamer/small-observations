@@ -12,7 +12,7 @@ def test_process_writes_post_and_image(fixture_dir: Path, tmp_path: Path):
 
     publish_date = datetime(2026, 5, 15, 10, 0, 0, tzinfo=timezone.utc)
 
-    with patch("ingest.pipeline.reverse_geocode", return_value=("France", "Paris")):
+    with patch("ingest.pipeline.reverse_geocode", return_value=("France", "Paris")):  # tuple now, no Optional wrapper
         result = pipeline.process(
             source=fixture_dir / "with_gps.jpg",
             content_root=content_root,

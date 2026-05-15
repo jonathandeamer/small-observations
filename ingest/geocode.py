@@ -19,7 +19,8 @@ USER_AGENT = "small-observations-ingest/0.1 (personal blog tool)"
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/reverse"
 
 # Preference order: Nominatim's address keys differ for tiny vs large places.
-_CITY_KEYS = ("city", "town", "village", "hamlet", "suburb", "municipality")
+# `county` catches rural areas where no settlement key is present.
+_CITY_KEYS = ("city", "town", "village", "hamlet", "suburb", "municipality", "county")
 
 # Nominatim's usage policy is max 1 request/second. We enforce a soft floor.
 _RATE_LIMIT_SECONDS = 1.1
@@ -77,19 +78,20 @@ def _query_nominatim(lat: float, lon: float) -> Optional[dict]:
     return None
 
 
-def reverse(lat: float, lon: float, *, cache_path: Path) -> Optional[tuple[str, str]]:
-    """Return (country, city) for the coordinates, or None if either is missing."""
+def reverse(lat: float, lon: float, *, cache_path: Path) -> tuple[Optional[str], Optional[str]]:
+    """Return (country, city) for the coordinates. Either may be None if missing.
+
+    Use as: country, city = geocode.reverse(...)
+    """
     key = _cache_key(lat, lon)
     cache = _load_cache(cache_path)
     if key in cache:
         entry = cache[key]
-        if entry.get("country") and entry.get("city"):
-            return (entry["country"], entry["city"])
-        return None
+        return (entry.get("country"), entry.get("city"))
 
     payload = _query_nominatim(lat, lon)
     if payload is None:
-        return None
+        return (None, None)
     address = payload.get("address", {}) or {}
 
     country = address.get("country")
@@ -102,6 +104,4 @@ def reverse(lat: float, lon: float, *, cache_path: Path) -> Optional[tuple[str, 
     cache[key] = {"country": country, "city": city}
     _save_cache(cache_path, cache)
 
-    if not country or not city:
-        return None
     return (country, city)
