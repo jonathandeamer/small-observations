@@ -1,0 +1,46 @@
+{{/*
+  Renders the date · place · artist row for a post.
+  Hides any segment whose data is missing.
+  Caller passes the page as the context.
+*/}}
+
+<dl class="post-meta">
+  <div class="row">
+    <dt>Taken</dt>
+    <dd>
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="tnum">
+        {{ .Date.Format "January 2006" }}
+      </time>
+    </dd>
+  </div>
+
+  {{ $place := slice }}
+  {{ with .Params.cities }}{{ $place = $place | append (index . 0) }}{{ end }}
+  {{ with .Params.countries }}{{ $place = $place | append (index . 0) }}{{ end }}
+  {{ with $place }}
+  <div class="row">
+    <dt>Place</dt>
+    <dd>{{ delimit . ", " }}</dd>
+  </div>
+  {{ end }}
+
+  {{ with .Params.artists }}
+    {{ if gt (len .) 0 }}
+    <div class="row">
+      <dt>Artist</dt>
+      <dd>
+        {{ range $i, $a := . }}{{ if $i }}, {{ end }}<a href="{{ printf "/artists/%s/" (urlize $a) | relURL }}">{{ $a }}</a>{{ end }}
+      </dd>
+    </div>
+    {{ end }}
+  {{ end }}
+
+  {{ with .Params.tags }}
+  <div class="row">
+    <dt>Tags</dt>
+    <dd>
+      {{ range $i, $t := . }}{{ if $i }}, {{ end }}<a href="{{ printf "/tags/%s/" (urlize $t) | relURL }}">{{ $t }}</a>{{ end }}
+    </dd>
+  </div>
+  {{ end }}
+</dl>
