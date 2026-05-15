@@ -2,7 +2,7 @@
 title: ""
 slug: "2022-01-28-greater-london"
 date: 2022-01-28T12:04:07Z
-publishDate: 2026-05-15T14:48:55Z
+publishDate: 2026-05-15T14:53:33Z
 photo: 2022/01/2022-01-28-greater-london.jpg
 countries: [United Kingdom]
 cities: [Greater London]

@@ -2,7 +2,7 @@
 title: ""
 slug: "2025-07-25-reykjavikurborg"
 date: 2025-07-25T18:27:44Z
-publishDate: 2026-05-15T14:48:55Z
+publishDate: 2026-05-15T14:53:33Z
 photo: 2025/07/2025-07-25-reykjavikurborg.jpg
 countries: [Ísland]
 cities: [Reykjavíkurborg]

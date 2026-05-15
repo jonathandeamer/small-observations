@@ -2,7 +2,7 @@
 title: ""
 slug: "2023-05-05-liverpool"
 date: 2023-05-05T11:23:40Z
-publishDate: 2026-05-15T14:48:55Z
+publishDate: 2026-05-15T14:53:33Z
 photo: 2023/05/2023-05-05-liverpool.jpg
 countries: [United Kingdom]
 cities: [Liverpool]
