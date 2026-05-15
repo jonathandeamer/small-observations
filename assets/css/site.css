@@ -175,3 +175,5 @@ img { max-width: 100%; height: auto; display: block; }
 .terms a:hover { color: var(--coral); }
 .terms .term-name { font-size: 1.1rem; }
 .terms .term-count { color: var(--muted); font-size: 0.85rem; }
+
+.favourites-intro { color: var(--ink-soft); margin: 0 0 1rem; font-style: italic; }

@@ -1,0 +1,19 @@
+{{ define "title" }}Favourites · {{ site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="list-page taxonomy-page">
+  <header class="section-head">
+    <h2>Favourites</h2>
+    <span class="rule"></span>
+    <span class="glyph">✦</span>
+  </header>
+
+  <p class="favourites-intro">A curated handful from the archive.</p>
+
+  <div class="cards">
+    {{ range .Pages.ByWeight }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}
