@@ -1,1 +1,8 @@
-<footer><small>placeholder footer</small></footer>
+<footer class="site-footer">
+  <span>{{ site.Title }} · 2014 – {{ now.Format "2006" }}</span>
+  <span>
+    {{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .Permalink }}">rss</a>{{ end }}
+    &nbsp;
+    <a href="{{ "/colophon/" | relURL }}">colophon</a>
+  </span>
+</footer>
