@@ -1,0 +1,22 @@
+{{ define "title" }}{{ .Title | humanize | title }} · {{ site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="list-page terms-page">
+  <header class="section-head">
+    <h2>{{ .Title | humanize | title }}</h2>
+    <span class="rule"></span>
+    <span class="glyph">✦</span>
+  </header>
+
+  <ul class="terms">
+    {{ range .Data.Terms.Alphabetical }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">
+          <span class="term-name">{{ .Page.Title | humanize | title }}</span>
+          <span class="term-count smallcaps">{{ .Count }}</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
