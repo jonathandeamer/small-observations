@@ -1,0 +1,10 @@
+{{ define "title" }}Lost · {{ site.Title }}{{ end }}
+
+{{ define "main" }}
+<article class="notfound">
+  <h2>This page doesn't seem to exist.</h2>
+  <p>Probably never did. Try the <a href="{{ "/" | relURL }}">front door</a>,
+     or browse <a href="{{ "/years/" | relURL }}">by year</a> or
+     <a href="{{ "/countries/" | relURL }}">by country</a>.</p>
+</article>
+{{ end }}
