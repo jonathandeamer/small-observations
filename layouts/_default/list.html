@@ -1,0 +1,22 @@
+{{ define "title" }}{{ .Title }} · {{ site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="list-page">
+  <header class="section-head">
+    <h2>{{ .Title }}</h2>
+    <span class="rule"></span>
+    <span class="glyph">✦</span>
+  </header>
+
+  {{ with .Content }}<div class="list-intro">{{ . }}</div>{{ end }}
+
+  {{ $paginator := .Paginate (.Pages.ByPublishDate.Reverse) }}
+  <div class="cards">
+    {{ range $paginator.Pages }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+
+  {{ template "_internal/pagination.html" . }}
+</section>
+{{ end }}

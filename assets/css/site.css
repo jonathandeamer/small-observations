@@ -153,3 +153,14 @@ img { max-width: 100%; height: auto; display: block; }
 .card-date { font-size: 0.78rem; color: var(--muted); }
 .card-place { font-style: italic; color: var(--ink-soft); }
 .card-title { font-size: 1.05rem; }
+
+/* section heads */
+.section-head { display: flex; align-items: baseline; gap: 0.9rem; margin: clamp(1.25rem, 3vw, 2rem) 0 0.9rem 0; }
+.section-head h2 { margin: 0; font-variant-caps: all-small-caps; letter-spacing: 0.14em; font-weight: 500; font-size: 0.95rem; color: var(--ink-soft); }
+.section-head .rule { flex: 1; height: 1px; background: var(--rule); transform: translateY(-0.2em); }
+.section-head .glyph { font-style: italic; color: var(--coral); font-size: 1rem; }
+
+/* list pages */
+.list-page { max-width: 44rem; }
+.list-intro { color: var(--ink-soft); margin: 0 0 1rem; }
+.cards { border-top: 1px solid var(--rule); }
