@@ -1,6 +1,14 @@
 /* small observations — site stylesheet
    one file, hand-written, inlined into <head> by hugo. */
 
+@font-face {
+  font-family: "Fraunces";
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/fraunces-latin.woff2") format("woff2");
+}
+
 :root {
   --bg:       #f4ede0;
   --bg-warm:  #ebe0ce;
