@@ -1,3 +1,45 @@
-baseURL = 'https://example.org/'
-locale = 'en-us'
-title = 'My New Hugo Project'
+baseURL = "https://example.org/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "Small Observations"
+enableRobotsTXT = true
+
+# Cleaner pagination URLs: /posts/page/2/ instead of /posts/page/2/index.html
+pagination.pagerSize = 20
+
+[taxonomies]
+  tag = "tags"
+  country = "countries"
+  city = "cities"
+  artist = "artists"
+  favourite = "favourites"
+  year = "years"
+
+# Post URLs derive year/month from .Date (the *taken* date).
+[permalinks]
+  posts = "/:year/:month/:slug/"
+
+# Output formats: HTML pages + RSS feeds for home, sections, taxonomies.
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+# Image processing defaults — high-quality JPEG, lanczos resampling.
+[imaging]
+  quality = 82
+  resampleFilter = "Lanczos"
+  hint = "photo"
+  anchor = "smart"
+
+# Allow inlining CSS via resources.Get + minify.
+[minify]
+  minifyOutput = true
+  [minify.tdewolff.html]
+    keepWhitespace = true   # don't collapse whitespace inside <pre>
+
+[params]
+  author = "Jonathan"
+  description = "A loose notebook of street art photographed since 2014."
+  measure = "34rem"
