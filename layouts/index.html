@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $favs := where (where site.RegularPages "Section" "posts") "Params.favourites" "intersect" (slice "favourite") }}
+{{ $favs := where (where site.RegularPages "Section" "posts") "Params.tags" "intersect" (slice "favourite") }}
 {{ $favs = $favs.ByWeight }}
 
 <div class="section-head">
@@ -31,7 +31,7 @@
     {{ end }}
   {{ end }}
   <div class="fav-more">
-    <a href="{{ "/favourites/favourite/" | relURL }}">see all favourites →</a>
+    <a href="{{ "/tags/favourite/" | relURL }}">see all favourites →</a>
   </div>
 </div>
 
@@ -48,6 +48,6 @@
   <li><a href="{{ "/cities/" | relURL }}"><span class="num tnum">04</span><span class="label">By city</span><span class="count smallcaps">{{ len site.Taxonomies.cities }}</span></a></li>
   <li><a href="{{ "/artists/" | relURL }}"><span class="num tnum">05</span><span class="label">By artist</span><span class="count smallcaps">{{ len site.Taxonomies.artists }} known</span></a></li>
   <li><a href="{{ "/tags/" | relURL }}"><span class="num tnum">06</span><span class="label">By tag</span><span class="count smallcaps">{{ len site.Taxonomies.tags }}</span></a></li>
-  <li><a href="{{ "/favourites/favourite/" | relURL }}"><span class="num tnum">07</span><span class="label">Favourites</span><span class="count smallcaps">{{ len $favs }}</span></a></li>
+  <li><a href="{{ "/tags/favourite/" | relURL }}"><span class="num tnum">07</span><span class="label">Favourites</span><span class="count smallcaps">{{ len $favs }}</span></a></li>
 </ul>
 {{ end }}

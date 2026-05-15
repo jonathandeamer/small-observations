@@ -12,7 +12,6 @@ pagination.pagerSize = 20
   country = "countries"
   city = "cities"
   artist = "artists"
-  favourite = "favourites"
   year = "years"
 
 # Post URLs derive year/month from .Date (the *taken* date).

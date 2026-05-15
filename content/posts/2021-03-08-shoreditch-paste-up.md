@@ -6,8 +6,7 @@ photo: 2021/03/shoreditch-paste-up.jpg
 countries: [United Kingdom]
 cities: [London]
 artists: [Stik]
-tags: [wheatpaste, faces]
-favourites: [favourite]
+tags: [wheatpaste, faces, favourite]
 years: [2021]
 weight: 1
 exif:
