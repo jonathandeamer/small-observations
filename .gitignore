@@ -15,3 +15,12 @@
 # Local-only env
 .env
 .env.local
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Geocode cache (rebuildable)
+.cache/
