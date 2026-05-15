@@ -5,7 +5,7 @@ date: 2020-11-20T14:47:38Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2020/11/2020-11-20-greater-london.jpg
 countries: [United Kingdom]
-cities: [Greater London]
+cities: [London]
 artists: []
 tags: []
 years: [2020]

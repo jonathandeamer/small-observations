@@ -5,7 +5,7 @@ date: 2022-04-05T14:36:37Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/04/2022-04-05-greater-london.jpg
 countries: [United Kingdom]
-cities: [Greater London]
+cities: [London]
 artists: []
 tags: []
 years: [2022]

@@ -5,7 +5,7 @@ date: 2016-11-05T10:42:24Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2016/11/2016-11-05-greater-london.jpg
 countries: [United Kingdom]
-cities: [Greater London]
+cities: [London]
 artists: []
 tags: []
 years: [2016]

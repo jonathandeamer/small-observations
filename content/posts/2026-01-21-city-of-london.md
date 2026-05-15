@@ -5,7 +5,7 @@ date: 2026-01-21T13:06:37Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2026/01/2026-01-21-city-of-london.jpg
 countries: [United Kingdom]
-cities: [City of London]
+cities: [London]
 artists: []
 tags: []
 years: [2026]
