@@ -1,0 +1,11 @@
+# Config for htmltest (https://github.com/wjdp/htmltest)
+# Only used when `make check` is run and htmltest is installed.
+
+DirectoryPath: "public"
+CheckExternal: false        # external link checks are slow and flaky; skip
+CheckInternal: true
+CheckMailto: false
+IgnoreAltMissing: false     # we DO want to flag missing alt text
+IgnoreEmptyHref: true
+EnforceHTML5: true
+LogLevel: 2                 # 0=debug, 1=info, 2=warning, 3=error
