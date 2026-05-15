@@ -1,0 +1,53 @@
+{{ define "main" }}
+{{ $favs := where (where site.RegularPages "Section" "posts") "Params.favourites" "intersect" (slice "favourite") }}
+{{ $favs = $favs.ByWeight }}
+
+<div class="section-head">
+  <h2>A few favourites</h2>
+  <span class="rule"></span>
+  <span class="glyph">✦</span>
+</div>
+
+<div class="favourites-grid">
+  {{ range first 8 $favs }}
+    {{ $rel := printf "img/%s" .Params.photo }}
+    {{ $orig := resources.Get $rel }}
+    {{ if $orig }}
+      {{ $thumb := $orig.Resize "400x q82" }}
+      {{ $thumbWebp := $orig.Process "resize 400x webp q80" }}
+      <a class="fav-card" href="{{ .RelPermalink }}">
+        <picture class="fav-frame">
+          <source type="image/webp" srcset="{{ $thumbWebp.RelPermalink }}">
+          <img src="{{ $thumb.RelPermalink }}"
+               width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+               alt="{{ .Params.alt | default "" }}"
+               loading="lazy" decoding="async">
+        </picture>
+        <div class="fav-meta">
+          <span class="fav-date smallcaps">{{ .Date.Format "2006 · 01" }}</span>
+          <span class="fav-place">{{ with .Params.cities }}{{ index . 0 }}{{ end }}{{ with .Params.countries }}, {{ index . 0 }}{{ end }}</span>
+        </div>
+      </a>
+    {{ end }}
+  {{ end }}
+  <div class="fav-more">
+    <a href="{{ "/favourites/favourite/" | relURL }}">see all favourites →</a>
+  </div>
+</div>
+
+<div class="section-head">
+  <h2>Browse</h2>
+  <span class="rule"></span>
+  <span class="glyph">✦</span>
+</div>
+
+<ul class="browse">
+  <li><a href="{{ "/posts/" | relURL }}"><span class="num tnum">01</span><span class="label">Latest posts</span><span class="count smallcaps">{{ len (where site.RegularPages "Section" "posts") }}</span></a></li>
+  <li><a href="{{ "/years/" | relURL }}"><span class="num tnum">02</span><span class="label">By year</span><span class="count smallcaps">{{ len site.Taxonomies.years }}</span></a></li>
+  <li><a href="{{ "/countries/" | relURL }}"><span class="num tnum">03</span><span class="label">By country</span><span class="count smallcaps">{{ len site.Taxonomies.countries }}</span></a></li>
+  <li><a href="{{ "/cities/" | relURL }}"><span class="num tnum">04</span><span class="label">By city</span><span class="count smallcaps">{{ len site.Taxonomies.cities }}</span></a></li>
+  <li><a href="{{ "/artists/" | relURL }}"><span class="num tnum">05</span><span class="label">By artist</span><span class="count smallcaps">{{ len site.Taxonomies.artists }} known</span></a></li>
+  <li><a href="{{ "/tags/" | relURL }}"><span class="num tnum">06</span><span class="label">By tag</span><span class="count smallcaps">{{ len site.Taxonomies.tags }}</span></a></li>
+  <li><a href="{{ "/favourites/favourite/" | relURL }}"><span class="num tnum">07</span><span class="label">Favourites</span><span class="count smallcaps">{{ len $favs }}</span></a></li>
+</ul>
+{{ end }}
