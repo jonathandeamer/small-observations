@@ -39,13 +39,13 @@ def process(
     data = exif.extract(source)
     if data is None or data.date is None:
         return Result("skip", source, reason="missing exif date")
-    if data.lat is None or data.lon is None:
-        return Result("skip", source, reason="missing gps coordinates")
 
-    place = reverse_geocode(data.lat, data.lon, cache_path=cache_path)
-    if place is None:
-        return Result("skip", source, reason="reverse-geocode returned no country/city")
-    country, city = place
+    country: Optional[str] = None
+    city: Optional[str] = None
+    if data.lat is not None and data.lon is not None:
+        place = reverse_geocode(data.lat, data.lon, cache_path=cache_path)
+        if place is not None:
+            country, city = place
 
     new_slug = slug.build(data.date, city=city, existing=existing_slugs)
     rel_photo = f"{data.date.year:04d}/{data.date.month:02d}/{new_slug}.jpg"
@@ -62,8 +62,8 @@ def process(
         country=country,
         city=city,
         camera=data.camera,
-        lat=round(data.lat, 4),
-        lon=round(data.lon, 4),
+        lat=round(data.lat, 4) if data.lat is not None else None,
+        lon=round(data.lon, 4) if data.lon is not None else None,
     )
     md_path = content_root / f"{new_slug}.md"
     md_path.parent.mkdir(parents=True, exist_ok=True)

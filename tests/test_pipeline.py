@@ -38,7 +38,7 @@ def test_process_writes_post_and_image(fixture_dir: Path, tmp_path: Path):
     assert img_path.exists()
 
 
-def test_process_returns_skip_when_gps_missing(fixture_dir: Path, tmp_path: Path):
+def test_process_writes_post_with_empty_location_when_gps_missing(fixture_dir: Path, tmp_path: Path):
     content_root = tmp_path / "content" / "posts"
     asset_root = tmp_path / "assets" / "img"
     cache = tmp_path / "geocode.json"
@@ -52,9 +52,18 @@ def test_process_returns_skip_when_gps_missing(fixture_dir: Path, tmp_path: Path
         cache_path=cache,
     )
 
-    assert result.status == "skip"
-    assert "gps" in result.reason.lower()
-    assert list(content_root.rglob("*.md")) == []
+    assert result.status == "ok"
+    assert result.slug == "2019-11-22"
+
+    md_path = content_root / "2019-11-22.md"
+    assert md_path.exists()
+    md = md_path.read_text()
+    assert "countries: []" in md
+    assert "cities: []" in md
+    assert "lat:" not in md
+    assert "lon:" not in md
+    # camera should still be present
+    assert 'camera: "iPhone 11"' in md
 
 
 def test_process_returns_skip_when_no_exif(fixture_dir: Path, tmp_path: Path):

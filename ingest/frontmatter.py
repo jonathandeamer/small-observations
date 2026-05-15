@@ -25,11 +25,11 @@ def render(
     date: datetime,
     publish_date: datetime,
     photo: str,
-    country: str,
-    city: str,
+    country: str | None,
+    city: str | None,
     camera: str | None,
-    lat: float,
-    lon: float,
+    lat: float | None,
+    lon: float | None,
 ) -> str:
     lines = [
         "---",
@@ -38,17 +38,18 @@ def render(
         f"date: {_iso(date)}",
         f"publishDate: {_iso(publish_date)}",
         f"photo: {photo}",
-        f"countries: [{country}]",
-        f"cities: [{city}]",
+        f"countries: [{country}]" if country else "countries: []",
+        f"cities: [{city}]" if city else "cities: []",
         "artists: []",
         "tags: []",
         f"years: [{date.year}]",
         "weight: 0",
         "exif:",
         f'  camera: "{camera}"' if camera else '  camera: ""',
-        f"  lat: {lat}",
-        f"  lon: {lon}",
-        "---",
-        "",
     ]
+    if lat is not None:
+        lines.append(f"  lat: {lat}")
+    if lon is not None:
+        lines.append(f"  lon: {lon}")
+    lines.extend(["---", ""])
     return "\n".join(lines)
