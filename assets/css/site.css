@@ -164,3 +164,6 @@ img { max-width: 100%; height: auto; display: block; }
 .list-page { max-width: 44rem; }
 .list-intro { color: var(--ink-soft); margin: 0 0 1rem; }
 .cards { border-top: 1px solid var(--rule); }
+
+/* taxonomy pages */
+.taxonomy-count { color: var(--muted); margin: 0 0 0.5rem; font-size: 0.82rem; }
