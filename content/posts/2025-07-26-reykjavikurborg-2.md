@@ -4,8 +4,8 @@ slug: "2025-07-26-reykjavikurborg-2"
 date: 2025-07-26T10:32:18Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/07/2025-07-26-reykjavikurborg-2.jpg
-countries: [Ísland]
-cities: [Reykjavíkurborg]
+countries: [Iceland]
+cities: [Reykjavik]
 artists: []
 tags: []
 years: [2025]
