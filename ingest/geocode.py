@@ -8,8 +8,10 @@ rare enough that polling stays well under the limit.
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 from typing import Optional
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -18,6 +20,10 @@ NOMINATIM_URL = "https://nominatim.openstreetmap.org/reverse"
 
 # Preference order: Nominatim's address keys differ for tiny vs large places.
 _CITY_KEYS = ("city", "town", "village", "hamlet", "suburb", "municipality")
+
+# Nominatim's usage policy is max 1 request/second. We enforce a soft floor.
+_RATE_LIMIT_SECONDS = 1.1
+_last_request_at: float = 0.0
 
 
 def _cache_key(lat: float, lon: float) -> str:
@@ -39,11 +45,36 @@ def _save_cache(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, indent=2, sort_keys=True, ensure_ascii=False))
 
 
-def _query_nominatim(lat: float, lon: float) -> dict:
+def _query_nominatim(lat: float, lon: float) -> Optional[dict]:
+    """Return the Nominatim payload, or None on transient HTTP failure.
+
+    Rate-limited to 1 request per ~1.1s. On 429 we back off and retry once.
+    """
+    global _last_request_at
+
     params = urlencode({"lat": lat, "lon": lon, "format": "json", "zoom": 10, "addressdetails": 1})
     req = Request(f"{NOMINATIM_URL}?{params}", headers={"User-Agent": USER_AGENT})
-    with urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+
+    for attempt in (1, 2):
+        wait = _RATE_LIMIT_SECONDS - (time.monotonic() - _last_request_at)
+        if wait > 0:
+            time.sleep(wait)
+        try:
+            with urlopen(req, timeout=15) as resp:
+                _last_request_at = time.monotonic()
+                return json.loads(resp.read().decode("utf-8"))
+        except HTTPError as e:
+            _last_request_at = time.monotonic()
+            if e.code == 429 and attempt == 1:
+                time.sleep(5)  # extra cool-down before retry
+                continue
+            print(f"  warn  nominatim http {e.code} for ({lat}, {lon})")
+            return None
+        except URLError as e:
+            _last_request_at = time.monotonic()
+            print(f"  warn  nominatim network error for ({lat}, {lon}): {e.reason}")
+            return None
+    return None
 
 
 def reverse(lat: float, lon: float, *, cache_path: Path) -> Optional[tuple[str, str]]:
@@ -57,6 +88,8 @@ def reverse(lat: float, lon: float, *, cache_path: Path) -> Optional[tuple[str, 
         return None
 
     payload = _query_nominatim(lat, lon)
+    if payload is None:
+        return None
     address = payload.get("address", {}) or {}
 
     country = address.get("country")
