@@ -53,11 +53,11 @@ def main(argv: list[str] | None = None) -> int:
     sources = [
         p for p in ingest_dir.rglob("*")
         if p.is_file()
-        and p.suffix.lower() in {".jpg", ".jpeg"}
+        and p.suffix.lower() in {".jpg", ".jpeg", ".png"}
         and processed_dir not in p.parents
     ]
     if not sources:
-        print(f"no .jpg/.jpeg files found under {ingest_dir}")
+        print(f"no .jpg/.jpeg/.png files found under {ingest_dir}")
         return 0
 
     existing_slugs = _gather_existing_slugs(args.content)
