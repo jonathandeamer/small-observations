@@ -21,6 +21,10 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+*.egg-info/
+
+# Test fixtures regenerated each session by conftest.py
+/tests/fixtures/
 
 # Geocode cache (rebuildable)
 .cache/
