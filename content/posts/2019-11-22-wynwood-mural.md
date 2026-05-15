@@ -1,5 +1,6 @@
 ---
 title: ""
+slug: wynwood-mural
 date: 2019-11-22T14:05:00-05:00
 publishDate: 2026-05-15T10:00:00Z
 photo: 2019/11/wynwood-mural.jpg
