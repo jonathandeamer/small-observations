@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small Observations — a notebook of street art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #f4ede0;
+    --bg-warm:   #ebe0ce;
+    --ink:       #1a1816;
+    --ink-soft:  #4a4540;
+    --muted:     #8a7d6a;
+    --rule:      #d6c9b3;
+    --coral:     #c8553d;
+    --blue:      #5e7a8a;
+    --butter:    #e6c66b;
+
+    --serif: "Fraunces", "Iowan Old Style", "Hoefler Text", Georgia, serif;
+    --mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+    --measure: 34rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { background: var(--bg); }
+
+  body {
+    margin: 0;
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 14, "SOFT" 50, "WONK" 0;
+    font-weight: 400;
+    font-size: clamp(17px, 1.05vw + 14px, 19px);
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--bg);
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(0,0,0,0.018) 0 1px, transparent 1px),
+      radial-gradient(circle at 70% 60%, rgba(0,0,0,0.022) 0 1px, transparent 1px),
+      radial-gradient(circle at 40% 80%, rgba(0,0,0,0.015) 0 1px, transparent 1px);
+    background-size: 7px 7px, 11px 11px, 13px 13px;
+    min-height: 100vh;
+  }
+
+  /* layout shell ---------------------------------------------------------- */
+
+  .page {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3rem) 4rem;
+  }
+
+  /* masthead -------------------------------------------------------------- */
+
+  .masthead {
+    margin-top: clamp(1rem, 4vw, 3rem);
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+  }
+
+  .masthead h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    font-weight: 480;
+    font-size: clamp(2.6rem, 7vw, 4.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .masthead h1 .amp {
+    color: var(--coral);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    margin: 0 0.05em;
+  }
+
+  .masthead .tagline {
+    margin: 0;
+    margin-left: 0.15rem;
+    font-style: italic;
+    font-variation-settings: "opsz" 14, "SOFT" 30;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+
+  .masthead .tagline::before {
+    content: "— ";
+    color: var(--coral);
+    font-style: normal;
+  }
+
+  /* blurb ----------------------------------------------------------------- */
+
+  .blurb {
+    max-width: var(--measure);
+    margin: 0 0 clamp(2.5rem, 6vw, 4rem) 0;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+  }
+
+  .blurb p { margin: 0 0 0.8rem 0; }
+
+  .blurb a {
+    color: var(--coral);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
+  /* section heading ------------------------------------------------------- */
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin: clamp(3rem, 7vw, 5rem) 0 1.2rem 0;
+    color: var(--muted);
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .section-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    transform: translateY(-0.2em);
+  }
+
+  .section-head .glyph {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--coral);
+    font-size: 1rem;
+  }
+
+  /* browse menu ----------------------------------------------------------- */
+
+  .browse {
+    max-width: var(--measure);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--rule);
+  }
+
+  .browse li {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .browse a {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0.25rem;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 120ms ease, padding 160ms ease;
+  }
+
+  .browse a:hover {
+    background: var(--bg-warm);
+    padding-left: 0.75rem;
+  }
+
+  .browse .num {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .browse .label {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 36, "SOFT" 80, "WONK" 0;
+    font-weight: 460;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .browse a:hover .label {
+    color: var(--coral);
+    font-variation-settings: "opsz" 36, "SOFT" 100, "WONK" 1;
+  }
+
+  .browse .count {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* favourites grid ------------------------------------------------------- */
+
+  .favourites {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    margin: 1.5rem 0 1rem;
+  }
+
+  .fav-card {
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+  }
+
+  /* deliberately staggered placement for an off-grid feel */
+  .fav-card:nth-child(1) { grid-column: 1 / span 5; }
+  .fav-card:nth-child(2) { grid-column: 7 / span 6; margin-top: 2.5rem; }
+  .fav-card:nth-child(3) { grid-column: 2 / span 5; }
+  .fav-card:nth-child(4) { grid-column: 8 / span 5; margin-top: -1.5rem; }
+
+  .fav-card .frame {
+    background: var(--bg-warm);
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(26,24,22,0.04),
+      0 2px 8px rgba(26,24,22,0.06);
+  }
+
+  .fav-card:nth-child(2) .frame,
+  .fav-card:nth-child(4) .frame { aspect-ratio: 5 / 4; }
+
+  .fav-card .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.92);
+    transition: transform 600ms ease, filter 300ms ease;
+  }
+
+  .fav-card:hover .frame img {
+    transform: scale(1.02);
+    filter: saturate(1);
+  }
+
+  .fav-card .meta {
+    margin-top: 0.55rem;
+    display: flex;
+    gap: 0.7rem;
+    align-items: baseline;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .fav-card .meta .place {
+    color: var(--ink-soft);
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  .fav-card .caption {
+    margin-top: 0.15rem;
+    font-style: italic;
+    font-variation-settings: "opsz" 14, "SOFT" 40;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    max-width: 28ch;
+  }
+
+  .fav-more {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    text-align: right;
+  }
+
+  .fav-more a {
+    color: var(--coral);
+    font-style: italic;
+    font-size: 1rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--coral);
+    padding-bottom: 1px;
+  }
+
+  /* footer ---------------------------------------------------------------- */
+
+  footer {
+    margin-top: clamp(4rem, 9vw, 7rem);
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  footer a:hover { color: var(--coral); border-color: var(--coral); }
+
+  /* responsive tweaks ----------------------------------------------------- */
+
+  @media (max-width: 640px) {
+    .favourites { gap: 1.25rem; }
+    .fav-card:nth-child(1),
+    .fav-card:nth-child(2),
+    .fav-card:nth-child(3),
+    .fav-card:nth-child(4) {
+      grid-column: 1 / -1;
+      margin-top: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="masthead">
+      <h1>Small<span class="amp">·</span>Observations</h1>
+      <p class="tagline">a notebook of street art, kept loosely, over years</p>
+    </header>
+
+    <section class="blurb">
+      <p>This is where I keep photos I've taken of paintings, stencils, paste-ups, mosaics, and the occasional bit of writing on a wall. Some I noticed in passing. Some I went looking for. A few I can't remember finding at all.</p>
+      <p>Mostly captured on whichever phone I had at the time, between about 2014 and now. There are <a href="#">over a hundred so far</a>.</p>
+    </section>
+
+    <div class="section-head">
+      <h2>Browse</h2>
+      <span class="rule"></span>
+      <span class="glyph">✦</span>
+    </div>
+
+    <ul class="browse">
+      <li><a href="#"><span class="num">01</span><span class="label">Latest posts</span><span class="count">127</span></a></li>
+      <li><a href="#"><span class="num">02</span><span class="label">By year</span><span class="count">2014 – 2026</span></a></li>
+      <li><a href="#"><span class="num">03</span><span class="label">By country</span><span class="count">19</span></a></li>
+      <li><a href="#"><span class="num">04</span><span class="label">By city</span><span class="count">48</span></a></li>
+      <li><a href="#"><span class="num">05</span><span class="label">By artist</span><span class="count">23 known</span></a></li>
+      <li><a href="#"><span class="num">06</span><span class="label">By tag</span><span class="count">stencil, wheatpaste, &hellip;</span></a></li>
+      <li><a href="#"><span class="num">07</span><span class="label">Favourites</span><span class="count">14</span></a></li>
+    </ul>
+
+    <div class="section-head">
+      <h2>A few favourites</h2>
+      <span class="rule"></span>
+      <span class="glyph">✦</span>
+    </div>
+
+    <div class="favourites">
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1551731409-43eb3e517a1a?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span>2018 · 07</span>
+          <span class="place">Marais, Paris</span>
+        </div>
+        <p class="caption">A stencil dog reading the morning paper outside a closed boulangerie.</p>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span>2021 · 03</span>
+          <span class="place">Shoreditch, London</span>
+        </div>
+        <p class="caption">Wheatpaste face, half-peeled, eyebrows still defiant.</p>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1561059488-916d69792237?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span>2019 · 11</span>
+          <span class="place">Wynwood, Miami</span>
+        </div>
+        <p class="caption">Twelve feet of mural that someone has clearly tried to scrub off and given up on.</p>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span>2016 · 05</span>
+          <span class="place">Alfama, Lisbon</span>
+        </div>
+        <p class="caption">A tiled sardine, unsigned, very small, very serious.</p>
+      </a>
+
+      <div class="fav-more">
+        <a href="#">see all favourites →</a>
+      </div>
+
+    </div>
+
+    <footer>
+      <span>Small Observations · 2014 – 2026</span>
+      <span><a href="#">rss</a> &nbsp; <a href="#">colophon</a> &nbsp; <a href="mailto:#">say hi</a></span>
+    </footer>
+
+  </main>
+</body>
+</html>
