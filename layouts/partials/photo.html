@@ -21,14 +21,8 @@
 {{ $webp600  := $orig.Process "resize 600x webp q80" }}
 {{ $webp1000 := $orig.Process "resize 1000x webp q80" }}
 {{ $webp1600 := $orig.Process "resize 1600x webp q80" }}
-{{ $avif600  := $orig.Process "resize 600x avif q60" }}
-{{ $avif1000 := $orig.Process "resize 1000x avif q60" }}
-{{ $avif1600 := $orig.Process "resize 1600x avif q60" }}
 
 <picture class="photo">
-  <source type="image/avif"
-          srcset="{{ $avif600.RelPermalink }} 600w, {{ $avif1000.RelPermalink }} 1000w, {{ $avif1600.RelPermalink }} 1600w"
-          sizes="(max-width: 700px) 100vw, 700px">
   <source type="image/webp"
           srcset="{{ $webp600.RelPermalink }} 600w, {{ $webp1000.RelPermalink }} 1000w, {{ $webp1600.RelPermalink }} 1600w"
           sizes="(max-width: 700px) 100vw, 700px">
