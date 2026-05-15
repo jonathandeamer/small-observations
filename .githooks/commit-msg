@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Enforce conventional commits with a required scope.
+# Format: type(scope): subject
+#   type:    content | feat | fix | style | refactor | docs | chore | build
+#   scope:   home | post | list | partial | css | font | taxonomy
+#            | ingest | photo | note | config | spec | mockup | deploy
+#   subject: lowercase, no trailing period, max 72 chars
+#
+# Merge commits, revert commits, and fixup/squash commits are allowed through.
+
+set -e
+
+msg_file="$1"
+first_line=$(head -n1 "$msg_file")
+
+# Allow merges, reverts, and autosquash markers to pass.
+if [[ "$first_line" =~ ^(Merge|Revert|fixup!|squash!|amend!)\  ]]; then
+  exit 0
+fi
+
+types='content|feat|fix|style|refactor|docs|chore|build'
+scopes='home|post|list|partial|css|font|taxonomy|ingest|photo|note|config|spec|mockup|deploy'
+
+pattern="^($types)\\(($scopes)\\): [a-z0-9].{1,70}[^.]$"
+
+if ! [[ "$first_line" =~ $pattern ]]; then
+  echo
+  echo "✗ Commit message does not match the required format."
+  echo
+  echo "  Required:   type(scope): subject"
+  echo "  Types:      $types"
+  echo "  Scopes:     $scopes"
+  echo "  Subject:    lowercase start, no trailing period, ≤72 chars total"
+  echo
+  echo "  Got:        $first_line"
+  echo
+  echo "  Examples:"
+  echo "    content(photo): add lisbon sardine 2016-05"
+  echo "    feat(home): add favourites grid"
+  echo "    style(css): tighten masthead spacing"
+  echo "    fix(ingest): handle photos missing gps"
+  echo
+  exit 1
+fi

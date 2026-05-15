@@ -1,0 +1,17 @@
+# Hugo build output
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Photo ingest staging (originals + processed marker; never committed)
+/_ingest/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local-only env
+.env
+.env.local
