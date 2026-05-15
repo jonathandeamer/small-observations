@@ -1,0 +1,17 @@
+---
+title: ""
+slug: "2024-08-23-liverpool"
+date: 2024-08-23T12:05:05Z
+publishDate: 2026-05-15T14:48:55Z
+photo: 2024/08/2024-08-23-liverpool.jpg
+countries: [United Kingdom]
+cities: [Liverpool]
+artists: []
+tags: []
+years: [2024]
+weight: 0
+exif:
+  camera: "iPhone 14"
+  lat: 53.3957
+  lon: -2.9766
+---
