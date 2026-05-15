@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small Observations — a notebook of street art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #f4ede0;
+    --bg-warm:  #ebe0ce;
+    --ink:      #1a1816;
+    --ink-soft: #4a4540;
+    --muted:    #8a7d6a;
+    --rule:     #d6c9b3;
+    --coral:    #c8553d;
+
+    --serif: "Fraunces", "Iowan Old Style", "Hoefler Text", Georgia, serif;
+    --measure: 34rem;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { background: var(--bg); }
+
+  body {
+    margin: 0;
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 14, "SOFT" 50;
+    font-size: clamp(17px, 1.05vw + 14px, 19px);
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* small-caps + tabular numerals utility — replaces the mono font */
+  .smallcaps {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.08em;
+    font-size: 0.88em;
+    color: var(--muted);
+  }
+
+  .tnum { font-variant-numeric: tabular-nums; }
+
+  /* layout shell ---------------------------------------------------------- */
+
+  .page {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3rem) 4rem;
+  }
+
+  /* masthead -------------------------------------------------------------- */
+
+  .masthead {
+    margin-top: clamp(0.5rem, 2vw, 1.5rem);
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .masthead h1 {
+    margin: 0 0 0.3rem;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    font-weight: 480;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+
+  .masthead h1 .amp {
+    color: var(--coral);
+    font-style: italic;
+    margin: 0 0.05em;
+  }
+
+  .masthead .tagline {
+    margin: 0 0 0 0.15rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+
+  .masthead .tagline::before {
+    content: "— ";
+    color: var(--coral);
+    font-style: normal;
+  }
+
+  /* blurb ----------------------------------------------------------------- */
+
+  .blurb {
+    max-width: var(--measure);
+    margin: 0 0 clamp(1.5rem, 3vw, 2.25rem) 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+
+  .blurb p { margin: 0 0 0.6rem 0; }
+
+  .blurb a {
+    color: var(--coral);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
+  /* section heading ------------------------------------------------------- */
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin: clamp(1.25rem, 3vw, 2rem) 0 0.9rem 0;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .section-head .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    transform: translateY(-0.2em);
+  }
+
+  .section-head .glyph {
+    font-style: italic;
+    color: var(--coral);
+    font-size: 1rem;
+  }
+
+  /* browse menu ----------------------------------------------------------- */
+
+  .browse {
+    max-width: var(--measure);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+  }
+
+  .browse li { border-bottom: 1px solid var(--rule); }
+
+  .browse a {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.85rem 0.25rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .browse a:hover { color: var(--coral); }
+
+  .browse .num {
+    font-variant-numeric: tabular-nums;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .browse .label {
+    font-variation-settings: "opsz" 36, "SOFT" 80;
+    font-weight: 460;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+  }
+
+  .browse .count {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  /* favourites — uniform row of small thumbnails ------------------------- */
+
+  .favourites {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    margin: 0.5rem 0 0.5rem;
+  }
+
+  .fav-card {
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+  }
+
+  .fav-card .frame {
+    background: var(--bg-warm);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .fav-card .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .fav-card .meta {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+
+  .fav-card .meta .date {
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .fav-card .meta .place {
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: 0.88rem;
+  }
+
+  .fav-more {
+    grid-column: 1 / -1;
+    margin-top: 0.4rem;
+    text-align: right;
+  }
+
+  .fav-more a {
+    color: var(--coral);
+    font-style: italic;
+    text-decoration: none;
+    border-bottom: 1px solid var(--coral);
+    padding-bottom: 1px;
+  }
+
+  /* footer ---------------------------------------------------------------- */
+
+  footer {
+    margin-top: clamp(4rem, 9vw, 7rem);
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.08em;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  footer a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  footer a:hover { color: var(--coral); border-color: var(--coral); }
+
+  /* responsive ------------------------------------------------------------ */
+
+  @media (max-width: 640px) {
+    .favourites { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="masthead">
+      <h1>Small<span class="amp">·</span>Observations</h1>
+      <p class="tagline">a notebook of street art, kept loosely, over years</p>
+    </header>
+
+    <div class="section-head">
+      <h2>A few favourites</h2>
+      <span class="rule"></span>
+      <span class="glyph">✦</span>
+    </div>
+
+    <div class="favourites">
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1551731409-43eb3e517a1a?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2018 · 07</span>
+          <span class="place">Marais, Paris</span>
+        </div>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1533158326339-7f3cf2404354?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2021 · 03</span>
+          <span class="place">Shoreditch, London</span>
+        </div>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1561059488-916d69792237?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2019 · 11</span>
+          <span class="place">Wynwood, Miami</span>
+        </div>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2016 · 05</span>
+          <span class="place">Alfama, Lisbon</span>
+        </div>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1572883454114-1cf0031ede2a?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2015 · 09</span>
+          <span class="place">Kreuzberg, Berlin</span>
+        </div>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2022 · 06</span>
+          <span class="place">Belleville, Paris</span>
+        </div>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2017 · 04</span>
+          <span class="place">Bushwick, New York</span>
+        </div>
+      </a>
+
+      <a class="fav-card" href="#">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1578321272176-b7bbc0679853?w=900&q=80" alt="">
+        </div>
+        <div class="meta">
+          <span class="date">2020 · 10</span>
+          <span class="place">Camden, London</span>
+        </div>
+      </a>
+
+      <div class="fav-more">
+        <a href="#">see all favourites →</a>
+      </div>
+
+    </div>
+
+    <div class="section-head">
+      <h2>Browse</h2>
+      <span class="rule"></span>
+      <span class="glyph">✦</span>
+    </div>
+
+    <ul class="browse">
+      <li><a href="#"><span class="num">01</span><span class="label">Latest posts</span><span class="count">127</span></a></li>
+      <li><a href="#"><span class="num">02</span><span class="label">By year</span><span class="count">2014 – 2026</span></a></li>
+      <li><a href="#"><span class="num">03</span><span class="label">By country</span><span class="count">19</span></a></li>
+      <li><a href="#"><span class="num">04</span><span class="label">By city</span><span class="count">48</span></a></li>
+      <li><a href="#"><span class="num">05</span><span class="label">By artist</span><span class="count">23 known</span></a></li>
+      <li><a href="#"><span class="num">06</span><span class="label">By tag</span><span class="count">stencil, wheatpaste, &hellip;</span></a></li>
+      <li><a href="#"><span class="num">07</span><span class="label">Favourites</span><span class="count">14</span></a></li>
+    </ul>
+
+    <footer>
+      <span>Small Observations · 2014 – 2026</span>
+      <span><a href="#">rss</a> &nbsp; <a href="#">colophon</a> &nbsp; <a href="mailto:#">say hi</a></span>
+    </footer>
+
+  </main>
+</body>
+</html>
