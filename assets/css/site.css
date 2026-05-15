@@ -56,3 +56,23 @@ img { max-width: 100%; height: auto; display: block; }
   overflow: hidden; clip: rect(0,0,0,0);
   white-space: nowrap; border: 0;
 }
+
+/* masthead */
+.masthead { margin-top: clamp(0.5rem, 2vw, 1.5rem); margin-bottom: clamp(1.25rem, 3vw, 2rem); }
+.masthead-link { color: inherit; text-decoration: none; display: inline-block; }
+.masthead h1 {
+  margin: 0 0 0.3rem;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-weight: 480;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.masthead h1 .amp { color: var(--coral); font-style: italic; margin: 0 0.05em; }
+.masthead .tagline {
+  margin: 0 0 0 0.15rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+.masthead .tagline::before { content: "— "; color: var(--coral); font-style: normal; }
