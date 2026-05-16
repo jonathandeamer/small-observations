@@ -12,7 +12,7 @@
   {{ range first 8 $favs }}
     {{ partial "gallery-card.html" . }}
   {{ end }}
-  <div class="fav-more">
+  <div class="gallery-more">
     <a href="{{ "/tags/favourite/" | relURL }}">see all favourites →</a>
   </div>
 </div>

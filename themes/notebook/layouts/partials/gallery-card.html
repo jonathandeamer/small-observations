@@ -3,17 +3,17 @@
 {{ if $orig }}
   {{ $thumb := $orig.Resize "400x q82" }}
   {{ $thumbWebp := $orig.Process "resize 400x webp q80" }}
-  <a class="fav-card" href="{{ .RelPermalink }}">
-    <picture class="fav-frame">
+  <a class="gallery-card" href="{{ .RelPermalink }}">
+    <picture class="gallery-frame">
       <source type="image/webp" srcset="{{ $thumbWebp.RelPermalink }}">
       <img src="{{ $thumb.RelPermalink }}"
            width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
            alt="{{ .Params.alt | default "" }}"
            loading="lazy" decoding="async">
     </picture>
-    <div class="fav-meta">
-      <span class="fav-date smallcaps">{{ .Date.Format "2006 · 01" }}</span>
-      <span class="fav-place">{{ with .Params.cities }}{{ index . 0 }}{{ end }}{{ with .Params.countries }}, {{ index . 0 }}{{ end }}</span>
+    <div class="gallery-meta">
+      <span class="gallery-date smallcaps">{{ .Date.Format "2006 · 01" }}</span>
+      <span class="gallery-place">{{ with .Params.cities }}{{ index . 0 }}{{ end }}{{ with .Params.countries }}, {{ index . 0 }}{{ end }}</span>
     </div>
   </a>
 {{ end }}
