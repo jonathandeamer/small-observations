@@ -10,9 +10,9 @@
 
   <p class="taxonomy-count smallcaps">{{ len .Pages }} {{ if eq (len .Pages) 1 }}photo{{ else }}photos{{ end }}</p>
 
-  <div class="cards">
+  <div class="gallery-grid">
     {{ range .Pages.ByDate.Reverse }}
-      {{ partial "post-card.html" . }}
+      {{ partial "gallery-card.html" . }}
     {{ end }}
   </div>
 </section>
