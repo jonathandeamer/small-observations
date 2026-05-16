@@ -1,3 +1,4 @@
 ---
 title: "Colophon"
+type: "page"
 ---
