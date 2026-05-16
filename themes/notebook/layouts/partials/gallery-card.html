@@ -1,13 +1,19 @@
 {{ $rel := printf "img/%s" .Params.photo }}
 {{ $orig := resources.Get $rel }}
 {{ if $orig }}
-  {{ $thumb := $orig.Resize "400x q82" }}
-  {{ $thumbWebp := $orig.Process "resize 400x webp q80" }}
+  {{ $thumb200 := $orig.Resize "200x q82" }}
+  {{ $thumb400 := $orig.Resize "400x q82" }}
+  {{ $thumb200Webp := $orig.Process "resize 200x webp q80" }}
+  {{ $thumb400Webp := $orig.Process "resize 400x webp q80" }}
   <a class="gallery-card" href="{{ .RelPermalink }}">
     <picture class="gallery-frame">
-      <source type="image/webp" srcset="{{ $thumbWebp.RelPermalink }}">
-      <img src="{{ $thumb.RelPermalink }}"
-           width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+      <source type="image/webp"
+              srcset="{{ $thumb200Webp.RelPermalink }} 200w, {{ $thumb400Webp.RelPermalink }} 400w"
+              sizes="(max-width: 640px) calc(50vw - 1.5rem), 250px">
+      <img src="{{ $thumb400.RelPermalink }}"
+           srcset="{{ $thumb200.RelPermalink }} 200w, {{ $thumb400.RelPermalink }} 400w"
+           sizes="(max-width: 640px) calc(50vw - 1.5rem), 250px"
+           width="{{ $thumb400.Width }}" height="{{ $thumb400.Height }}"
            alt="{{ .Params.alt | default "" }}"
            loading="lazy" decoding="async">
     </picture>
