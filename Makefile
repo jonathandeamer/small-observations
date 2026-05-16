@@ -60,13 +60,13 @@ check: build  ## build then sanity-check the rendered site
 		|| echo "    MISSING — public/sitemap.xml not found"
 	@echo
 	@echo "→ RSS feed validity:"
-	@xmllint --noout public/index.xml 2>&1 \
+	@xmllint --noout public/feed.xml 2>&1 \
 		&& echo "    ok" \
 		|| echo "    INVALID — see errors above"
 	@echo
 	@echo "→ baseURL:"
 	@grep -q 'example\.org' hugo.toml \
-		&& echo "    WARNING: baseURL is still example.org — update hugo.toml and themes/notebook/static/robots.txt before going live" \
+		&& echo "    WARNING: baseURL is still example.org — update hugo.toml before going live" \
 		|| echo "    ok"
 	@echo
 

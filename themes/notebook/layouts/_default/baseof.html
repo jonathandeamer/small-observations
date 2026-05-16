@@ -10,7 +10,7 @@
     <style>{{ .Content | safeCSS }}</style>
   {{ end }}
 
-  {{ with .OutputFormats.Get "rss" }}
+  {{ with site.Home.OutputFormats.Get "rss" }}
     <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
   {{ end }}
 

@@ -19,12 +19,16 @@ pagination.pagerSize = 20
 [permalinks]
   posts = "/:year/:month/:slug/"
 
-# Output formats: HTML pages + RSS feeds for home, sections, taxonomies.
+# Output formats: HTML pages everywhere; one RSS feed at /feed.xml.
 [outputs]
   home = ["HTML", "RSS"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML", "RSS"]
+  section = ["HTML"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+# Serve the feed at /feed.xml instead of Hugo's default /index.xml.
+[outputFormats.RSS]
+  baseName = "feed"
 
 # Image processing defaults — high-quality JPEG, lanczos resampling.
 [imaging]
