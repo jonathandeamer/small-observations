@@ -41,5 +41,5 @@ pagination.pagerSize = 20
 
 [params]
   author = "Jonathan"
-  description = "A loose notebook of street art photographed since 2014."
+  description = "A notebook of street art I've enjoyed."
   measure = "34rem"

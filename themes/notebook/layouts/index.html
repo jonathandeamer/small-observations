@@ -48,6 +48,5 @@
   <li><a href="{{ "/cities/" | relURL }}"><span class="num tnum">04</span><span class="label">By city</span><span class="count smallcaps">{{ len site.Taxonomies.cities }}</span></a></li>
   <li><a href="{{ "/artists/" | relURL }}"><span class="num tnum">05</span><span class="label">By artist</span><span class="count smallcaps">{{ len site.Taxonomies.artists }} known</span></a></li>
   <li><a href="{{ "/tags/" | relURL }}"><span class="num tnum">06</span><span class="label">By tag</span><span class="count smallcaps">{{ len site.Taxonomies.tags }}</span></a></li>
-  <li><a href="{{ "/tags/favourite/" | relURL }}"><span class="num tnum">07</span><span class="label">Favourites</span><span class="count smallcaps">{{ len $favs }}</span></a></li>
 </ul>
 {{ end }}
