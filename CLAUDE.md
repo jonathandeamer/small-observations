@@ -102,4 +102,4 @@ Two subtle invariants worth knowing:
 
 - For non-trivial changes, read the corresponding spec under `docs/superpowers/specs/` first.
 - This site has no remote yet — `git push` won't work. Don't try to create PRs.
-- Don't introduce npm, Node, Tailwind, PostCSS, or any JS toolchain. The lack of these is the design.
+- Don't introduce npm, Node, Tailwind, PostCSS, or any JS toolchain **into the site itself**. The published site has no runtime JS and no third-party requests — that's a design constraint, not a tooling preference. Local dev/audit tools (including Node-based CLIs like pa11y) are fine.
