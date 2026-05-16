@@ -7,7 +7,7 @@ photo: 2023/01/2023-01-29-liverpool.jpg
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: []
+tags: [favourite]
 years: [2023]
 weight: 0
 exif:

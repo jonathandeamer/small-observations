@@ -7,7 +7,7 @@ photo: 2022/01/2022-01-16-greater-london.jpg
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [favourite, bird]
 years: [2022]
 weight: 0
 exif:

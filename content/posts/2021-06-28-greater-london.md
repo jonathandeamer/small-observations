@@ -7,7 +7,7 @@ photo: 2021/06/2021-06-28-greater-london.jpg
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [favourite, bird]
 years: [2021]
 weight: 0
 exif:

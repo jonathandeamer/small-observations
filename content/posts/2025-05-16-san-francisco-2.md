@@ -7,7 +7,7 @@ photo: 2025/05/2025-05-16-san-francisco-2.jpg
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: []
+tags: [favourite]
 years: [2025]
 weight: 0
 exif:

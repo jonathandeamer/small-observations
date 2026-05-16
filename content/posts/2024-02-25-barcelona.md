@@ -7,7 +7,7 @@ photo: 2024/02/2024-02-25-barcelona.jpg
 countries: [Spain]
 cities: [Barcelona]
 artists: []
-tags: []
+tags: [favourite]
 years: [2024]
 weight: 0
 exif:

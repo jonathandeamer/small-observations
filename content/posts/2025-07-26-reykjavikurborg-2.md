@@ -7,7 +7,7 @@ photo: 2025/07/2025-07-26-reykjavikurborg-2.jpg
 countries: [Iceland]
 cities: [Reykjavik]
 artists: []
-tags: []
+tags: [favourite, bird]
 years: [2025]
 weight: 0
 exif:

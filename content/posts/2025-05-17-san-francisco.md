@@ -7,7 +7,7 @@ photo: 2025/05/2025-05-17-san-francisco.jpg
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: []
+tags: [bird	]
 years: [2025]
 weight: 0
 exif:

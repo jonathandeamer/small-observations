@@ -7,7 +7,7 @@ photo: 2022/09/2022-09-24-derbyshire-dales.jpg
 countries: [United Kingdom]
 cities: [Derbyshire Dales]
 artists: []
-tags: []
+tags: [favourite]
 years: [2022]
 weight: 0
 exif:

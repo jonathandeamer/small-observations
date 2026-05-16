@@ -7,7 +7,7 @@ photo: 2023/02/2023-02-18-liverpool.jpg
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: []
+tags: [bird]
 years: [2023]
 weight: 0
 exif:

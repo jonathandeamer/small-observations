@@ -7,7 +7,7 @@ photo: 2025/04/2025-04-27-liverpool.jpg
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: []
+tags: [football]
 years: [2025]
 weight: 0
 exif:

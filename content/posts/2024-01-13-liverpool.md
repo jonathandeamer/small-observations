@@ -7,7 +7,7 @@ photo: 2024/01/2024-01-13-liverpool.jpg
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: []
+tags: [favourite]
 years: [2024]
 weight: 0
 exif:

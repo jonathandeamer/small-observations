@@ -7,7 +7,7 @@ photo: 2025/07/2025-07-13-basingstoke-and-deane.jpg
 countries: [United Kingdom]
 cities: [Basingstoke]
 artists: []
-tags: []
+tags: [bird]
 years: [2025]
 weight: 0
 exif:

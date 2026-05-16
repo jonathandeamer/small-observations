@@ -7,7 +7,7 @@ photo: 2023/10/2023-10-07-liverpool.jpg
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: []
+tags: [favourite]
 years: [2023]
 weight: 0
 exif:

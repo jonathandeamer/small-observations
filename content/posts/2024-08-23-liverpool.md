@@ -7,7 +7,7 @@ photo: 2024/08/2024-08-23-liverpool.jpg
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: []
+tags: [favourite, bird]
 years: [2024]
 weight: 0
 exif:
