@@ -187,8 +187,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .favourites-intro { color: var(--ink-soft); margin: 0 0 1rem; font-style: italic; }
 
-/* homepage — favourites grid */
-.favourites-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem); margin: 0.5rem 0 0.5rem; }
+/* gallery grid (homepage, taxonomy, list pages) */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.75rem, 1.5vw, 1.25rem); margin: 0.5rem 0 0.5rem; }
 .fav-card { text-decoration: none; color: var(--ink); display: block; }
 .fav-frame { background: var(--bg-warm); aspect-ratio: 1 / 1; overflow: hidden; display: block; }
 .fav-frame img { width: 100%; height: 100%; object-fit: cover; }
@@ -199,7 +199,7 @@ img { max-width: 100%; height: auto; display: block; }
 .fav-more a { color: var(--link); font-style: italic; text-decoration: none; border-bottom: 1px solid var(--link); padding-bottom: 1px; }
 
 @media (max-width: 640px) {
-  .favourites-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* homepage — browse menu */
