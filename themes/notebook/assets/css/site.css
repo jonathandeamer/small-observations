@@ -14,9 +14,10 @@
   --bg-warm:  #ebe0ce;
   --ink:      #1a1816;
   --ink-soft: #4a4540;
-  --muted:    #8a7d6a;
+  --muted:    #6e6050;
   --rule:     #d6c9b3;
   --coral:    #c8553d;
+  --link:     #b34429;
 
   --serif: "Fraunces", "Iowan Old Style", "Hoefler Text", Georgia, serif;
   --measure: 34rem;
@@ -37,7 +38,7 @@ body {
   min-height: 100vh;
 }
 
-a { color: var(--coral); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1px; }
 
 img { max-width: 100%; height: auto; display: block; }
 
@@ -195,7 +196,7 @@ img { max-width: 100%; height: auto; display: block; }
 .fav-date { font-size: 0.78rem; color: var(--muted); }
 .fav-place { color: var(--ink-soft); font-style: italic; font-size: 0.88rem; }
 .fav-more { grid-column: 1 / -1; margin-top: 0.4rem; text-align: right; }
-.fav-more a { color: var(--coral); font-style: italic; text-decoration: none; border-bottom: 1px solid var(--coral); padding-bottom: 1px; }
+.fav-more a { color: var(--link); font-style: italic; text-decoration: none; border-bottom: 1px solid var(--link); padding-bottom: 1px; }
 
 @media (max-width: 640px) {
   .favourites-grid { grid-template-columns: repeat(2, 1fr); }
