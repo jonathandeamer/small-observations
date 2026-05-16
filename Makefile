@@ -33,9 +33,25 @@ check: build  ## build then sanity-check the rendered site
 	@if command -v pa11y >/dev/null 2>&1; then \
 		echo "→ pa11y (accessibility audit on homepage):"; \
 		pa11y "file://$(PWD)/public/index.html" 2>&1 | tail -20; \
+		echo; \
+		POST=$$(find public/[0-9]* -name index.html | head -1); \
+		if [ -n "$$POST" ]; then \
+			echo "→ pa11y (accessibility audit on post page):"; \
+			pa11y "file://$(PWD)/$$POST" 2>&1 | tail -20; \
+		fi; \
 	else \
 		echo "→ pa11y not installed (skipping accessibility check)"; \
 		echo "    install with: npm install -g pa11y"; \
+	fi
+	@echo
+	@if command -v vnu >/dev/null 2>&1 || java -jar ~/.vnu/vnu.jar --version >/dev/null 2>&1; then \
+		echo "→ vnu HTML validation (homepage + one post):"; \
+		POST=$$(find public/[0-9]* -name index.html | head -1); \
+		java -jar ~/.vnu/vnu.jar --skip-non-html "public/index.html" $$POST 2>&1 | head -30 \
+			&& echo "    ok" || true; \
+	else \
+		echo "→ vnu HTML validator not installed (skipping)"; \
+		echo "    install: mkdir -p ~/.vnu && curl -sL https://github.com/validator/validator/releases/latest/download/vnu.jar -o ~/.vnu/vnu.jar"; \
 	fi
 	@echo
 	@echo "→ sitemap:"
@@ -50,7 +66,7 @@ check: build  ## build then sanity-check the rendered site
 	@echo
 	@echo "→ baseURL:"
 	@grep -q 'example\.org' hugo.toml \
-		&& echo "    WARNING: baseURL is still example.org — update before going live" \
+		&& echo "    WARNING: baseURL is still example.org — update hugo.toml and themes/notebook/static/robots.txt before going live" \
 		|| echo "    ok"
 	@echo
 
