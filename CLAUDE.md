@@ -72,7 +72,7 @@ Front matter shape (every post must match this exactly; the ingest script produc
 title: ""
 slug: "2018-07-14-paris"        # ALWAYS set, even if title is empty
 date: 2018-07-14T16:23:00Z       # taken date — drives URL and archives
-publishDate: 2026-05-15T10:00:00Z # publish date — drives RSS and /posts/ sort
+publishDate: 2026-05-15T10:00:00Z # publish date — drives RSS feed order; gates whether a post appears in production builds
 photo: 2018/07/2018-07-14-paris.jpg
 countries: [France]              # empty list [] if unknown
 cities: [Paris]                  # empty list [] if unknown
@@ -97,6 +97,8 @@ Two subtle invariants worth knowing:
 - **Test fixtures regenerate per session** — `tests/fixtures/` is gitignored. Conftest writes `with_gps.jpg`, `no_gps.jpg`, `no_exif.jpg` at session start.
 - **Mockups directory** — `mockups/index-lean.html` is the canonical visual reference. `mockups/index.html` is an earlier maximalist variant kept for contrast. The live site should match `index-lean.html`.
 - **Hugo's `humanize` filter** was removed from `_default/terms.html` and `_default/taxonomy.html`. It treats numeric strings as ordinals (`"2018"` → `"2,018th"`). Don't re-add it without a non-numeric guard.
+- **RSS feed** is custom (`themes/notebook/layouts/_default/rss.xml`) and lives at `/feed.xml` only — section/taxonomy/term RSS outputs are disabled in `hugo.toml`. It sorts by `publishDate` descending using `site.RegularPages` (so the feed reflects publishing order, not photo chronology). The `<link rel="alternate">` autodiscovery tag in `baseof.html` always points to the home feed regardless of which page the visitor is on.
+- **`robots.txt`** is a Hugo template (`themes/notebook/layouts/robots.txt`), not a static file, so the `Sitemap:` URL stays in sync with `baseURL`. Don't put one in `static/` — `enableRobotsTXT = true` will override it with an empty default.
 
 ## When in doubt
 
