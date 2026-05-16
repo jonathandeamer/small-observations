@@ -25,15 +25,15 @@ Create `themes/notebook/layouts/partials/pagination.html` with this exact conten
 {{ if gt $p.TotalPages 1 }}
 <nav class="pagination" aria-label="Page navigation">
   {{ if $p.Prev }}
-    <a href="{{ $p.Prev.URL }}">← older</a>
+    <a href="{{ $p.Prev.URL }}">← newer</a>
   {{ else }}
-    <span class="pagination-disabled">← older</span>
+    <span class="pagination-disabled">← newer</span>
   {{ end }}
   <span class="pagination-info">page {{ $p.PageNumber }} of {{ $p.TotalPages }}</span>
   {{ if $p.Next }}
-    <a href="{{ $p.Next.URL }}">newer →</a>
+    <a href="{{ $p.Next.URL }}">older →</a>
   {{ else }}
-    <span class="pagination-disabled">newer →</span>
+    <span class="pagination-disabled">older →</span>
   {{ end }}
 </nav>
 {{ end }}
@@ -99,10 +99,10 @@ Expected: builds cleanly, no errors.
 
 With a server running (`make dev`), open http://localhost:1313/posts/ and confirm:
 - The numbered pagination is gone
-- `← older · page 1 of 6 · newer →` appears at the bottom (← older greyed out on page 1)
+- `← newer · page 1 of 6 · older →` appears at the bottom (← newer greyed out on page 1)
 - Clicking `newer →` navigates to `/posts/page/2/`
-- On page 2, both `← older` and `newer →` are active links
-- On the last page, `newer →` is greyed out
+- On page 2, both `← newer` and `older →` are active links
+- On the last page, `older →` is greyed out
 
 - [ ] **Step 4: Commit**
 

@@ -21,8 +21,8 @@ Create `themes/notebook/layouts/partials/pagination.html`. It:
 - Reads `.Paginator` for current page number, total pages, and prev/next URLs
 - Renders nothing when `.Paginator.TotalPages` is 1 (no pagination needed)
 - Renders `← older · page N of M · newer →` when there are multiple pages
-- `← older` is an `<a>` link to `.Paginator.Prev.URL` when a previous page exists; a `<span class="pagination-disabled">` when on page 1
-- `newer →` is an `<a>` link to `.Paginator.Next.URL` when a next page exists; a `<span class="pagination-disabled">` when on the last page
+- `← newer` is an `<a>` link to `.Paginator.Prev.URL` when a previous page exists; a `<span class="pagination-disabled">` when on page 1
+- `older →` is an `<a>` link to `.Paginator.Next.URL` when a next page exists; a `<span class="pagination-disabled">` when on the last page
 - `page N of M` is a plain `<span class="pagination-info">` in muted colour
 - `·` separators are rendered as plain text between the three elements
 - Wrapped in `<nav class="pagination" aria-label="Page navigation">`
