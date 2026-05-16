@@ -1,10 +1,13 @@
-{{ define "title" }}Lost · {{ site.Title }}{{ end }}
+{{ define "title" }}404: page not found · {{ site.Title }}{{ end }}
 
 {{ define "main" }}
 <article class="notfound">
-  <h2>This page doesn't seem to exist.</h2>
-  <p>Probably never did. Try the <a href="{{ "/" | relURL }}">front door</a>,
-     or browse <a href="{{ "/years/" | relURL }}">by year</a> or
-     <a href="{{ "/countries/" | relURL }}">by country</a>.</p>
+  <h2>Page not found.</h2>
+  <p>Try the <a href="{{ "/" | relURL }}">home page</a>, or browse
+     <a href="{{ "/posts/" | relURL }}">all posts</a>,
+     <a href="{{ "/years/" | relURL }}">by year</a>,
+     <a href="{{ "/countries/" | relURL }}">by country</a>,
+     <a href="{{ "/cities/" | relURL }}">by city</a>, or
+     <a href="{{ "/tags/" | relURL }}">by tag</a>.</p>
 </article>
 {{ end }}
