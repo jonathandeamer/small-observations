@@ -6,6 +6,9 @@
 # Photo ingest staging (originals + processed marker; never committed)
 /_ingest/
 
+# Scratch / throwaway work
+/tmp/
+
 # OS / editor
 .DS_Store
 *.swp
