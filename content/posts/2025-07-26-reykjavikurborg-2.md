@@ -9,7 +9,7 @@ cities: [Reykjavik]
 artists: []
 tags: [favourite, bird]
 years: [2025]
-weight: 0
+weight: 2
 exif:
   camera: "iPhone 14"
   lat: 64.144

@@ -9,7 +9,7 @@ cities: [Liverpool]
 artists: []
 tags: [favourite]
 years: [2024]
-weight: 0
+weight: 7
 exif:
   camera: "iPhone 14"
   lat: 53.3888

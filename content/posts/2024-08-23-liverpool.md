@@ -9,7 +9,7 @@ cities: [Liverpool]
 artists: []
 tags: [favourite, bird]
 years: [2024]
-weight: 0
+weight: 5
 exif:
   camera: "iPhone 14"
   lat: 53.3957

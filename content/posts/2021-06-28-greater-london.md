@@ -9,7 +9,7 @@ cities: [London]
 artists: []
 tags: [favourite, bird]
 years: [2021]
-weight: 0
+weight: 8
 exif:
   camera: "iPhone SE (2nd generation)"
   lat: 51.5627
