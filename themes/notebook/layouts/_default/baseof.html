@@ -18,10 +18,13 @@
 
   {{ partial "head-og.html" . }}
 
+  <link rel="canonical" href="{{ .Permalink }}">
+
   {{ block "head" . }}{{ end }}
 </head>
 <body>
-  <main class="page">
+  <a class="skip-nav" href="#main-content">Skip to content</a>
+  <main class="page" id="main-content">
     {{ partial "masthead.html" . }}
 
     {{ block "main" . }}{{ end }}
