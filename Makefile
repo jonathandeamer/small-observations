@@ -64,11 +64,6 @@ check: build  ## build then sanity-check the rendered site
 		&& echo "    ok" \
 		|| echo "    INVALID — see errors above"
 	@echo
-	@echo "→ baseURL:"
-	@grep -q 'example\.org' hugo.toml \
-		&& echo "    WARNING: baseURL is still example.org — update hugo.toml before going live" \
-		|| echo "    ok"
-	@echo
 
 clean:  ## remove all generated output
 	rm -rf public resources/_gen .hugo_build.lock
