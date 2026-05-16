@@ -121,6 +121,8 @@ The site aims to remain a "good web citizen" — keyboard-navigable, screen-read
 - **Hugo's `humanize` filter** was removed from `_default/terms.html` and `_default/taxonomy.html`. It treats numeric strings as ordinals (`"2018"` → `"2,018th"`). Don't re-add it without a non-numeric guard.
 - **RSS feed** is custom (`themes/notebook/layouts/_default/rss.xml`) and lives at `/feed.xml` only — section/taxonomy/term RSS outputs are disabled in `hugo.toml`. It sorts by `publishDate` descending using `site.RegularPages` (so the feed reflects publishing order, not photo chronology). The `<link rel="alternate">` autodiscovery tag in `baseof.html` always points to the home feed regardless of which page the visitor is on.
 - **`robots.txt`** is a Hugo template (`themes/notebook/layouts/robots.txt`), not a static file, so the `Sitemap:` URL stays in sync with `baseURL`. Don't put one in `static/` — `enableRobotsTXT = true` will override it with an empty default.
+- **Two single-page layouts.** `_default/single.html` is photo-centric and used for posts (it errors if `.Params.photo` is missing). Non-photo root pages like the colophon use `layouts/page/single.html` and must declare `type: "page"` in their front matter to opt into that template — Hugo's lookup for root-level pages doesn't auto-discover `layouts/page/`.
+- **Favicon trio** in `themes/notebook/static/`: `favicon.svg` (modern), `favicon.ico` (multi-res 16/32/48 fallback), `apple-touch-icon.png` (iOS home-screen, 180×180 with opaque cream background since iOS ignores transparency). All wired up via `<link>` tags in `baseof.html`. The design is the coral middot from "Small·Observations" — keep it in sync if the masthead `--coral` ever changes.
 
 ## When in doubt
 
