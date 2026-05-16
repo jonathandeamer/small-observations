@@ -38,6 +38,21 @@ check: build  ## build then sanity-check the rendered site
 		echo "    install with: npm install -g pa11y"; \
 	fi
 	@echo
+	@echo "→ sitemap:"
+	@test -s public/sitemap.xml \
+		&& echo "    ok ($(shell grep -c '<loc>' public/sitemap.xml) URLs)" \
+		|| echo "    MISSING — public/sitemap.xml not found"
+	@echo
+	@echo "→ RSS feed validity:"
+	@xmllint --noout public/index.xml 2>&1 \
+		&& echo "    ok" \
+		|| echo "    INVALID — see errors above"
+	@echo
+	@echo "→ baseURL:"
+	@grep -q 'example\.org' hugo.toml \
+		&& echo "    WARNING: baseURL is still example.org — update before going live" \
+		|| echo "    ok"
+	@echo
 
 clean:  ## remove all generated output
 	rm -rf public resources/_gen .hugo_build.lock
