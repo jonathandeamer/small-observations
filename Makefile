@@ -30,6 +30,14 @@ check: build  ## build then sanity-check the rendered site
 		echo "    install with: brew install htmltest"; \
 	fi
 	@echo
+	@if command -v pa11y >/dev/null 2>&1; then \
+		echo "→ pa11y (accessibility audit on homepage):"; \
+		pa11y "file://$(PWD)/public/index.html" 2>&1 | tail -20; \
+	else \
+		echo "→ pa11y not installed (skipping accessibility check)"; \
+		echo "    install with: npm install -g pa11y"; \
+	fi
+	@echo
 
 clean:  ## remove all generated output
 	rm -rf public resources/_gen .hugo_build.lock
