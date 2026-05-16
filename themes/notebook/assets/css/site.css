@@ -164,6 +164,12 @@ img { max-width: 100%; height: auto; display: block; }
 .list-page { max-width: 44rem; }
 .list-intro { color: var(--ink-soft); margin: 0 0 1rem; }
 
+/* pagination */
+.pagination { display: flex; justify-content: center; align-items: baseline; gap: 1rem; margin: 2rem 0 1rem; font-size: 0.88rem; }
+.pagination a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--link); padding-bottom: 1px; }
+.pagination-disabled { color: var(--muted); }
+.pagination-info { color: var(--muted); }
+
 /* taxonomy pages */
 .taxonomy-count { color: var(--muted); margin: 0 0 0.5rem; font-size: 0.82rem; }
 
