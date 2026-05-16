@@ -7,7 +7,7 @@ Draft alt text for the image files in `assets/img`, based on one-image-at-a-time
 - `assets/img/2016/04/2016-04-15-dublin.jpg`: Pub window art for marriage equality, with a cartoon voter, repeated "YES" text, and a second window reading "YES."
 - `assets/img/2016/05/2016-05-04-berlin.jpg`: Red wall mural with a weary ape and a speech bubble reading "Destroy all smartphones," beside part of a large yellow shape.
 - `assets/img/2016/08/2016-08-30-greater-london.jpg`: Pale blue painted box with a quote about "freedom, books, flowers and the moon," decorated with flowers and leaves.
-- `assets/img/2016/09/2016-09-14-new-york.jpg`: Brooklyn wall mural with colorful graffiti, a cartoon woman in a pink cap, and a gray squirrel beside a shuttered doorway.
+- `assets/img/2016/09/2016-09-14-new-york.jpg`: Brooklyn wall mural with colourful graffiti, a cartoon woman in a pink cap, and a grey squirrel beside a shuttered doorway.
 - `assets/img/2016/11/2016-11-05-greater-london-2.jpg`: Cartoon-style blonde face with wide eyes and an open pink mouth painted on a graffiti-covered wall.
 - `assets/img/2016/11/2016-11-05-greater-london.jpg`: Blue brick wall under a bridge painted with a row of monochrome cartoon faces and surrounded by graffiti.
 - `assets/img/2016/11/2016-11-19-greater-london.jpg`: Brick wall painted with large white text reading "Pick dem days dat made me who I am I wouldn't change a fing."
@@ -26,9 +26,9 @@ Draft alt text for the image files in `assets/img`, based on one-image-at-a-time
 - `assets/img/2020/11/2020-11-28-greater-london.jpg`: Building wall mural of two overlapping faces, one natural-toned and one blue geometric, inside a large circle.
 - `assets/img/2021/06/2021-06-26-greater-london.jpg`: Brick archway mural of a face with green lips holding a red pencil between its teeth, partly covered by ivy.
 - `assets/img/2021/06/2021-06-28-greater-london.jpg`: Round brick ventilation structure painted with two pink flamingos beneath black louvered vents.
-- `assets/img/2021/07/2021-07-02-greater-london.jpg`: White wall mural of a colorful abstract bird with "NHS" lettering beside it.
+- `assets/img/2021/07/2021-07-02-greater-london.jpg`: White wall mural of a colourful abstract bird with "NHS" lettering beside it.
 - `assets/img/2021/07/2021-07-11-greater-london.jpg`: Canal-side brick structure painted blue with rainbow stripes and the words "All that we've got is this pale blue dot."
-- `assets/img/2021/07/2021-07-23-greater-london.jpg`: Old entrance archway beside a dark wall painted with stacked, brightly colored square frames.
+- `assets/img/2021/07/2021-07-23-greater-london.jpg`: Old entrance archway beside a dark wall painted with stacked, brightly coloured square frames.
 - `assets/img/2021/08/2021-08-20-greater-london.jpg`: Brick wall covered in graffiti around a large pink flower with ribbon-like teal petals and writing on them.
 - `assets/img/2021/10/2021-10-19-greater-london.jpg`: White brick wall mural of two smiling sushi pieces with yellow tops and simple cartoon faces.
 - `assets/img/2021/10/2021-10-31-greater-london.jpg`: Woodland installation with a black one-ton weight, red paint, mannequin body parts, and spray cans on the ground.
@@ -37,7 +37,7 @@ Draft alt text for the image files in `assets/img`, based on one-image-at-a-time
 - `assets/img/2021/12/2021-12-05-greater-london.jpg`: Long black-and-white roadside mural of a reclining baby, with hands, flowers, and pink accent arcs.
 - `assets/img/2021/12/2021-12-12-greater-london.jpg`: Red brick pillar painted with a plump pink cartoon bird over white graffiti.
 - `assets/img/2021/12/2021-12-15-greater-london.jpg`: Night photo of a white wall mural showing a smiling cartoon taco with green filling and red sauce.
-- `assets/img/2022/01/2022-01-16-greater-london.jpg`: Pink wall panel with a colorful rooster and a large speech bubble reading "Wake up!" beside a dark underpass.
+- `assets/img/2022/01/2022-01-16-greater-london.jpg`: Pink wall panel with a colourful rooster and a large speech bubble reading "Wake up!" beside a dark underpass.
 - `assets/img/2022/01/2022-01-28-greater-london.jpg`: White brick wall mural of a pink round-headed cartoon figure beside the words "Jolly good show!"
 - `assets/img/2022/02/2022-02-02-greater-london.jpg`: Green utility box painted with a portrait of a woman, with small Valerie Brown campaign signs hanging above it.
 - `assets/img/2022/02/2022-02-25-greater-london.jpg`: White wall mural of two footballers in Santa hats, with "Saka 7" and "Smith Rowe 10" on their shirts.
@@ -46,13 +46,13 @@ Draft alt text for the image files in `assets/img`, based on one-image-at-a-time
 - `assets/img/2022/04/2022-04-05-greater-london.jpg`: Close-up of a small circular pavement painting with a tree, birds, a sun, and words including "free" and "oak."
 - `assets/img/2022/04/2022-04-07-greater-london.jpg`: Bridge support covered in graffiti with a large pink flamingo mural beside a path under the bridge.
 - `assets/img/2022/04/2022-04-15-greater-london.jpg`: Freestanding street box painted with two pink flamingo heads outside a brick building.
-- `assets/img/2022/04/2022-04-21-greater-london.jpg`: Colorful brick wall mural of a tall stylized figure with long arms against blue, pink, and orange shapes.
-- `assets/img/2022/04/2022-04-23-greater-london.jpg`: Black brick structure by a canal bridge painted with a grayscale portrait of a woman inside a red circle.
+- `assets/img/2022/04/2022-04-21-greater-london.jpg`: Colourful brick wall mural of a tall stylised figure with long arms against blue, pink, and orange shapes.
+- `assets/img/2022/04/2022-04-23-greater-london.jpg`: Black brick structure by a canal bridge painted with a greyscale portrait of a woman inside a red circle.
 - `assets/img/2022/05/2022-05-16-greater-london.jpg`: Street box under a bridge painted with a black-and-white crowned face and the words "The queen is dead."
 - `assets/img/2022/07/2022-07-03-greater-london.jpg`: Pink wall mural of two large white hands gripping a small black silhouette figure.
-- `assets/img/2022/07/2022-07-22-greater-london.jpg`: Small circular pavement painting on a rough stone ledge, centered on a blue butterfly and the words "Love nature."
-- `assets/img/2022/08/2022-08-05-greater-london.jpg`: Beige wall mural of a faceless white figure walking a gray dog, with the leash forming a heart.
-- `assets/img/2022/09/2022-09-24-derbyshire-dales.jpg`: Large rust-colored metal sculpture of a human head on grass, with a stone bridge and parkland behind it.
+- `assets/img/2022/07/2022-07-22-greater-london.jpg`: Small circular pavement painting on a rough stone ledge, centred on a blue butterfly and the words "Love nature."
+- `assets/img/2022/08/2022-08-05-greater-london.jpg`: Beige wall mural of a faceless white figure walking a grey dog, with the leash forming a heart.
+- `assets/img/2022/09/2022-09-24-derbyshire-dales.jpg`: Large rust-coloured metal sculpture of a human head on grass, with a stone bridge and parkland behind it.
 - `assets/img/2022/10/2022-10-22-mountain-view.jpg`: Utility box covered with a dense pattern of cartoon fish in black outline with blue, pink, green, and yellow accents.
 - `assets/img/2022/11/2022-11-15-brighton.jpg`: Building end painted with a black background, snowy owl murals, an Extinction Rebellion symbol, and the words "Act now."
 - `assets/img/2022/11/2022-11-26-greater-london-2.jpg`: Black wall mural of stylized London landmarks radiating from a white circle, signed @SAMTKRRIDGE.
@@ -60,53 +60,53 @@ Draft alt text for the image files in `assets/img`, based on one-image-at-a-time
 - `assets/img/2022/12/2022-12-15-greater-london.jpg`: Bridge arch mural of a child in a green coat holding a lantern in a blue night scene.
 - `assets/img/2023/01/2023-01-29-liverpool.jpg`: Brick wall mural of a purple vampire holding a lit candle in front of a full moon.
 - `assets/img/2023/02/2023-02-03-liverpool-2.jpg`: Brick wall mural of a smiling face in a red cap beside the words "We are Liverpool 2020!!"
-- `assets/img/2023/02/2023-02-03-liverpool.jpg`: Brick wall mural of four colorful portrait panels against a black background.
+- `assets/img/2023/02/2023-02-03-liverpool.jpg`: Brick wall mural of four colourful portrait panels against a black background.
 - `assets/img/2023/02/2023-02-18-liverpool.jpg`: Utility box painted with a large yellow Sankofu bird among red and blue plants.
 - `assets/img/2023/03/2023-03-20-new-york.jpg`: Large wall mural of a plastic bottle with fish inside and the words "Stop trashing our ocean now."
 - `assets/img/2023/05/2023-05-05-liverpool.jpg`: Large realistic mural of a man's face held between two hands on the side of an old brick building.
-- `assets/img/2023/09/2023-09-02-delhi.jpg`: Yellow building facade covered in colorful murals, animals, symbols, and words including "justice," "fortune," "health," and "equality."
+- `assets/img/2023/09/2023-09-02-delhi.jpg`: Yellow building facade covered in colourful murals, animals, symbols, and words including "justice," "fortune," "health," and "equality."
 - `assets/img/2023/09/2023-09-23-dublin.jpg`: Tall narrow mural with cartoon birds, a rainbow, and a blue-faced figure above pedestrians.
 - `assets/img/2023/10/2023-10-07-liverpool.jpg`: Door mural of a simple cartoon figure with a yellow cap and red shoes, surrounded by graffiti.
-- `assets/img/2024/01/2024-01-13-liverpool.jpg`: Large building mural with a black-and-white portrait surrounded by colorful Beatles-inspired scenes.
+- `assets/img/2024/01/2024-01-13-liverpool.jpg`: Large building mural with a black-and-white portrait surrounded by colourful Beatles-inspired scenes.
 - `assets/img/2024/02/2024-02-25-barcelona-2.jpg`: Geometric mural of a patterned figure riding a red bicycle, surrounded by dots, triangles, and white circular linework.
-- `assets/img/2024/02/2024-02-25-barcelona-3.jpg`: Muted wall mural of two realistic painted hands reaching toward each other against a gray-green background.
+- `assets/img/2024/02/2024-02-25-barcelona-3.jpg`: Muted wall mural of two realistic painted hands reaching toward each other against a grey-green background.
 - `assets/img/2024/02/2024-02-25-barcelona-4.jpg`: Bright wall mural of a black toucan painting a yellow wall, with a paint bucket and roller beneath it.
 - `assets/img/2024/02/2024-02-25-barcelona.jpg`: Large realistic portrait of an elderly bald man painted across a black corrugated door in a red brick building.
 - `assets/img/2024/02/2024-02-26-barcelona.jpg`: Long roadside mural with large sharks, including one covered in money and another shaped like a missile, on a yellow wall.
 - `assets/img/2024/03/2024-03-01-liverpool.jpg`: Graffiti-covered building wall with flying birds on a blue upper mural and "Slava Ukraini" painted in yellow and blue below.
-- `assets/img/2024/03/2024-03-16-leeds.jpg`: Abstract wall mural of yellow, orange, red, and gray wavy shapes with concentric circles outlined in black.
+- `assets/img/2024/03/2024-03-16-leeds.jpg`: Abstract wall mural of yellow, orange, red, and grey wavy shapes with concentric circles outlined in black.
 - `assets/img/2024/08/2024-08-23-liverpool.jpg`: Huge turquoise bird mural on a red building wall, with white head feathers and a yellow sun behind it.
 - `assets/img/2024/08/2024-08-26-liverpool.jpg`: Tall building mural of a runner in blue kit above hurdle-like steps reading "Progress not perfection" and "You'll never run alone."
 - `assets/img/2024/09/2024-09-05-toronto-2.jpg`: Garage mural of a Siberian tiger with red leaves across its face and the words "There are less than 600 Siberian tigers left."
-- `assets/img/2024/09/2024-09-05-toronto-3.jpg`: Brick wall mural of two dark bears in a colorful forest scene, with a large bear face wrapping around the corner.
+- `assets/img/2024/09/2024-09-05-toronto-3.jpg`: Brick wall mural of two dark bears in a colourful forest scene, with a large bear face wrapping around the corner.
 - `assets/img/2024/09/2024-09-05-toronto-4.jpg`: Blue utility box painted with an underwater scene showing a turtle, a frog, rocks, bubbles, and green water plants.
 - `assets/img/2024/09/2024-09-05-toronto-5.jpg`: Cream wall mural with a black line-art bird head and the words "Land back to natives is justice!"
 - `assets/img/2024/09/2024-09-05-toronto.jpg`: Weathered wooden fence mural of a blue bird perched among pink blossoms and green leaves.
 - `assets/img/2024/11/2024-11-07-arrecife-2.jpg`: Weathered wall mural of a person holding a large video camera beside a no-parking sign.
 - `assets/img/2024/11/2024-11-07-arrecife.jpg`: Abstract line mural of a fragmented humanoid figure in black, red, white, and beige on a rough cream wall.
 - `assets/img/2025/04/2025-04-27-liverpool.jpg`: Black brick wall mural of a footballer in a red kit, painted in red-and-white stained-glass-style panels.
-- `assets/img/2025/05/2025-05-15-san-francisco-2.jpg`: Colorful doorway mural of two unicorn-headed figures touching noses above a pink heart, with rainbow rays behind them.
+- `assets/img/2025/05/2025-05-15-san-francisco-2.jpg`: Colourful doorway mural of two unicorn-headed figures touching noses above a pink heart, with rainbow rays behind them.
 - `assets/img/2025/05/2025-05-15-san-francisco-3.jpg`: Orange brick memorial mural for George Floyd and Breonna Taylor, with portraits, raised hands, and Black Lives Matter signs.
 - `assets/img/2025/05/2025-05-15-san-francisco.jpg`: Comic-style mural titled "Narcania vs Death," showing a superhero using naloxone to fight opioid overdoses.
 - `assets/img/2025/05/2025-05-16-san-francisco-2.jpg`: Large building mural of a baby in a police uniform holding a pistol, with a pink toy camera on the uniform.
 - `assets/img/2025/05/2025-05-16-san-francisco-3.jpg`: White utility box painted with a black-and-red robot rocket, winged hearts, and a sign reading "Save the humans."
 - `assets/img/2025/05/2025-05-16-san-francisco.jpg`: Small pole poster with a cartoon dollar bill and the words "We pay for the bombs dropped on Gaza."
-- `assets/img/2025/05/2025-05-17-san-francisco-2.jpg`: Colorful garage-door mural of a white cat in a red robe and blue headscarf, framed by bright circular shapes.
+- `assets/img/2025/05/2025-05-17-san-francisco-2.jpg`: Colourful garage-door mural of a white cat in a red robe and blue headscarf, framed by bright circular shapes.
 - `assets/img/2025/05/2025-05-17-san-francisco.jpg`: Blue utility box painted with a small orange warbler perched on a dark branch.
 - `assets/img/2025/06/2025-06-13-liverpool.jpg`: White brick wall with a fine black line drawing of an ornate pagoda-style arch, partly crossed by a drainpipe.
 - `assets/img/2025/07/2025-07-13-basingstoke-and-deane.jpg`: Bright wildlife mural with a rabbit, birds, flowers, and a butterfly against a turquoise garden scene.
 - `assets/img/2025/07/2025-07-25-reykjavikurborg.jpg`: White wall mural of a large watermelon slice with green vines growing from it and red puddles beneath.
-- `assets/img/2025/07/2025-07-26-reykjavikurborg-2.jpg`: Gray falcon head mural surrounded by flowing gray, white, and yellow line patterns on a pale wall.
-- `assets/img/2025/07/2025-07-26-reykjavikurborg.jpg`: Large gray-wall mural of a pale vampire-like figure embracing a woman, with gothic text underneath.
+- `assets/img/2025/07/2025-07-26-reykjavikurborg-2.jpg`: Grey falcon head mural surrounded by flowing grey, white, and yellow line patterns on a pale wall.
+- `assets/img/2025/07/2025-07-26-reykjavikurborg.jpg`: Large grey-wall mural of a pale vampire-like figure embracing a woman, with gothic text underneath.
 - `assets/img/2025/08/2025-08-06-new-york.jpg`: Beige brick wall with a black silhouette of a child swinging a large brush beside red fire-sprinkler signs.
 - `assets/img/2025/08/2025-08-08-new-york-2.jpg`: Bright mural of a giant Monopoly-style character tipping his hat beside New York landmarks and blue waves.
 - `assets/img/2025/08/2025-08-08-new-york.jpg`: Storefront mural with black-and-white portraits of the Beastie Boys over a red-and-orange "Lee's Sportswear" background.
 - `assets/img/2025/11/2025-11-03-chicago-2.jpg`: Huge building mural of a blue-and-white patterned deer-like animal among green vines, pink berries, and flowers.
 - `assets/img/2025/11/2025-11-03-chicago-3.jpg`: Tall mural of portraits emerging from an open book, with purple light trails and blue birds around them.
 - `assets/img/2025/11/2025-11-03-chicago.jpg`: Corner wall painted as a bright orange shaggy monster face with large eyes and an open toothy mouth.
-- `assets/img/2025/11/2025-11-04-chicago-2.jpg`: Building mural centered on Our Lady of Guadalupe, surrounded by red roses, portraits, and children praying.
+- `assets/img/2025/11/2025-11-04-chicago-2.jpg`: Building mural centred on Our Lady of Guadalupe, surrounded by red roses, portraits, and children praying.
 - `assets/img/2025/11/2025-11-04-chicago.jpg`: Black wall mural in progress with a blue sugar skull, white wings, and oversized white skeleton hands.
 - `assets/img/2025/12/2025-12-04-greater-london.jpg`: Framed wall mural of a brown bird on a branch surrounded by bright abstract graffiti shapes.
-- `assets/img/2026/01/2026-01-21-city-of-london.jpg`: Colorful geometric mural of a lighthouse-like figure holding a sign that reads "Stay positive."
+- `assets/img/2026/01/2026-01-21-city-of-london.jpg`: Colourful geometric mural of a lighthouse-like figure holding a sign that reads "Stay positive."
 - `assets/img/2026/02/2026-02-17-greater-london.jpg`: Dark wall mural of a green frog sitting on a skull, surrounded by pink mushrooms and a red ladybug.
 - `assets/img/2026/03/2026-03-12-greater-london.jpg`: Wall mural under clear panels showing two police officers facing a red skeleton-like figure, with a small painted cat nearby.
