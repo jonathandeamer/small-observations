@@ -10,10 +10,10 @@
 
   {{ with .Content }}<div class="list-intro">{{ . }}</div>{{ end }}
 
-  {{ $paginator := .Paginate (.Pages.ByPublishDate.Reverse) }}
-  <div class="cards">
+  {{ $paginator := .Paginate (.Pages.ByDate.Reverse) }}
+  <div class="gallery-grid">
     {{ range $paginator.Pages }}
-      {{ partial "post-card.html" . }}
+      {{ partial "gallery-card.html" . }}
     {{ end }}
   </div>
 
