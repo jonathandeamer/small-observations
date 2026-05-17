@@ -6,13 +6,13 @@
 
   {{ with .Title }}<h2 class="post-title">{{ . }}</h2>{{ end }}
 
-  {{ partial "post-meta.html" . }}
-
   {{ with .Content }}
   <div class="post-body">
     {{ . }}
   </div>
   {{ end }}
+
+  {{ partial "post-meta.html" . }}
 
   <p class="post-colophon">
     Posted <time datetime="{{ .PublishDate.Format "2006-01-02" }}" class="tnum">{{ .PublishDate.Format "January 2006" }}</time>.
