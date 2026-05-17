@@ -4,7 +4,11 @@
 <article class="post">
   {{ partial "photo.html" (dict "page" . "eager" true) }}
 
-  {{ with .Title }}<h2 class="post-title">{{ . }}</h2>{{ end }}
+  {{ if .Params.headline }}
+    <h2 class="post-title">{{ .Params.headline }}</h2>
+  {{ else if .Title }}
+    <h2 class="post-title sr-only">{{ .Title }}</h2>
+  {{ end }}
 
   {{ with .Content }}
   <div class="post-body">
