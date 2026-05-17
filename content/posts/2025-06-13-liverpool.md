@@ -8,7 +8,7 @@ alt: "A fine black line drawing of an ornate Chinese paifang gate on a white bri
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [Liverpool Biennial, China town]
+tags: [Liverpool Biennial, Chinatown]
 years: [2025]
 weight: 0
 exif:
