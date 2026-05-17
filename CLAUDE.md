@@ -107,6 +107,32 @@ Three distinct surfaces carry post content. Each answers a different question; u
 
 The decision heuristic: *"if I'd say this to a friend standing next to me looking at the photo, it goes in the body. If it's a category they could later ask me to filter by, it's a tag."*
 
+## Tag taxonomy
+
+The `tags` axis is a single bucket carrying four kinds of entry: **subjects** (what is depicted), **themes** (causes or movements the art engages with), **context** (named people/places/events referenced but not depicted, e.g. `John Lennon` on a "War is Over" piece), and **styles** (distinctive technique — `stencil`, `sticker`, `sculpture`, `Lichtenstein-style`, `Banksy-style`).
+
+**Singletons are fine.** The bar is "plausible future category" — if it could imaginably recur, tag it. Expect the long-term set to sit at 150–250 tags with a long tail of singletons.
+
+**Multi-level tagging.** When a post supports both a generic and a more specific term, tag both. Mural with a warbler → `bird`, `warbler`. Mural depicting the Beatles together → `Beatles`, `John Lennon`, `Paul McCartney`, `George Harrison`, `Ringo Starr`. Footballer in a Liverpool kit → `football`, `footballer`, `Liverpool FC`, `<player name>`.
+
+**Generic floor — do not tag:** pure format (`mural`, `painted`, `graffiti`, `wall`, `street art`); generic body parts (`face`, `hand`, `eye`, `head`); generic colours and shapes (`blue`, `pink`, `circle`, `geometric`, plain `abstract`); loose adjectives (`bright`, `large`, `huge`, `small`, `colourful`).
+
+**Naming conventions:**
+
+| Tag kind | Convention | Examples |
+|---|---|---|
+| Common-noun subject | lowercase, singular | `bird`, `flamingo`, `skeleton`, `footballer`, `vampire` |
+| Proper noun (person, team, place, event) | title case, as the world spells it | `John Lennon`, `Liverpool FC`, `Burning Man`, `Chinatown`, `Halloween`, `Barbican` |
+| Movement or slogan | verbatim casing | `Black Lives Matter`, `Marriage Equality`, `Slava Ukraini`, `Abolish ICE` |
+| Style descriptor | lowercase or title case to match the style's own usage | `stencil`, `sticker`, `sculpture`, `Lichtenstein-style`, `Banksy-style` |
+| Theme without a canonical name | lowercase | `climate`, `anti-war`, `housing`, `memorial`, `protest`, `music` |
+
+Pinned cases: `Beatles` not `The Beatles`; `Liverpool FC` not `LFC`; `stencil` (noun), not `stencilled`. Anything that already lives in `cities:`, `countries:`, or `years:` does NOT also need to be in `tags:` — those axes already exist for filtering. `artists:` and `tags:` are *semantically different* (`artists:` = who MADE the art; `tags:` includes who is DEPICTED or REFERENCED) and CAN legitimately overlap on the same post.
+
+**Deriving tags from a new post** (or auditing an existing one): work through the alt text and body text in this order: subjects depicted → themes engaged → context references → style → apply the floor (drop) → apply naming conventions → de-duplicate against city/country/year (NOT artists) → de-duplicate against existing tags (consult `/tags/` index to keep casing/spelling stable).
+
+See `docs/superpowers/specs/2026-05-17-tag-taxonomy-design.md` for the full design and rationale.
+
 ## Accessibility & web standards
 
 The site aims to remain a "good web citizen" — keyboard-navigable, screen-reader-friendly, valid HTML, well-behaved with crawlers. Several invariants are easy to break by accident; keep them in mind when changing design or templates.
