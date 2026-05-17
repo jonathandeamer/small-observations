@@ -2,7 +2,9 @@
   <span>Site by <a href="http://jonathandeamer.com">Jonathan</a>.</span>
   <span>
     {{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .Permalink }}">rss</a>{{ end }}
+    {{ if ne .RelPermalink "/colophon/" }}
     &nbsp;
     <a href="{{ "/colophon/" | relURL }}">colophon</a>
+    {{ end }}
   </span>
 </footer>
