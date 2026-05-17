@@ -91,6 +91,22 @@ Two subtle invariants worth knowing:
 - **`slug:` is mandatory.** Hugo's `:slug` permalink token returns empty when title is empty, producing colliding URLs. The ingest always emits `slug:` explicitly. Don't remove this when hand-editing.
 - **`years` is a taxonomy populated by the ingest.** It exists because Hugo's permalink config emits a date-based URL but doesn't auto-generate `/<year>/` index pages. The `years` taxonomy gives us `/years/2018/` for free. Hand-written posts must set `years: [<year>]` to appear in archives.
 
+## Content layers — when to reach for alt, tags, or body
+
+Three distinct surfaces carry post content. Each answers a different question; use each only when it actually has something to say.
+
+- **`alt:`** — *What does the image show?* Always required. Describes what a sighted viewer would see, including embedded text and visible artist signatures. Never repeats the title or invents context not in the image. See `docs/superpowers/specs/2026-05-17-alt-text-editorial-design.md` for the editorial criteria.
+- **`tags:`** (plus `artists:`, `cities:`, etc.) — *What categories does this post belong to?* Use when the info groups multiple posts in the archive: a recurring theme, a named artist, a place worth filtering by. Reusable, lowercase, plural where natural.
+- **Body text** (markdown after the front matter `---` closer) — *What couldn't the camera tell you?* Optional. One short sentence, occasionally two. Use only when there is a specific, unrepeated thing worth saying: provenance ("from the Chatsworth Burning Man exhibition"), attribution not on the wall ("by Banksy"), cultural reference ("a tribute to Basquiat"), how the photo came to be taken, backstory, or what happened after.
+
+**Body-text rules:**
+- Don't repeat alt text. The artwork is already described.
+- Don't editorialise. No "stunning", "beautiful", "powerful". Show, don't praise.
+- If the information is a reusable category, prefer a tag. "Banksy" goes in `artists:`, not body prose.
+- Empty is fine. Most posts will have no body.
+
+The decision heuristic: *"if I'd say this to a friend standing next to me looking at the photo, it goes in the body. If it's a category they could later ask me to filter by, it's a tag."*
+
 ## Accessibility & web standards
 
 The site aims to remain a "good web citizen" — keyboard-navigable, screen-reader-friendly, valid HTML, well-behaved with crawlers. Several invariants are easy to break by accident; keep them in mind when changing design or templates.
