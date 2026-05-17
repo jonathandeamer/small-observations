@@ -44,7 +44,7 @@ The `tags` axis is a single bucket carrying four kinds of entry: **subjects** (w
 | Style descriptor | lowercase or title case to match the style's own usage | `stencil`, `sticker`, `sculpture`, `Lichtenstein-style`, `Banksy-style` |
 | Theme without a canonical name | lowercase | `climate`, `anti-war`, `housing`, `memorial`, `protest`, `music` |
 
-Pinned cases: `Beatles` not `The Beatles`; `Liverpool FC` not `LFC`; `stencil` (noun), not `stencilled`. Anything that already lives in `artists:`, `cities:`, `countries:`, or `years:` does NOT also need to be in `tags:` — those axes already exist for filtering.
+Pinned cases: `Beatles` not `The Beatles`; `Liverpool FC` not `LFC`; `stencil` (noun), not `stencilled`. Anything that already lives in `cities:`, `countries:`, or `years:` does NOT also need to be in `tags:` — those axes already exist for filtering. `artists:` and `tags:` are *semantically different* (`artists:` = who MADE the art; `tags:` includes who is DEPICTED or REFERENCED) and CAN legitimately overlap on the same post (e.g. a self-portrait, a Banksy piece featuring Banksy, a Yoko Ono piece about Yoko Ono).
 
 **Deriving tags from a new post** (or auditing an existing one): work through the alt text and body text in this order: subjects depicted → themes engaged → context references → style → apply the floor (drop) → apply naming conventions → de-duplicate against existing tags (consult `/tags/` index to keep casing/spelling stable).
 
@@ -141,7 +141,7 @@ The derivation procedure (from the spec) is applied to each post in turn. For ea
 4. **Style.** Only when the style is distinctive and named — `stencil`, `sticker`, `sculpture`, `Banksy-style`, `Lichtenstein-style`, `comic-style`. Skip pure format words.
 5. **Apply the floor.** Remove `mural`, `painted`, `graffiti`, `wall`, `face`, `hand`, `eye`, `head`, `blue`, `pink`, `circle`, `geometric`, plain `abstract`, `bright`, `large`, `huge`, `small`, `colourful`.
 6. **Apply naming conventions** per the table in `CLAUDE.md`.
-7. **De-duplicate** against `artists:`, `cities:`, `countries:`, `years:` for this same post — anything already there does not also belong in `tags:`.
+7. **De-duplicate** against `cities:`, `countries:`, `years:` for this same post — anything already in those axes does not also belong in `tags:`. **Do NOT auto-strip overlaps with `artists:`** — those two axes have different semantics (maker vs depicted/referenced) and can legitimately co-occur for the same person on the same post.
 8. **Preserve `favourite`** if the post had it. It is a hand-curated flag, not derivation output.
 
 - [ ] **Step 1: Process posts in document order, one at a time**
@@ -151,7 +151,7 @@ For each post under `content/posts/*.md` (skipping `_index.md`):
 1. Read the current file content (need the exact `tags:` line for the `Edit` call).
 2. Derive the new tag set per the procedure above, drawing from the alt text and body text already captured in `tmp/posts-content.txt`.
 3. Build the new `tags:` line as `tags: [<comma-and-space-separated entries>]` — Hugo's standard YAML flow-style array; matches the existing convention.
-4. **Merge with existing tags rather than wholesale replacing.** Many existing tags encode context that the alt text alone cannot — local-knowledge place tags like `Parkland Walk` (18 posts), `Baltic Triangle`, `Barbican`; event/time tags like `Halloween`, `Liverpool Biennial`; and the hand-curated `favourite` flag. Preserve any existing tag that (a) does not violate the generic floor and (b) already matches the naming conventions or can be normalised to them (e.g. `Chinatown` not `China town`). The final set = (cleaned existing) ∪ (newly derived). If an existing tag both violates the floor AND duplicates an `artists:` / `cities:` / `countries:` / `years:` entry, drop it.
+4. **Merge with existing tags rather than wholesale replacing.** Many existing tags encode context that the alt text alone cannot — local-knowledge place tags like `Parkland Walk` (18 posts), `Baltic Triangle`, `Barbican`; event/time tags like `Halloween`, `Liverpool Biennial`; and the hand-curated `favourite` flag. Preserve any existing tag that (a) does not violate the generic floor and (b) already matches the naming conventions or can be normalised to them (e.g. `Chinatown` not `China town`). The final set = (cleaned existing) ∪ (newly derived). Drop only: floor violators, and exact duplicates of this post's `cities:` / `countries:` / `years:` values.
 5. `Edit` the file: `old_string` = the entire current `tags:` line, `new_string` = the new `tags:` line. If the post currently has `tags: []`, the `old_string` is `tags: []` and the `new_string` is the populated list.
 6. Verify the file still has exactly one `tags:` line.
 
@@ -265,25 +265,25 @@ awk '{print tolower($2)}' tmp/new-tags.txt | sort | uniq -d
 
 Expected: no output. If anything appears, fix the variant in the affected post(s) and re-run.
 
-- [ ] **Step 4: No tag duplicates an artist on the same post**
+- [ ] **Step 4: No tag duplicates the post's own city, country, or year**
 
-Run:
+Artists-vs-tags overlap is allowed (different semantics — maker vs depicted/referenced). The mechanical axes (`cities`, `countries`, `years`) should not be duplicated in `tags`. Run:
 
 ```bash
 clash=0
 for f in content/posts/*.md; do
   [ "$(basename "$f")" = "_index.md" ] && continue
-  artists=$(awk -F'[][]' '/^artists:/{print $2}' "$f" | tr ',' '\n' | sed 's/^ *//;s/ *$//' | grep -v '^$')
+  mech=$(awk -F'[][]' '/^(cities|countries|years):/{print $2}' "$f" | tr ',' '\n' | sed 's/^ *//;s/ *$//' | grep -v '^$')
   tags=$(awk -F'[][]' '/^tags:/{print $2}' "$f" | tr ',' '\n' | sed 's/^ *//;s/ *$//' | grep -v '^$')
-  while IFS= read -r a; do
-    [ -z "$a" ] && continue
-    echo "$tags" | grep -qFx "$a" && { echo "CLASH in $f: $a"; clash=$((clash+1)); }
-  done <<< "$artists"
+  while IFS= read -r v; do
+    [ -z "$v" ] && continue
+    echo "$tags" | grep -qFx "$v" && { echo "CLASH in $f: $v"; clash=$((clash+1)); }
+  done <<< "$mech"
 done
 echo "clash=$clash"
 ```
 
-Expected: `clash=0`.
+Expected: `clash=0`. (If any clash appears, the offending tag should be removed from `tags:` since the city/country/year axis already filters it.)
 
 - [ ] **Step 5: `make build` succeeds and `make check` passes**
 
