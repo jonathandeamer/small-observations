@@ -113,7 +113,7 @@ The `tags` axis is a single bucket carrying four kinds of entry: **subjects** (w
 
 **Singletons are fine.** The bar is "plausible future category" — if it could imaginably recur, tag it. Expect the long-term set to sit at 150–250 tags with a long tail of singletons.
 
-**Multi-level tagging.** When a post supports both a generic and a more specific term, tag both. Mural with a warbler → `bird`, `warbler`. Mural depicting the Beatles together → `Beatles`, `John Lennon`, `Paul McCartney`, `George Harrison`, `Ringo Starr`. Footballer in a Liverpool kit → `football`, `footballer`, `Liverpool FC`, `<player name>`.
+**Multi-level tagging.** When a post supports both a broad browse group and a more specific term, tag both. Mural with a warbler → `birds`, `warbler`. Mural depicting the Beatles together → `Beatles`, `John Lennon`, `Paul McCartney`, `George Harrison`, `Ringo Starr`. Footballer in a Liverpool kit → `sports`, `football`, `Liverpool FC`, `<player name>`.
 
 **Generic floor — do not tag:** pure format (`mural`, `painted`, `graffiti`, `wall`, `street art`); generic body parts (`face`, `hand`, `eye`, `head`); generic colours and shapes (`blue`, `pink`, `circle`, `geometric`, plain `abstract`); loose adjectives (`bright`, `large`, `huge`, `small`, `colourful`).
 
@@ -121,13 +121,16 @@ The `tags` axis is a single bucket carrying four kinds of entry: **subjects** (w
 
 | Tag kind | Convention | Examples |
 |---|---|---|
-| Common-noun subject | lowercase, singular | `bird`, `flamingo`, `skeleton`, `footballer`, `vampire` |
+| Broad browse-group subject | lowercase, plural where natural | `animals`, `birds`, `books`, `flowers`, `sports` |
+| Specific depicted subject | lowercase, singular unless normally plural | `hare`, `flamingo`, `skull`, `tree`, `taco` |
 | Proper noun (person, team, place, event) | title case, as the world spells it | `John Lennon`, `Liverpool FC`, `Burning Man`, `Chinatown`, `Halloween`, `Barbican` |
 | Movement or slogan | verbatim casing | `Black Lives Matter`, `Marriage Equality`, `Slava Ukraini`, `Abolish ICE` |
 | Style descriptor | lowercase or title case to match the style's own usage | `stencil`, `sticker`, `sculpture`, `Lichtenstein-style`, `Banksy-style` |
 | Theme without a canonical name | lowercase | `climate`, `anti-war`, `housing`, `memorial`, `protest`, `music` |
 
 Pinned cases: `Beatles` not `The Beatles`; `Liverpool FC` not `LFC`; `stencil` (noun), not `stencilled`. Anything that already lives in `cities:`, `countries:`, or `years:` does NOT also need to be in `tags:` — those axes already exist for filtering. `artists:` and `tags:` are *semantically different* (`artists:` = who MADE the art; `tags:` includes who is DEPICTED or REFERENCED) and CAN legitimately overlap on the same post.
+
+**Singleton usefulness.** A one-off tag is worth keeping when it improves search, explains why the post matters, is likely to recur later, or sits under a useful broad group. Remove one-off tags that are too generic, incidental, already covered by alt/body text, or unlikely to help navigation.
 
 **Deriving tags from a new post** (or auditing an existing one): work through the alt text and body text in this order: subjects depicted → themes engaged → context references → style → apply the floor (drop) → apply naming conventions → de-duplicate against city/country/year (NOT artists) → de-duplicate against existing tags (consult `/tags/` index to keep casing/spelling stable).
 
