@@ -8,7 +8,7 @@ alt: "A black-and-white bird holding a scroll that reads \"Today we are slaves o
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Parkland Walk, bird, animal]
+tags: [Parkland Walk, bird, animal, protest]
 years: [2017]
 weight: 0
 exif:

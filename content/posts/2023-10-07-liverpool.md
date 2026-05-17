@@ -8,7 +8,7 @@ alt: "A dome-headed stylised figure with \"Paddy Wagon / UFC\" on its chest, pai
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: [Nathan Bowen]
-tags: [favourite, Paddy Pimblett, MMA, UFC, sport]
+tags: [favourite, Paddy Pimblett, UFC, sport]
 years: [2023]
 weight: 0
 exif:

@@ -8,7 +8,7 @@ alt: "A large golden Sankofu bird among flame-like red and pink patterns, painte
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [bird, sankofa, animal]
+tags: [bird, animal]
 years: [2023]
 weight: 0
 exif:

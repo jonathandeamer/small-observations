@@ -8,7 +8,7 @@ alt: "A Banksy-style stencil of two police officers searching a Basquiat-style c
 countries: [United Kingdom]
 cities: [London]
 artists: [Banksy]
-tags: [Basquiat, Keith Haring, Barbican, stencil, Banksy-style]
+tags: [Basquiat, Keith Haring, Barbican, stencil]
 years: [2026]
 weight: 0
 exif:

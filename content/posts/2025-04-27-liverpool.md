@@ -8,7 +8,7 @@ alt: "Robbie Fowler in a red Liverpool kit, painted in red-and-white stained-gla
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [football, footballer, Liverpool FC, Robbie Fowler, sport]
+tags: [football, Liverpool FC, Robbie Fowler, sport]
 years: [2025]
 weight: 0
 exif:

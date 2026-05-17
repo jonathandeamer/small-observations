@@ -8,7 +8,7 @@ alt: "A huge black-and-white portrait of Ringo Starr, surrounded by colourful Ye
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [favourite, Beatles, Ringo Starr, John Lennon, Paul McCartney, George Harrison, music, Yellow Submarine]
+tags: [favourite, Beatles, Ringo Starr]
 years: [2024]
 weight: 7
 exif:

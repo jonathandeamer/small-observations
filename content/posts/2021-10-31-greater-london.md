@@ -8,7 +8,7 @@ alt: "A woodland installation with a black one-ton weight, red paint, mannequin 
 countries: [United Kingdom]
 cities: [London]
 artists: [Horace]
-tags: [Halloween, Parkland Walk, sculpture, installation]
+tags: [Halloween, Parkland Walk, sculpture]
 years: [2021]
 weight: 0
 exif:
