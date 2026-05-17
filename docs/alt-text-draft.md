@@ -39,7 +39,7 @@ Draft alt text for the image files in `assets/img`, based on one-image-at-a-time
 - `assets/img/2021/12/2021-12-15-greater-london.jpg`: A worried-looking stylised taco with green filling and red sauce, painted on a white wall and photographed at night; signed "@zal.dee".
 - `assets/img/2022/01/2022-01-16-greater-london.jpg`: A colourful rooster with a large speech bubble reading "Wake up!" painted on a pink hoarding panel beside a dark underpass; signed "Horace".
 - `assets/img/2022/01/2022-01-28-greater-london.jpg`: A pink round-headed stylised figure in a top hat beside the words "Jolly good show!" painted on a white brick wall; signed "@zal.188".
-- `assets/img/2022/02/2022-02-02-greater-london.jpg`: A portrait of Valerie Brown painted on a green utility box, with small Valerie Brown campaign signs hanging above it.
+- `assets/img/2022/02/2022-02-02-greater-london.jpg`: A painted portrait of a young woman with long blonde hair against a green background of bokeh-like circles, on a green doorway beneath a bridge; small "Valerie Brown for Mayor" campaign signs hang from the structure above.
 - `assets/img/2022/02/2022-02-25-greater-london.jpg`: Two footballers in Santa hats with "Saka 7" and "Smith Rowe 10" on their shirts, painted on a white wall.
 - `assets/img/2022/03/2022-03-15-greater-london.jpg`: The words "Grit and determination." stencilled on a yellow grit bin beside a brick wall.
 - `assets/img/2022/04/2022-04-02-greater-london.jpg`: A black-and-white billboard-style artwork reading "Imagine peace" and "love, yoko 2022", with a cyclist passing by.
