@@ -32,12 +32,12 @@ check: build  ## build then sanity-check the rendered site
 	@echo
 	@if command -v pa11y >/dev/null 2>&1; then \
 		echo "→ pa11y (accessibility audit on homepage):"; \
-		pa11y "file://$(PWD)/public/index.html" 2>&1 | tail -20; \
+		pa11y --config pa11y.json "file://$(PWD)/public/index.html"; \
 		echo; \
 		POST=$$(find public/[0-9]* -name index.html | head -1); \
 		if [ -n "$$POST" ]; then \
 			echo "→ pa11y (accessibility audit on post page):"; \
-			pa11y "file://$(PWD)/$$POST" 2>&1 | tail -20; \
+			pa11y --config pa11y.json "file://$(PWD)/$$POST"; \
 		fi; \
 	else \
 		echo "→ pa11y not installed (skipping accessibility check)"; \
