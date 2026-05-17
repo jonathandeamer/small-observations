@@ -8,7 +8,7 @@ alt: "A large rust-coloured metal sculpture of a human head sitting on grass, wi
 countries: [United Kingdom]
 cities: [Derbyshire Dales]
 artists: []
-tags: [favourite]
+tags: [favourite, sculpture, Burning Man, Chatsworth]
 years: [2022]
 weight: 0
 exif:

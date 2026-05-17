@@ -8,7 +8,7 @@ alt: "A pale vampire-like figure biting a woman's neck, with Icelandic text read
 countries: [Iceland]
 cities: [Reykjavik]
 artists: []
-tags: []
+tags: [vampire]
 years: [2025]
 weight: 0
 exif:

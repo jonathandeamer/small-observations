@@ -8,7 +8,7 @@ alt: "Two salmon nigiri sushi pieces held by black chopsticks, painted on a whit
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [sushi]
 years: [2021]
 weight: 0
 exif:

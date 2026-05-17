@@ -8,7 +8,7 @@ alt: "Portraits of the four Beatles — Ringo Starr, John Lennon, Paul McCartney
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [favourite,Beatles, Ringo Starr, John Lennon,Baltic Triangle]
+tags: [favourite, Beatles, Ringo Starr, John Lennon, Paul McCartney, George Harrison, Baltic Triangle, music]
 years: [2023]
 weight: 0
 exif:

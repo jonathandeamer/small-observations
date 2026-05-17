@@ -8,7 +8,7 @@ alt: "A large Charlie Chaplin figure holding a cane, alongside Felix the Cat and
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [Charlie Chaplin, Felix the Cat, comic-style]
 years: [2017]
 weight: 0
 exif:

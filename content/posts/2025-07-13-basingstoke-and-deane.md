@@ -8,7 +8,7 @@ alt: "A hare, a robin, a blue tit in flight, echinacea flowers, and a peacock bu
 countries: [United Kingdom]
 cities: [Basingstoke]
 artists: []
-tags: [bird]
+tags: [bird, robin, blue tit, hare, butterfly]
 years: [2025]
 weight: 0
 exif:

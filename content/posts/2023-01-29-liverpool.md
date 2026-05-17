@@ -8,7 +8,7 @@ alt: "A purple vampire holding a lit candle in front of a full moon, painted on 
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [favourite]
+tags: [favourite, vampire]
 years: [2023]
 weight: 0
 exif:

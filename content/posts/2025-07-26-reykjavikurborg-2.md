@@ -8,7 +8,7 @@ alt: "A grey falcon head surrounded by flowing grey, white, and yellow line patt
 countries: [Iceland]
 cities: [Reykjavik]
 artists: []
-tags: [favourite, bird]
+tags: [favourite, bird, falcon]
 years: [2025]
 weight: 2
 exif:

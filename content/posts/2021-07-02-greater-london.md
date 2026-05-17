@@ -8,7 +8,7 @@ alt: "A colourful abstract bird with \"NHS\" lettering beside it, painted on a w
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [bird, NHS]
 years: [2021]
 weight: 0
 exif:

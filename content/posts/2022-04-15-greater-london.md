@@ -8,7 +8,7 @@ alt: "Two pink flamingo heads painted on a freestanding street box outside a bri
 countries: [United Kingdom]
 cities: [London]
 artists: [Frankie Strand]
-tags: []
+tags: [bird, flamingo]
 years: [2022]
 weight: 0
 exif:

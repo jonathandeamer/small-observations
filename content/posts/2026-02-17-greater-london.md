@@ -8,7 +8,7 @@ alt: "A green frog sitting on a skull, surrounded by pink mushrooms and a red la
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [frog, skull, mushroom]
 years: [2026]
 weight: 0
 exif:

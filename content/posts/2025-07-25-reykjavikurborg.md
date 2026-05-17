@@ -8,7 +8,7 @@ alt: "A large watermelon slice with green vines growing from it and red puddles 
 countries: [Iceland]
 cities: [Reykjavik]
 artists: []
-tags: []
+tags: [watermelon, fruit]
 years: [2025]
 weight: 0
 exif:

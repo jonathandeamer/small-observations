@@ -8,7 +8,7 @@ alt: "A white stencil portrait of Chuck Berry playing guitar, beside text readin
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Chuck Berry, music]
+tags: [Chuck Berry, music, stencil]
 years: [2017]
 weight: 0
 exif:

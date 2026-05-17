@@ -8,7 +8,7 @@ alt: "Large sharks — one made of consumer waste, another shaped like a missile
 countries: [Spain]
 cities: [Barcelona]
 artists: []
-tags: [fish]
+tags: [fish, shark, climate, anti-war]
 years: [2024]
 weight: 0
 exif:

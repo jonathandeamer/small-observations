@@ -8,7 +8,7 @@ alt: "A small stencil of a figure in an orange high-visibility vest reading \"FU
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [stencil, anti-war]
 years: [2017]
 weight: 0
 exif:

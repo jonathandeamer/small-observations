@@ -8,7 +8,7 @@ alt: "A stylised taco with green filling and red sauce, painted on a white wall 
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Parkland Walk]
+tags: [Parkland Walk, taco, food]
 years: [2021]
 weight: 0
 exif:

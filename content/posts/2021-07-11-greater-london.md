@@ -8,7 +8,7 @@ alt: "Rainbow stripes and the words \"All that we've got is this pale blue dot.\
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [climate, Carl Sagan]
 years: [2021]
 weight: 0
 exif:

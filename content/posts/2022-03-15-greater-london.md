@@ -8,7 +8,7 @@ alt: "The words \"Grit and determination.\" stencilled on a yellow grit bin besi
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [stencil]
 years: [2022]
 weight: 0
 exif:

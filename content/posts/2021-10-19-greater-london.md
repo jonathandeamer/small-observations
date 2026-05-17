@@ -8,7 +8,7 @@ alt: "A tamago sushi piece with a yellow top and a simple stylised face, painted
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Parkland Walk]
+tags: [Parkland Walk, sushi]
 years: [2021]
 weight: 0
 exif:

@@ -8,7 +8,7 @@ alt: "A recreation of Zap Comix No. 7 — a futuristic armoured figure under pin
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [Clarion Alley Mural Project]
+tags: [Clarion Alley Mural Project, Zap Comix, comic-style]
 years: [2018]
 weight: 0
 exif:

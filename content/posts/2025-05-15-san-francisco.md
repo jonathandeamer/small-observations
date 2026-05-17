@@ -8,7 +8,7 @@ alt: "A comic-style mural titled \"Narcania vs Death\", with a winged superhero 
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: []
+tags: [comic-style, Clarion Alley Mural Project]
 years: [2025]
 weight: 0
 exif:

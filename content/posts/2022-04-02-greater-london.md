@@ -8,7 +8,7 @@ alt: "A black-and-white billboard-style artwork reading \"Imagine peace\" and \"
 countries: [United Kingdom]
 cities: [London]
 artists: [Yoko Ono]
-tags: [John Lennon]
+tags: [John Lennon, anti-war, music]
 years: [2022]
 weight: 0
 exif:
