@@ -2,111 +2,111 @@
 
 Draft alt text for the image files in `assets/img`, based on one-image-at-a-time visual review. Filename/path context such as date and location may inform wording, but the visible image is the primary source.
 - `assets/img/2005/09/2005-09-02.jpg`: A blue stencil portrait of Kurt Cobain on a white wall covered in graffiti, including the name "Lucila", dates, and surrounding tags.
-- `assets/img/2010/06/2010-06-03-brighton.jpg`: A tall James Brown mural on the side of a building, with large red lettering, portraits, comic-style figures, and speech bubbles.
+- `assets/img/2010/06/2010-06-03-brighton.jpg`: A tall James Brown mural on the side of a building, with large red "JAMES BROWN" lettering, portraits, comic-style figures, and a speech bubble reading "This's because he's the Godfather."
 - `assets/img/2015/10/2015-10-12-greater-london.jpg`: The words "War is over! If you want it." stencilled on a plain white street cabinet against a brick wall.
-- `assets/img/2016/04/2016-04-15-dublin.jpg`: A pub window painted with a cartoon voter posting a "YES" ballot, beside a second window reading "YES".
+- `assets/img/2016/04/2016-04-15-dublin.jpg`: A pub window painted with a comic-style figure posting a "YES" ballot into a box against a background of repeated "YES" text and the words "MARRIAGE EQUALITY", beside a second window reading "YES"; signed "Niall O'Lochlainn".
 - `assets/img/2016/05/2016-05-04-berlin.jpg`: A weary ape with a speech bubble reading "Destroy all smartphones", painted on a red wall beside part of a large yellow shape; signed "MTO + OTAK".
-- `assets/img/2016/08/2016-08-30-greater-london.jpg`: The words "freedom, books, flowers and the moon" painted on a pale blue street box decorated with flowers and leaves.
+- `assets/img/2016/08/2016-08-30-greater-london.jpg`: The words "With FREEDOM, BOOKS, FLOWERS and the MOON, who could not be HAPPY? - Wilde" painted on a pale blue painted wooden box decorated with flowers.
 - `assets/img/2016/09/2016-09-14-new-york.jpg`: A stylised woman in a pink cap and a grey squirrel beside the word "BROOKLYN", painted with colourful graffiti on a wall beside a shuttered doorway.
-- `assets/img/2016/11/2016-11-05-greater-london-2.jpg`: A stylised blonde face with wide eyes and an open pink mouth, painted on a graffiti-covered wall.
+- `assets/img/2016/11/2016-11-05-greater-london-2.jpg`: A Lichtenstein-style blonde face with wide eyes and an open pink mouth, framed in a square panel on a graffiti-covered wall.
 - `assets/img/2016/11/2016-11-05-greater-london.jpg`: A row of monochrome stylised faces painted on a blue brick wall beneath a bridge, surrounded by graffiti.
 - `assets/img/2016/11/2016-11-19-greater-london.jpg`: Large white text reading "Pick dem days dat made me who I am I wouldn't change a fing." painted on a brick wall.
 - `assets/img/2017/04/2017-04-22-greater-london.jpg`: A black-and-white bird holding a scroll that reads "Today we are slaves" and "Ridiculous Kings", painted on a red brick wall.
-- `assets/img/2017/06/2017-06-26-greater-london.jpg`: A large Charlie Chaplin figure holding a cane, alongside other silent-film-style figures, painted on a red brick wall.
+- `assets/img/2017/06/2017-06-26-greater-london.jpg`: A large Charlie Chaplin figure holding a cane, alongside Felix the Cat and other silent-era comic figures, painted on a red brick wall.
 - `assets/img/2017/08/2017-08-04-greater-london.jpg`: A white stencil portrait of Chuck Berry playing guitar, beside text reading "CHUCK / THE FOUNDING FATHER OF ROCK N ROLL" and the hashtag "#ROCKNROLLLIVESON", on a black storefront.
 - `assets/img/2017/08/2017-08-06-greater-london.jpg`: Stencilled characters standing on a painted balcony against a rough black-and-tan dark wall.
-- `assets/img/2017/09/2017-09-20-greater-london.jpg`: A small stencil of a figure in an orange high-visibility vest on a dark brick wall, beside a red metal window grille.
+- `assets/img/2017/09/2017-09-20-greater-london.jpg`: A small stencil of a figure in an orange high-visibility vest reading "FUTURE", with a partial EU flag above, on a dark brick wall beside a red metal window grille.
 - `assets/img/2018/11/2018-11-24-san-francisco-2.jpg`: A crowd holding a red banner reading "House keys not handcuffs / Llaves de casa, no esposas", painted as a protest mural.
-- `assets/img/2018/11/2018-11-24-san-francisco-3.jpg`: A futuristic masked figure under pink clouds, painted in bright-blue "Zap" comic style.
-- `assets/img/2018/11/2018-11-24-san-francisco-4.jpg`: Silhouetted people holding signs reading "Abolish I.C.E." and "Black Lives Matter", painted as a black-and-white protest mural.
+- `assets/img/2018/11/2018-11-24-san-francisco-3.jpg`: A recreation of Zap Comix No. 7 — a futuristic armoured figure under pink clouds with the title "ZAP" and the text "Adults Only" and "Number 7", signed "Spain" and "Dude / Maurides".
+- `assets/img/2018/11/2018-11-24-san-francisco-4.jpg`: Silhouetted people holding protest signs including "Abolish ICE", "Black Lives Matter", "Families Belong Together", "Abortion is Freedom", and "No One is Illegal", painted as a black-and-white mural.
 - `assets/img/2018/11/2018-11-24-san-francisco.jpg`: A blue stylised figure in a yellow "Hella Resist" shirt, painted on a corner beside a Clarion street sign.
 - `assets/img/2019/07/2019-07-09-bucuresti.jpg`: A simple blue figure saying "I'm tired of people, tangerines are better." painted on a red lower wall beneath barred windows.
-- `assets/img/2020/07/2020-07-28-gwynedd.jpg`: A painted red dragon panel partly covering a Welsh welcome sign for Penrhyndeudraeth, in long grass.
-- `assets/img/2020/11/2020-11-20-greater-london.jpg`: A woman's face and hand surrounded by autumn leaves, trees, and graffiti, painted in blue under a bridge.
+- `assets/img/2020/07/2020-07-28-gwynedd.jpg`: A painted red dragon fighting a blue spiky coronavirus-like creature, on a freestanding panel in front of the Welsh bilingual welcome sign for Penrhyndeudraeth, in long grass.
+- `assets/img/2020/11/2020-11-20-greater-london.jpg`: A large realistic woman's face and raised finger against a blue background, painted under a bridge beside surrounding graffiti.
 - `assets/img/2020/11/2020-11-28-greater-london.jpg`: Two overlapping faces inside a large circle — one natural-toned, one blue and geometric — painted on a building wall.
-- `assets/img/2021/06/2021-06-26-greater-london.jpg`: A face with green lips holding a red pencil between its teeth, painted on a brick archway and partly covered by ivy.
+- `assets/img/2021/06/2021-06-26-greater-london.jpg`: A face with green lips holding a red pencil between its teeth, painted on a brick archway and partly covered by ivy; signed "Gee One".
 - `assets/img/2021/06/2021-06-28-greater-london.jpg`: Two pink flamingos painted across the curved brick face of a round ventilation structure, beneath black louvered vents.
-- `assets/img/2021/07/2021-07-02-greater-london.jpg`: A colourful abstract bird with "NHS" lettering beside it, painted on a white wall.
-- `assets/img/2021/07/2021-07-11-greater-london.jpg`: Rainbow stripes and the words "All that we've got is this pale blue dot." painted on a blue canal-side brick structure.
+- `assets/img/2021/07/2021-07-02-greater-london.jpg`: A colourful abstract bird with "NHS" lettering beside it, painted on a white wall; signed "Safedale" and "Camino C+C".
+- `assets/img/2021/07/2021-07-11-greater-london.jpg`: Rainbow stripes and the words "All that we've got is this pale blue dot." painted on a blue canal-side utility box.
 - `assets/img/2021/07/2021-07-23-greater-london.jpg`: Stacked, brightly coloured square frames painted on a dark wall beside an old entrance archway.
-- `assets/img/2021/08/2021-08-20-greater-london.jpg`: A large pink flower with ribbon-like teal petals that carry writing, on a brick wall covered in surrounding graffiti.
-- `assets/img/2021/10/2021-10-19-greater-london.jpg`: Two smiling sushi pieces with yellow tops and simple stylised faces, painted on a white brick wall.
+- `assets/img/2021/08/2021-08-20-greater-london.jpg`: A large pink bird with teal ribbon-like feathers carrying the words "Black Lives Matter" and "Justice", on a brick wall covered in surrounding graffiti.
+- `assets/img/2021/10/2021-10-19-greater-london.jpg`: A smiling tamago sushi piece with a yellow top and a simple stylised face, painted on a white brick wall; signed "@zal.188".
 - `assets/img/2021/10/2021-10-31-greater-london.jpg`: A woodland installation with a black one-ton weight, red paint, mannequin body parts, and spray cans on the ground.
-- `assets/img/2021/11/2021-11-10-greater-london-2.jpg`: Two salmon sushi pieces held by black chopsticks, painted on a white wall and photographed at night.
-- `assets/img/2021/11/2021-11-10-greater-london.jpg`: A woman resting her face on her hand, painted on a pink panel in a graffiti-covered underpass.
-- `assets/img/2021/12/2021-12-05-greater-london.jpg`: A reclining baby with surrounding hands, flowers, and pink accent arcs, painted in black and white as a long roadside mural.
-- `assets/img/2021/12/2021-12-12-greater-london.jpg`: A plump pink stylised bird painted on a red brick pillar over white graffiti.
-- `assets/img/2021/12/2021-12-15-greater-london.jpg`: A smiling stylised taco with green filling and red sauce, painted on a white wall and photographed at night.
-- `assets/img/2022/01/2022-01-16-greater-london.jpg`: A colourful rooster with a large speech bubble reading "Wake up!" painted on a pink wall panel beside a dark underpass.
-- `assets/img/2022/01/2022-01-28-greater-london.jpg`: A pink round-headed stylised figure beside the words "Jolly good show!" painted on a white brick wall.
+- `assets/img/2021/11/2021-11-10-greater-london-2.jpg`: Two salmon nigiri sushi pieces held by black chopsticks, painted on a white wall and photographed at night; signed "@zal.dee".
+- `assets/img/2021/11/2021-11-10-greater-london.jpg`: A woman resting her face on her hand, painted on a pink utility cabinet in a graffiti-covered underpass; signed "@dmtart".
+- `assets/img/2021/12/2021-12-05-greater-london.jpg`: A baby looking upward, surrounded by hands, flowers, and pink accent arcs, painted in black and white as a long roadside mural; signed "@abraham.or".
+- `assets/img/2021/12/2021-12-12-greater-london.jpg`: A plump pink stylised pigeon painted on a red brick pillar over white graffiti.
+- `assets/img/2021/12/2021-12-15-greater-london.jpg`: A worried-looking stylised taco with green filling and red sauce, painted on a white wall and photographed at night; signed "@zal.dee".
+- `assets/img/2022/01/2022-01-16-greater-london.jpg`: A colourful rooster with a large speech bubble reading "Wake up!" painted on a pink hoarding panel beside a dark underpass; signed "Horace".
+- `assets/img/2022/01/2022-01-28-greater-london.jpg`: A pink round-headed stylised figure in a top hat beside the words "Jolly good show!" painted on a white brick wall; signed "@zal.188".
 - `assets/img/2022/02/2022-02-02-greater-london.jpg`: A portrait of Valerie Brown painted on a green utility box, with small Valerie Brown campaign signs hanging above it.
 - `assets/img/2022/02/2022-02-25-greater-london.jpg`: Two footballers in Santa hats with "Saka 7" and "Smith Rowe 10" on their shirts, painted on a white wall.
 - `assets/img/2022/03/2022-03-15-greater-london.jpg`: The words "Grit and determination." stencilled on a yellow grit bin beside a brick wall.
 - `assets/img/2022/04/2022-04-02-greater-london.jpg`: A black-and-white billboard-style artwork reading "Imagine peace" and "love, yoko 2022", with a cyclist passing by.
-- `assets/img/2022/04/2022-04-05-greater-london.jpg`: A small circular pavement painting of a tree, birds, and a sun, with words including "free" and "oak".
+- `assets/img/2022/04/2022-04-05-greater-london.jpg`: A small circular mosaic-style painting of an oak tree and bird on a stone wall, with the words "Oak Tree" around the border.
 - `assets/img/2022/04/2022-04-07-greater-london.jpg`: A large pink flamingo painted on a graffiti-covered bridge support, beside a path running under the bridge.
 - `assets/img/2022/04/2022-04-15-greater-london.jpg`: Two pink flamingo heads painted on a freestanding street box outside a brick building.
 - `assets/img/2022/04/2022-04-21-greater-london.jpg`: A tall stylised figure with long arms against blue, pink, and orange shapes, painted on a colourful brick wall.
-- `assets/img/2022/04/2022-04-23-greater-london.jpg`: A greyscale portrait of a woman inside a red circle, painted on a black brick structure beside a canal bridge.
-- `assets/img/2022/05/2022-05-16-greater-london.jpg`: A black-and-white crowned face beside the words "The queen is dead." painted on a street box beneath a bridge.
-- `assets/img/2022/07/2022-07-03-greater-london.jpg`: Two large white hands gripping a small black silhouette figure, painted on a pink wall.
-- `assets/img/2022/07/2022-07-22-greater-london.jpg`: A blue butterfly and the words "Love nature." at the centre of a small circular pavement painting on a rough stone ledge.
+- `assets/img/2022/04/2022-04-23-greater-london.jpg`: A greyscale portrait of a woman inside a red circle, painted on a black brick structure beside a canal bridge; signed "@blackmonument".
+- `assets/img/2022/05/2022-05-16-greater-london.jpg`: A black-and-white crowned face beside the words "The queen is dead." painted on a street box beneath a bridge; signed "Horace".
+- `assets/img/2022/07/2022-07-03-greater-london.jpg`: A large Lichtenstein-style hand making a finger-gun gesture, with Ben-Day dots, painted on a pink wall; signed "Horace".
+- `assets/img/2022/07/2022-07-22-greater-london.jpg`: A blue butterfly at the centre of a small circular painted sticker on a rough stone ledge, with text around the border including "Love nature".
 - `assets/img/2022/08/2022-08-05-greater-london.jpg`: A faceless white figure walking a grey dog, with the leash looping into a heart shape, painted on a beige wall.
 - `assets/img/2022/09/2022-09-24-derbyshire-dales.jpg`: A large rust-coloured metal sculpture of a human head sitting on grass, with a stone bridge and parkland behind it.
 - `assets/img/2022/10/2022-10-22-mountain-view.jpg`: A dense pattern of stylised fish in black outline with blue, pink, green, and yellow accents, painted across a utility box.
-- `assets/img/2022/11/2022-11-15-brighton.jpg`: Snowy owls, an Extinction Rebellion symbol, and the words "Act now." painted across a building end with a black background.
-- `assets/img/2022/11/2022-11-26-greater-london-2.jpg`: Stylised London landmarks radiating from a white circle, painted on a black wall and signed "@SAMTKRRIDGE".
-- `assets/img/2022/11/2022-11-26-greater-london.jpg`: A simple blue-and-white stylised figure in red shoes, painted on a black wall and signed "By Nathan Bowen".
+- `assets/img/2022/11/2022-11-15-brighton.jpg`: Two snowy owls, an Extinction Rebellion symbol, and the words "Act Now" alongside snowy owl population statistics, painted across a building end with a black background; signed "@spraygatz".
+- `assets/img/2022/11/2022-11-26-greater-london-2.jpg`: Stylised London landmarks radiating from a white circle, painted on a black wall and signed "@SAMTKERRIDGE".
+- `assets/img/2022/11/2022-11-26-greater-london.jpg`: A stylised dome-headed figure in blue and red with "Employ me" on its chest, painted on a black wall and signed "By Nathan Bowen".
 - `assets/img/2022/12/2022-12-15-greater-london.jpg`: A child in a green coat holding a lantern in a blue night scene, painted on a bridge arch.
-- `assets/img/2023/01/2023-01-29-liverpool.jpg`: A purple vampire holding a lit candle in front of a full moon, painted on a brick wall.
-- `assets/img/2023/02/2023-02-03-liverpool-2.jpg`: A smiling face in a red cap beside the words "We are Liverpool 2020!!" painted on a brick wall.
-- `assets/img/2023/02/2023-02-03-liverpool.jpg`: Four colourful portrait panels against a black background, painted on a brick wall.
-- `assets/img/2023/02/2023-02-18-liverpool.jpg`: A large yellow Sankofu bird among red and blue plants, painted on a utility box.
+- `assets/img/2023/01/2023-01-29-liverpool.jpg`: A purple vampire holding a lit candle in front of a full moon, painted on a brick wall; signed "@sire".
+- `assets/img/2023/02/2023-02-03-liverpool-2.jpg`: A smiling face in a red cap beside the words "We are Liverpool 2020!!" painted on a brick wall; signed "Caleb.One".
+- `assets/img/2023/02/2023-02-03-liverpool.jpg`: Portraits of the four Beatles — Ringo Starr, John Lennon, Paul McCartney, and George Harrison — in four colourful panels against a black background, painted on a brick wall.
+- `assets/img/2023/02/2023-02-18-liverpool.jpg`: A large golden Sankofa bird among flame-like red and pink patterns, painted on a utility box.
 - `assets/img/2023/03/2023-03-20-new-york.jpg`: A plastic bottle with fish inside and the words "Stop trashing our ocean now." painted as a large wall mural.
 - `assets/img/2023/05/2023-05-05-liverpool.jpg`: A realistic painted face of a man being squeezed between two hands, covering the end wall of an old brick building.
 - `assets/img/2023/09/2023-09-02-delhi.jpg`: Colourful murals of animals, symbols, and words including "justice", "fortune", "health", and "equality", covering a yellow building facade.
-- `assets/img/2023/09/2023-09-23-dublin.jpg`: Stylised birds, a rainbow, and a blue-faced figure painted as a tall narrow mural above passing pedestrians.
-- `assets/img/2023/10/2023-10-07-liverpool.jpg`: A simple stylised figure with a yellow cap and red shoes, painted on a door surrounded by graffiti.
+- `assets/img/2023/09/2023-09-23-dublin.jpg`: A cartoon sun, a pink cockerel, a rainbow, and a blue-faced figure painted as a tall narrow mural above passing pedestrians.
+- `assets/img/2023/10/2023-10-07-liverpool.jpg`: A dome-headed stylised figure with "Paddy Wagon / UFC" on its chest, painted on a metal door surrounded by graffiti; signed "By Nathan Bowen".
 - `assets/img/2024/01/2024-01-13-liverpool.jpg`: A huge black-and-white portrait of Ringo Starr, surrounded by colourful Yellow Submarine scenes with the other Beatles, painted across the end of a building.
-- `assets/img/2024/02/2024-02-25-barcelona-2.jpg`: A patterned figure riding a red bicycle, surrounded by dots, triangles, and white circular linework, painted as a geometric mural.
-- `assets/img/2024/02/2024-02-25-barcelona-3.jpg`: Two realistic painted hands reaching toward each other against a muted grey-green background.
+- `assets/img/2024/02/2024-02-25-barcelona-2.jpg`: A geometric bear riding a red bicycle, surrounded by dots, triangles, and white circular linework, painted as a geometric mural; signed "T. Morsh".
+- `assets/img/2024/02/2024-02-25-barcelona-3.jpg`: Two realistic painted hands reaching toward each other against a muted grey-green background; signed "Danielo Guerreiro x Bmurals x Nadeostik".
 - `assets/img/2024/02/2024-02-25-barcelona-4.jpg`: A black toucan painting a yellow wall, with a paint bucket and roller beneath it.
 - `assets/img/2024/02/2024-02-25-barcelona.jpg`: A hyperrealistic portrait of Pablo Picasso painted across a black corrugated door in a red brick building, signed "@GALINDOART".
-- `assets/img/2024/02/2024-02-26-barcelona.jpg`: Large sharks — one covered in money, another shaped like a missile — painted across a long yellow roadside wall.
-- `assets/img/2024/03/2024-03-01-liverpool.jpg`: Flying birds on a blue upper mural and "Slava Ukraini" painted in yellow and blue below, on a graffiti-covered building wall.
+- `assets/img/2024/02/2024-02-26-barcelona.jpg`: Large sharks — one made of consumer waste, another shaped like a missile — painted across a long yellow roadside wall with the word "Humanity" alongside.
+- `assets/img/2024/03/2024-03-01-liverpool.jpg`: Flying flamingos on a blue upper mural and "Slava Ukraini" painted in yellow and blue below, on a graffiti-covered building wall.
 - `assets/img/2024/03/2024-03-16-leeds.jpg`: Yellow, orange, red, and grey wavy shapes with concentric circles outlined in black, painted as an abstract wall mural.
 - `assets/img/2024/08/2024-08-23-liverpool.jpg`: A huge turquoise bird with white head feathers and a yellow sun behind it, painted on a red building wall.
-- `assets/img/2024/08/2024-08-26-liverpool.jpg`: A runner in blue kit above hurdle-like steps reading "Progress not perfection" and "You'll never run alone.", painted as a tall building mural.
+- `assets/img/2024/08/2024-08-26-liverpool.jpg`: A female hurdler in a blue "Powering Positivity" vest above steps reading "Believe in yourself", "Progress not perfection", and "You'll never run alone.", painted as a tall building mural; signed "Paul Curtis".
 - `assets/img/2024/09/2024-09-05-toronto-2.jpg`: A Siberian tiger with red leaves across its face and the words "There are less than 600 Siberian tigers left.", painted on a garage.
 - `assets/img/2024/09/2024-09-05-toronto-3.jpg`: Two dark bears in a colourful forest scene, with a large bear face wrapping around the corner, painted on a brick wall.
-- `assets/img/2024/09/2024-09-05-toronto-4.jpg`: An underwater scene with a turtle, a frog, rocks, bubbles, and green water plants, painted on a blue utility box.
-- `assets/img/2024/09/2024-09-05-toronto-5.jpg`: A black line-art bird head beside the words "Land back to natives is justice!" painted on a cream wall.
+- `assets/img/2024/09/2024-09-05-toronto-4.jpg`: An underwater scene with a turtle, a frog, rocks, bubbles, and green water plants, painted on a blue utility box; signed "@nixostreetart".
+- `assets/img/2024/09/2024-09-05-toronto-5.jpg`: A black line-art bird head beside the words "Land back to natives is justice!" painted on a cream wall; signed "olfolfo".
 - `assets/img/2024/09/2024-09-05-toronto.jpg`: A blue bird perched among pink blossoms and green leaves, painted on a weathered wooden fence.
-- `assets/img/2024/11/2024-11-07-arrecife-2.jpg`: A person holding a large video camera, painted on a weathered wall beside a no-parking sign.
-- `assets/img/2024/11/2024-11-07-arrecife.jpg`: A fragmented humanoid figure in black, red, white, and beige, painted as an abstract line mural on a rough cream wall.
-- `assets/img/2025/04/2025-04-27-liverpool.jpg`: A footballer in a red kit, painted in red-and-white stained-glass-style panels on a black brick wall.
-- `assets/img/2025/05/2025-05-15-san-francisco-2.jpg`: Two unicorn-headed figures touching noses above a pink heart, with rainbow rays behind them, painted on a colourful doorway.
-- `assets/img/2025/05/2025-05-15-san-francisco-3.jpg`: A memorial mural for George Floyd and Breonna Taylor with their portraits, raised hands, and Black Lives Matter signs, on an orange brick wall.
+- `assets/img/2024/11/2024-11-07-arrecife-2.jpg`: A person holding a large broadcast shoulder-mount camera, painted on a weathered wall beside a no-parking sign; signed "DDELF".
+- `assets/img/2024/11/2024-11-07-arrecife.jpg`: A Cubist-style fragmented humanoid figure in black, red, white, and beige, painted on a rough cream wall.
+- `assets/img/2025/04/2025-04-27-liverpool.jpg`: Robbie Fowler in a red Liverpool kit, painted in red-and-white stained-glass-style panels on a black brick wall.
+- `assets/img/2025/05/2025-05-15-san-francisco-2.jpg`: Two unicorn-headed figures touching noses above a pink heart, with rainbow rays behind them, painted on a colourful doorway; signed "Crystal Vielula".
+- `assets/img/2025/05/2025-05-15-san-francisco-3.jpg`: A memorial mural reading "In memory of George Floyd 1974–2020 / Breonna Taylor 1993–2020", with their portraits, raised fists, and "Black Lives Matter" and "I can't breathe" text, on an orange brick wall; signed "Heyvan Shores".
 - `assets/img/2025/05/2025-05-15-san-francisco.jpg`: A comic-style mural titled "Narcania vs Death", with a winged superhero in yellow battling a death figure across multiple panels.
-- `assets/img/2025/05/2025-05-16-san-francisco-2.jpg`: A baby in a police uniform holding a pistol, with a pink toy camera attached to the uniform, painted as a large building mural.
-- `assets/img/2025/05/2025-05-16-san-francisco-3.jpg`: A black-and-red robot rocket, winged hearts, and a sign reading "Save the humans." painted on a white utility box.
-- `assets/img/2025/05/2025-05-16-san-francisco.jpg`: A stylised dollar bill and the words "We pay for the bombs dropped on Gaza." on a small poster pasted to a pole.
+- `assets/img/2025/05/2025-05-16-san-francisco-2.jpg`: A baby in a police uniform holding a pistol, with a pink toy camera attached to the uniform, painted as a large building mural; signed "BIP".
+- `assets/img/2025/05/2025-05-16-san-francisco-3.jpg`: A black-and-white cartoon robot with winged hearts and a sign reading "Save the humans." painted on a white utility box; signed "@diggledsworth".
+- `assets/img/2025/05/2025-05-16-san-francisco.jpg`: A sticker on a pole reading "We pay for the bombs dropped on Gaza" above a stylised dollar bill marked "X Billion Dollars" and the question "Do you want to fund genocide?"
 - `assets/img/2025/05/2025-05-17-san-francisco-2.jpg`: A white cat in a red robe and blue headscarf, framed by bright circular shapes, painted on a colourful garage door.
-- `assets/img/2025/05/2025-05-17-san-francisco.jpg`: A small orange warbler perched on a dark branch, painted on a blue utility box.
-- `assets/img/2025/06/2025-06-13-liverpool.jpg`: A fine black line drawing of an ornate pagoda-style arch on a white brick wall, partly crossed by a drainpipe.
-- `assets/img/2025/07/2025-07-13-basingstoke-and-deane.jpg`: A rabbit, birds, flowers, and a butterfly painted against a turquoise garden scene as a bright wildlife mural.
+- `assets/img/2025/05/2025-05-17-san-francisco.jpg`: A yellow-green bird labelled "Orange Warbler" perched on a dark branch, painted on a blue utility box; signed "Tehiwa Bellon".
+- `assets/img/2025/06/2025-06-13-liverpool.jpg`: A fine black line drawing of an ornate Chinese paifang gate on a white brick wall, partly crossed by a drainpipe; a Liverpool Biennial and Pagoda Arts commission.
+- `assets/img/2025/07/2025-07-13-basingstoke-and-deane.jpg`: A hare, a robin, a blue tit in flight, echinacea flowers, and a peacock butterfly painted against a turquoise background as a bright wildlife mural.
 - `assets/img/2025/07/2025-07-25-reykjavikurborg.jpg`: A large watermelon slice with green vines growing from it and red puddles beneath, painted on a white wall.
 - `assets/img/2025/07/2025-07-26-reykjavikurborg-2.jpg`: A grey falcon head surrounded by flowing grey, white, and yellow line patterns, painted on a pale wall.
-- `assets/img/2025/07/2025-07-26-reykjavikurborg.jpg`: A pale vampire-like figure embracing a woman, with gothic text underneath, painted as a large mural on a grey wall.
+- `assets/img/2025/07/2025-07-26-reykjavikurborg.jpg`: A pale vampire-like figure biting a woman's neck, with Icelandic text reading "Þeim var eg verst er eg unni mest." underneath, painted as a large mural on a grey wall.
 - `assets/img/2025/08/2025-08-06-new-york.jpg`: A black silhouette of a child swinging a large brush, painted on a beige brick wall beside red fire-sprinkler signs.
-- `assets/img/2025/08/2025-08-08-new-york-2.jpg`: A giant Monopoly-style character tipping his hat beside New York landmarks and blue waves, painted as a bright mural.
-- `assets/img/2025/08/2025-08-08-new-york.jpg`: Black-and-white portraits of the Beastie Boys over a red-and-orange "Lee's Sportswear" background, painted on a storefront.
+- `assets/img/2025/08/2025-08-08-new-york-2.jpg`: Mr. Monopoly tipping his hat beside New York landmarks including the Statue of Liberty and the Chrysler Building, painted as a bright mural.
+- `assets/img/2025/08/2025-08-08-new-york.jpg`: Black-and-white portraits of the Beastie Boys over a red-and-orange "Lee's Sportswear" background, painted on a storefront; signed "@DannelMonroe" and "@LoveDoorSavers".
 - `assets/img/2025/11/2025-11-03-chicago-2.jpg`: A blue-and-white patterned deer-like animal among green vines, pink berries, and flowers, painted as a huge building mural.
-- `assets/img/2025/11/2025-11-03-chicago-3.jpg`: Portraits emerging from an open book, with purple light trails and blue birds around them, painted as a tall mural.
+- `assets/img/2025/11/2025-11-03-chicago-3.jpg`: Portraits emerging from an open book, with purple light trails and blue birds around them, painted as a tall mural; signed "DIOSA".
 - `assets/img/2025/11/2025-11-03-chicago.jpg`: A bright orange shaggy monster face with large eyes and an open toothy mouth, painted across a corner wall.
-- `assets/img/2025/11/2025-11-04-chicago-2.jpg`: Our Lady of Guadalupe at the centre of a building mural, surrounded by red roses, portraits, and children praying.
+- `assets/img/2025/11/2025-11-04-chicago-2.jpg`: Our Lady of Guadalupe at the centre of a building mural, surrounded by red roses, a crowned Christ figure, and portrait photographs.
 - `assets/img/2025/11/2025-11-04-chicago.jpg`: A blue sugar skull, white wings, and oversized white skeleton hands, painted as a mural in progress on a black wall.
 - `assets/img/2025/12/2025-12-04-greater-london.jpg`: A brown bird on a branch surrounded by bright abstract graffiti shapes, painted within a framed wall mural.
-- `assets/img/2026/01/2026-01-21-city-of-london.jpg`: A colourful geometric lighthouse-like figure holding a sign that reads "Stay positive." painted as a wall mural.
+- `assets/img/2026/01/2026-01-21-city-of-london.jpg`: A dome-headed stylised figure with "Stay positive" on its chest, surrounded by colourful geometric shapes, painted on a wall panel; signed "By Nathan Bowen".
 - `assets/img/2026/02/2026-02-17-greater-london.jpg`: A green frog sitting on a skull, surrounded by pink mushrooms and a red ladybird, painted on a dark wall.
-- `assets/img/2026/03/2026-03-12-greater-london.jpg`: Two police officers facing a red skeleton-like figure, with a small painted cat nearby, on a wall mural protected by clear panels.
+- `assets/img/2026/03/2026-03-12-greater-london.jpg`: A Banksy-style stencil of two police officers searching a Basquiat-style crown-headed figure, with a Keith Haring-style line figure to the left, on a wall protected by clear panels on Golden Lane EC2.
