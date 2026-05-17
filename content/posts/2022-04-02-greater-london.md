@@ -1,9 +1,10 @@
 ---
-title: ""
 slug: "2022-04-02-greater-london"
 date: 2022-04-02T08:27:50Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/04/2022-04-02-greater-london.jpg
+title: "Yoko Ono \"Imagine peace\" billboard, London"
+description: "Photo of a black-and-white billboard reading \"Imagine peace\" and \"love, yoko 2022\", by Yoko Ono, with a cyclist passing by in London."
 alt: "A black-and-white billboard-style artwork reading \"Imagine peace\" and \"love, yoko 2022\", with a cyclist passing by."
 countries: [United Kingdom]
 cities: [London]

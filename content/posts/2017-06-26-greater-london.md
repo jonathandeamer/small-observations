@@ -1,9 +1,10 @@
 ---
-title: ""
 slug: "2017-06-26-greater-london"
 date: 2017-06-26T14:51:39Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2017/06/2017-06-26-greater-london.jpg
+title: "Charlie Chaplin and Felix the Cat mural, London"
+description: "Photo of a large Charlie Chaplin figure with Felix the Cat and other silent-era comic figures painted on a red brick wall in London."
 alt: "A large Charlie Chaplin figure holding a cane, alongside Felix the Cat and other silent-era comic figures, painted on a red brick wall."
 countries: [United Kingdom]
 cities: [London]

@@ -1,9 +1,11 @@
 ---
-title: ""
 slug: "2026-03-12-greater-london"
 date: 2026-03-12T08:40:26Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2026/03/2026-03-12-greater-london.jpg
+title: "Banksy stencil of officers searching a Basquiat figure, London"
+description: "Photo of a Banksy-style stencil of two officers searching a Basquiat-style crowned figure on Golden Lane EC2, by Banksy, in London."
+headline: "Banksy's Basquiat tribute, Golden Lane"
 alt: "A Banksy-style stencil of two police officers searching a Basquiat-style crown-headed figure, with a Keith Haring-style line figure to the left, on a wall protected by clear panels on Golden Lane EC2."
 countries: [United Kingdom]
 cities: [London]

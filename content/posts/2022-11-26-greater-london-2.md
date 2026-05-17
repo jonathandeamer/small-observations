@@ -1,9 +1,10 @@
 ---
-title: ""
 slug: "2022-11-26-greater-london-2"
 date: 2022-11-26T12:21:59Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/11/2022-11-26-greater-london-2.jpg
+title: "London landmarks radiating from a circle, London"
+description: "Photo of stylised London landmarks radiating from a white circle painted on a black wall, signed @SAMTKERRIDGE, in London."
 alt: "Stylised London landmarks radiating from a white circle, painted on a black wall and signed \"@SAMTKERRIDGE\"."
 countries: [United Kingdom]
 cities: [London]

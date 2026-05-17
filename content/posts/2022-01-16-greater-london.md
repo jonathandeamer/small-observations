@@ -1,9 +1,10 @@
 ---
-title: ""
 slug: "2022-01-16-greater-london"
 date: 2022-01-16T11:11:55Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/01/2022-01-16-greater-london.jpg
+title: "\"Wake up!\" rooster by Horace, Parkland Walk"
+description: "Photo of a colourful rooster with a speech bubble reading \"Wake up!\" painted on a pink hoarding panel by Horace, on Parkland Walk, London."
 alt: "A colourful rooster with a large speech bubble reading \"Wake up!\" painted on a pink hoarding panel beside a dark underpass; signed \"Horace\"."
 countries: [United Kingdom]
 cities: [London]

@@ -1,9 +1,10 @@
 ---
-title: ""
 slug: "2023-01-29-liverpool"
 date: 2023-01-29T09:54:42Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2023/01/2023-01-29-liverpool.jpg
+title: "Purple vampire holding a candle, Liverpool"
+description: "Photo of a purple vampire holding a lit candle in front of a full moon, painted on a brick wall in Liverpool."
 alt: "A purple vampire holding a lit candle in front of a full moon, painted on a brick wall."
 countries: [United Kingdom]
 cities: [Liverpool]

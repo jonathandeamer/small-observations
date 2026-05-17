@@ -1,9 +1,10 @@
 ---
-title: ""
 slug: "2017-08-06-greater-london"
 date: 2017-08-06T14:43:35Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2017/08/2017-08-06-greater-london.jpg
+title: "Banksy stencil figures on a balcony, London"
+description: "Photo of stencilled characters on a painted balcony against a dark wall, by Banksy, in London."
 alt: "Stencilled characters standing on a painted balcony against a rough black-and-tan dark wall."
 countries: [United Kingdom]
 cities: [London]

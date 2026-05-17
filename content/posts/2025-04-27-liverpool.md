@@ -1,9 +1,10 @@
 ---
-title: ""
 slug: "2025-04-27-liverpool"
 date: 2025-04-27T18:12:57Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/04/2025-04-27-liverpool.jpg
+title: "Robbie Fowler stained-glass-style mural, Liverpool"
+description: "Photo of Robbie Fowler in a red Liverpool kit, painted in red-and-white stained-glass-style panels on a black brick wall in Liverpool."
 alt: "Robbie Fowler in a red Liverpool kit, painted in red-and-white stained-glass-style panels on a black brick wall."
 countries: [United Kingdom]
 cities: [Liverpool]
