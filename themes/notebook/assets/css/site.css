@@ -210,10 +210,6 @@ img { max-width: 100%; height: auto; display: block; }
 .gallery-more { grid-column: 1 / -1; margin-top: 0.4rem; text-align: right; }
 .gallery-more a { color: var(--link); font-style: italic; text-decoration: none; border-bottom: 1px solid var(--link); padding-bottom: 1px; }
 
-@media (max-width: 640px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
 /* homepage — browse menu */
 .browse { max-width: var(--measure); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
 .browse li { border-bottom: 1px solid var(--rule); }
@@ -222,3 +218,87 @@ img { max-width: 100%; height: auto; display: block; }
 .browse .num { font-size: 0.85rem; color: var(--muted); }
 .browse .label { font-variation-settings: "opsz" 36, "SOFT" 80; font-weight: 460; font-size: 1.35rem; letter-spacing: -0.01em; }
 .browse .count { color: var(--muted); font-size: 0.92rem; }
+
+@media (max-width: 760px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+  }
+
+  .browse a {
+    grid-template-columns: 2rem 1fr;
+    column-gap: 0.75rem;
+    row-gap: 0.1rem;
+  }
+
+  .browse .count {
+    grid-column: 2;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .post-meta {
+    grid-template-columns: 1fr;
+    row-gap: 0.12rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-meta .row {
+    display: grid;
+    row-gap: 0.05rem;
+  }
+
+  .post-meta .row + .row {
+    margin-top: 0.45rem;
+  }
+
+  .post-meta dt {
+    font-size: 0.78rem;
+  }
+
+  .gallery-meta {
+    gap: 0;
+  }
+
+  .gallery-place {
+    font-size: 0.84rem;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 380px) {
+  .page {
+    padding-inline: 1rem;
+  }
+
+  .masthead {
+    margin-bottom: 1.1rem;
+  }
+
+  .browse a {
+    grid-template-columns: 1.6rem 1fr;
+    gap: 0.1rem 0.6rem;
+    padding-block: 0.75rem;
+  }
+
+  .browse .label {
+    font-size: 1.2rem;
+  }
+
+  .terms a {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.05rem;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 0.45rem 0.8rem;
+  }
+}
