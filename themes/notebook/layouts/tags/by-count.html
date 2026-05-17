@@ -1,0 +1,28 @@
+{{ define "title" }}{{ .Title }} · {{ site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="list-page terms-page">
+  <header class="section-head">
+    <h2>{{ .Title }}</h2>
+    <span class="rule"></span>
+    <span class="glyph">✦</span>
+  </header>
+
+  <p class="terms-sort smallcaps">
+    <a href="{{ "/tags/" | relURL }}">view alphabetically</a>
+    <span class="terms-sort-sep">·</span>
+    <span class="terms-sort-active">by count</span>
+  </p>
+
+  <ul class="terms">
+    {{ range site.Taxonomies.tags.ByCount }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">
+          <span class="term-name">{{ .Page.Title }}</span>
+          <span class="term-count smallcaps">{{ .Count }}</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

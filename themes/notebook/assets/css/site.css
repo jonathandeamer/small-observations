@@ -197,6 +197,12 @@ img { max-width: 100%; height: auto; display: block; }
 .terms .term-name { font-size: 1.1rem; }
 .terms .term-count { color: var(--muted); font-size: 0.85rem; }
 
+.terms-sort { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0.5rem; color: var(--muted); font-size: 0.82rem; }
+.terms-sort a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+.terms-sort a:hover { color: var(--coral); border-color: var(--coral); }
+.terms-sort-active { color: var(--muted); }
+.terms-sort-sep { color: var(--coral); }
+
 .favourites-intro { color: var(--ink-soft); margin: 0 0 1rem; font-style: italic; }
 
 /* gallery grid (homepage, taxonomy, list pages) */
