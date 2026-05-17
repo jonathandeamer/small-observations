@@ -86,7 +86,7 @@ Same register as the alt-text editorial pass: describes; doesn't praise.
 |---|---|---|
 | Post `title:` | 35–60 chars | 70 |
 | Post `headline:` (when used) | 25–50 chars | 60 |
-| Post `description:` | 110–160 chars | 200 |
+| Post `description:` | 100–120 chars | 140 |
 | Term-page `description:` | 80–140 chars | 160 |
 | Index / special-page `description:` | 80–140 chars | 160 |
 
