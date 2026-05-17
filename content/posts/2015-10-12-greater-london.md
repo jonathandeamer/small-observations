@@ -8,7 +8,7 @@ alt: "The words \"War is over! If you want it.\" stencilled on a plain white str
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Yoko Ono, John Lennon, music, stencil, anti-war]
+tags: [Yoko Ono, John Lennon, music, stencil, anti-war, protest]
 years: [2015]
 weight: 0
 exif:

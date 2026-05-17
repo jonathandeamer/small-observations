@@ -8,7 +8,7 @@ alt: "A large pink bird with teal ribbon-like feathers carrying the words \"Blac
 countries: [United Kingdom]
 cities: [London]
 artists: [Frankie Strand]
-tags: [bird, Black Lives Matter]
+tags: [bird, Black Lives Matter, protest, animal]
 years: [2021]
 weight: 0
 exif:

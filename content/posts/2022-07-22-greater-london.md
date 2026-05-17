@@ -8,7 +8,7 @@ alt: "A blue butterfly at the centre of a small circular painted sticker on a ro
 countries: [United Kingdom]
 cities: [London]
 artists: [Ben Wilson]
-tags: [favourite, Parkland Walk, butterfly, sticker]
+tags: [favourite, Parkland Walk, butterfly, sticker, animal]
 years: [2022]
 weight: 0
 exif:

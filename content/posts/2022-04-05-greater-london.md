@@ -8,7 +8,7 @@ alt: "A small circular mosaic-style painting of an oak tree and bird on a stone 
 countries: [United Kingdom]
 cities: [London]
 artists: [Ben Wilson]
-tags: [Parkland Walk, bird, tree]
+tags: [Parkland Walk, bird, tree, animal]
 years: [2022]
 weight: 0
 exif:

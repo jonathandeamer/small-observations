@@ -8,7 +8,7 @@ alt: "A colourful rooster with a large speech bubble reading \"Wake up!\" painte
 countries: [United Kingdom]
 cities: [London]
 artists: [Horace]
-tags: [favourite, bird, rooster, Parkland Walk]
+tags: [favourite, bird, rooster, Parkland Walk, animal]
 years: [2022]
 weight: 0
 exif:

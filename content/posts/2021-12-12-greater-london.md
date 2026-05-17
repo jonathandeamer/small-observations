@@ -8,7 +8,7 @@ alt: "A plump pink stylised pigeon painted on a red brick pillar over white graf
 countries: [United Kingdom]
 cities: [London]
 artists: [Horace]
-tags: [Parkland Walk, bird, pigeon]
+tags: [Parkland Walk, bird, pigeon, animal]
 years: [2021]
 weight: 0
 exif:

@@ -8,7 +8,7 @@ alt: "A white cat in a red robe and blue headscarf, framed by bright circular sh
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [cat]
+tags: [cat, animal]
 years: [2025]
 weight: 0
 exif:

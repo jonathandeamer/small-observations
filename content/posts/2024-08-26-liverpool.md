@@ -8,7 +8,7 @@ alt: "A female hurdler in a blue \"Powering Positivity\" vest above steps readin
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: [Paul Curtis]
-tags: [athlete, hurdler]
+tags: [athlete, hurdler, sport]
 years: [2024]
 weight: 0
 exif:

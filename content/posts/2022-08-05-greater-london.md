@@ -8,7 +8,7 @@ alt: "A faceless white figure walking a grey dog, with the leash looping into a 
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [dog]
+tags: [dog, animal]
 years: [2022]
 weight: 0
 exif:

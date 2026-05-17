@@ -8,7 +8,7 @@ alt: "A dense pattern of stylised fish in black outline with blue, pink, green, 
 countries: [United States]
 cities: [Mountain View]
 artists: []
-tags: [fish]
+tags: [fish, animal]
 years: [2022]
 weight: 0
 exif:
