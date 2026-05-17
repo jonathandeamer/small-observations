@@ -8,7 +8,7 @@ alt: "Two unicorn-headed figures touching noses above a pink heart, with rainbow
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [unicorn, animal]
+tags: [unicorn, animals]
 years: [2025]
 weight: 0
 exif:

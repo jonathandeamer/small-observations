@@ -8,7 +8,7 @@ alt: "A huge turquoise bird with white head feathers and a yellow sun behind it,
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [favourite, bird, animal]
+tags: [favourite, birds, animals]
 years: [2024]
 weight: 5
 exif:

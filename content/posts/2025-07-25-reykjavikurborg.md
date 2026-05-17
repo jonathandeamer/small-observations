@@ -8,7 +8,7 @@ alt: "A large watermelon slice with green vines growing from it and red puddles 
 countries: [Iceland]
 cities: [Reykjavik]
 artists: []
-tags: [watermelon, fruit, Palestine, protest]
+tags: [watermelon, Palestine, protest]
 years: [2025]
 weight: 0
 exif:

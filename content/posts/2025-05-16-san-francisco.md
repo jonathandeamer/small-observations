@@ -8,7 +8,7 @@ alt: "A sticker on a pole reading \"We pay for the bombs dropped on Gaza\" above
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [sticker, anti-war, Gaza, protest]
+tags: [anti-war, Gaza, protest]
 years: [2025]
 weight: 0
 exif:

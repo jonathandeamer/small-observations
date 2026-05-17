@@ -8,7 +8,7 @@ alt: "A large pink flamingo painted on a graffiti-covered bridge support, beside
 countries: [United Kingdom]
 cities: [London]
 artists: [Frankie Strand]
-tags: [Parkland Walk, bird, flamingo, animal]
+tags: [Parkland Walk, birds, flamingo, animals]
 years: [2022]
 weight: 0
 exif:

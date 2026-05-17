@@ -8,7 +8,7 @@ alt: "Flying flamingos on a blue upper mural and \"Slava Ukraini\" painted in ye
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [Baltic Triangle, bird, flamingo, anti-war, protest, animal]
+tags: [Baltic Triangle, birds, flamingo, anti-war, protest, animals]
 years: [2024]
 weight: 0
 exif:

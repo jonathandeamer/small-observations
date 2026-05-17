@@ -8,7 +8,7 @@ alt: "Two pink flamingos painted across the curved brick face of a round ventila
 countries: [United Kingdom]
 cities: [London]
 artists: [Frankie Strand]
-tags: [favourite, bird, flamingo, animal]
+tags: [favourite, birds, flamingo, animals]
 years: [2021]
 weight: 8
 exif:

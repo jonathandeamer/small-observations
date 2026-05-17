@@ -8,7 +8,7 @@ alt: "A crowd holding a red banner reading \"House keys not handcuffs / Llaves d
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [Clarion Alley Mural Project, housing, protest]
+tags: [Clarion Alley Mural Project, protest]
 years: [2018]
 weight: 0
 exif:

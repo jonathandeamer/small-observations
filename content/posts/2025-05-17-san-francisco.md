@@ -8,7 +8,7 @@ alt: "A yellow-green bird labelled \"Orange Warbler\" perched on a dark branch, 
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [bird, animal]
+tags: [birds, animals]
 years: [2025]
 weight: 0
 exif:

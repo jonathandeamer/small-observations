@@ -8,7 +8,7 @@ alt: "A brown bird on a branch surrounded by bright abstract graffiti shapes, pa
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [bird, animal]
+tags: [birds, animals]
 years: [2025]
 weight: 0
 exif:

@@ -8,7 +8,7 @@ alt: "Two footballers in Santa hats with \"Saka 7\" and \"Smith Rowe 10\" on the
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Arsenal, football, Bukayo Saka, Emile Smith Rowe, sport]
+tags: [Arsenal, football, Bukayo Saka, Emile Smith Rowe, sports]
 years: [2022]
 weight: 0
 exif:
