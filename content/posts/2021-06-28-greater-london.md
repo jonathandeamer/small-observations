@@ -4,6 +4,7 @@ slug: "2021-06-28-greater-london"
 date: 2021-06-28T19:17:07Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/06/2021-06-28-greater-london.jpg
+alt: "Two pink flamingos painted across the curved brick face of a round ventilation structure, beneath black louvered vents."
 countries: [United Kingdom]
 cities: [London]
 artists: []

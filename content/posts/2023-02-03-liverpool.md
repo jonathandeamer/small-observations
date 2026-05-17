@@ -4,6 +4,7 @@ slug: "2023-02-03-liverpool"
 date: 2023-02-03T16:56:13Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2023/02/2023-02-03-liverpool.jpg
+alt: "Portraits of the four Beatles — Ringo Starr, John Lennon, Paul McCartney, and George Harrison — in four colourful panels against a black background, painted on a brick wall."
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []

@@ -4,6 +4,7 @@ slug: "2025-07-25-reykjavikurborg"
 date: 2025-07-25T18:27:44Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/07/2025-07-25-reykjavikurborg.jpg
+alt: "A large watermelon slice with green vines growing from it and red puddles beneath, painted on a white wall."
 countries: [Iceland]
 cities: [Reykjavik]
 artists: []

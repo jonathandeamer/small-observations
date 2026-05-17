@@ -4,6 +4,7 @@ slug: "2020-11-28-greater-london"
 date: 2020-11-28T11:48:01Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2020/11/2020-11-28-greater-london.jpg
+alt: "Two overlapping faces inside a large circle — one natural-toned, one blue and geometric — painted on a building wall."
 countries: [United Kingdom]
 cities: [London]
 artists: []

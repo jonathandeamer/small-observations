@@ -4,6 +4,7 @@ slug: "2022-04-07-greater-london"
 date: 2022-04-07T14:38:54Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/04/2022-04-07-greater-london.jpg
+alt: "A large pink flamingo painted on a graffiti-covered bridge support, beside a path running under the bridge."
 countries: [United Kingdom]
 cities: [London]
 artists: []

@@ -4,6 +4,7 @@ slug: "2025-07-26-reykjavikurborg-2"
 date: 2025-07-26T10:32:18Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/07/2025-07-26-reykjavikurborg-2.jpg
+alt: "A grey falcon head surrounded by flowing grey, white, and yellow line patterns, painted on a pale wall."
 countries: [Iceland]
 cities: [Reykjavik]
 artists: []

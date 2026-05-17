@@ -4,6 +4,7 @@ slug: "2016-11-05-greater-london-2"
 date: 2016-11-05T12:56:40Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2016/11/2016-11-05-greater-london-2.jpg
+alt: "A Lichtenstein-style blonde face with wide eyes and an open pink mouth, framed in a square panel on a graffiti-covered wall."
 countries: [United Kingdom]
 cities: [London]
 artists: []

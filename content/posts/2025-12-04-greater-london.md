@@ -4,6 +4,7 @@ slug: "2025-12-04-greater-london"
 date: 2025-12-04T08:24:43Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/12/2025-12-04-greater-london.jpg
+alt: "A brown bird on a branch surrounded by bright abstract graffiti shapes, painted within a framed wall mural."
 countries: [United Kingdom]
 cities: [London]
 artists: []

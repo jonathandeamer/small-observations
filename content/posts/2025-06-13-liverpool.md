@@ -4,6 +4,7 @@ slug: "2025-06-13-liverpool"
 date: 2025-06-13T14:11:19Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/06/2025-06-13-liverpool.jpg
+alt: "A fine black line drawing of an ornate Chinese paifang gate on a white brick wall, partly crossed by a drainpipe; a Liverpool Biennial and Pagoda Arts commission."
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
