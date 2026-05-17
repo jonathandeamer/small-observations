@@ -8,6 +8,7 @@
 
 # Scratch / throwaway work
 /tmp/
+/.worktrees/
 
 # OS / editor
 .DS_Store
