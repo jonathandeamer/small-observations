@@ -8,7 +8,7 @@ alt: "A Lichtenstein-style blonde face with wide eyes and an open pink mouth, fr
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Lichtenstein-style]
+tags: [Lichtenstein-style, comic-style]
 years: [2016]
 weight: 0
 exif:

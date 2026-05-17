@@ -8,7 +8,7 @@ alt: "A large Lichtenstein-style hand making a finger-gun gesture, with Ben-Day 
 countries: [United Kingdom]
 cities: [London]
 artists: [Horace]
-tags: [favourite, Parkland Walk, Lichtenstein-style]
+tags: [favourite, Parkland Walk, Lichtenstein-style, comic-style]
 years: [2022]
 weight: 0
 exif:
