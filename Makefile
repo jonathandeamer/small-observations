@@ -56,8 +56,9 @@ check: build  ## build then sanity-check the rendered site
 	@echo
 	@echo "→ sitemap:"
 	@test -s public/sitemap.xml \
+		&& xmllint --noout public/sitemap.xml 2>&1 \
 		&& echo "    ok ($(shell grep -c '<loc>' public/sitemap.xml) URLs)" \
-		|| echo "    MISSING — public/sitemap.xml not found"
+		|| echo "    INVALID or missing — see errors above"
 	@echo
 	@echo "→ RSS feed validity:"
 	@xmllint --noout public/feed.xml 2>&1 \

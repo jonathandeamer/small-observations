@@ -146,8 +146,12 @@ The site aims to remain a "good web citizen" — keyboard-navigable, screen-read
 
 - `pa11y` audits the homepage *and* a randomly-picked post page (WCAG 2.1 AA). Suppressions live in `pa11y.json` — decorative `.glyph` spans (the small italic flourishes in section headings) are hidden from the audit because they have no semantic label by design.
 - `htmltest` checks internal links and flags `<img>` elements with empty alt text. Currently noisy because alt text isn't written yet — that's tracked separately.
-- `xmllint` validates the RSS feed at `public/feed.xml`.
-- `vnu` (optional) runs the official W3C HTML validator on the homepage + one post. Install per the message printed when not present.
+- `xmllint` validates the sitemap at `public/sitemap.xml` and the RSS feed at `public/feed.xml`.
+- `vnu` runs the official W3C HTML validator on the homepage + one post when `~/.vnu/vnu.jar` is installed (it is installed on this machine). If missing on another machine, `make check` prints the install command and skips it.
+
+In sandboxed agent sessions, `pa11y` may fail to launch Chromium unless `make check` is rerun with normal local permissions. Treat that as a sandbox/browser-launch issue, not an accessibility failure.
+
+Lighthouse CLI is installed globally (`lighthouse 13.3.0`) for Chrome-style audits, but it is intentionally **not** wired into `make check`. Run it manually against the live production URL after CloudFront/S3 is online; local Hugo performance numbers are not representative.
 
 **Invariants in the design that compliance depends on:**
 
