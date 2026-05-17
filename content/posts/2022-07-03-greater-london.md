@@ -7,8 +7,8 @@ photo: 2022/07/2022-07-03-greater-london.jpg
 alt: "A large Lichtenstein-style hand making a finger-gun gesture, with Ben-Day dots, painted on a pink wall; signed \"Horace\"."
 countries: [United Kingdom]
 cities: [London]
-artists: []
-tags: [favourite]
+artists: [Horace]
+tags: [favourite, Parkland Walk]
 years: [2022]
 weight: 0
 exif:

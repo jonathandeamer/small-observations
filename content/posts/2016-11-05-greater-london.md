@@ -8,7 +8,7 @@ alt: "A row of monochrome stylised faces painted on a blue brick wall beneath a 
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [Parkland Walk]
 years: [2016]
 weight: 0
 exif:

@@ -7,8 +7,8 @@ photo: 2022/01/2022-01-16-greater-london.jpg
 alt: "A colourful rooster with a large speech bubble reading \"Wake up!\" painted on a pink hoarding panel beside a dark underpass; signed \"Horace\"."
 countries: [United Kingdom]
 cities: [London]
-artists: []
-tags: [favourite, bird]
+artists: [Horace]
+tags: [favourite, bird, Parkland Walk]
 years: [2022]
 weight: 0
 exif:

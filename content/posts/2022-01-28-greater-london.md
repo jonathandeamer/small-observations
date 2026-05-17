@@ -8,7 +8,7 @@ alt: "A pink round-headed stylised figure in a top hat beside the words \"Jolly 
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [Parkland Walk]
 years: [2022]
 weight: 0
 exif:

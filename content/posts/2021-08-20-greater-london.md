@@ -7,7 +7,7 @@ photo: 2021/08/2021-08-20-greater-london.jpg
 alt: "A large pink bird with teal ribbon-like feathers carrying the words \"Black Lives Matter\" and \"Justice\", on a brick wall covered in surrounding graffiti."
 countries: [United Kingdom]
 cities: [London]
-artists: []
+artists: [Frankie Strand]
 tags: []
 years: [2021]
 weight: 0

@@ -7,7 +7,7 @@ photo: 2021/06/2021-06-28-greater-london.jpg
 alt: "Two pink flamingos painted across the curved brick face of a round ventilation structure, beneath black louvered vents."
 countries: [United Kingdom]
 cities: [London]
-artists: []
+artists: [Frankie Strand]
 tags: [favourite, bird]
 years: [2021]
 weight: 8

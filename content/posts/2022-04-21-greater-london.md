@@ -8,7 +8,7 @@ alt: "A tall stylised figure with long arms against blue, pink, and orange shape
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [Parkland Walk]
 years: [2022]
 weight: 0
 exif:

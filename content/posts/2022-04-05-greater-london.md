@@ -7,8 +7,8 @@ photo: 2022/04/2022-04-05-greater-london.jpg
 alt: "A small circular mosaic-style painting of an oak tree and bird on a stone wall, with the words \"Oak Tree\" around the border."
 countries: [United Kingdom]
 cities: [London]
-artists: []
-tags: []
+artists: [Ben Wilson]
+tags: [Parkland Walk]
 years: [2022]
 weight: 0
 exif:

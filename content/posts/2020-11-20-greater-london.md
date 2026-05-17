@@ -8,7 +8,7 @@ alt: "A large realistic woman's face and raised finger against a blue background
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [Parkland Walk]
 years: [2020]
 weight: 0
 exif:

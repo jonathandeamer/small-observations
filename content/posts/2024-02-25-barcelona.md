@@ -8,7 +8,7 @@ alt: "A hyperrealistic portrait of Pablo Picasso painted across a black corrugat
 countries: [Spain]
 cities: [Barcelona]
 artists: []
-tags: [favourite]
+tags: [favourite, Picasso]
 years: [2024]
 weight: 0
 exif:

@@ -8,7 +8,7 @@ alt: "A painted portrait of a young woman with long blonde hair against a green 
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [Parkland Walk]
 years: [2022]
 weight: 0
 exif:

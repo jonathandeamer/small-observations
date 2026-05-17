@@ -4,7 +4,7 @@ slug: "2021-12-05-greater-london"
 date: 2021-12-05T10:59:15Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/12/2021-12-05-greater-london.jpg
-alt: "A baby looking upward, surrounded by hands, flowers, and pink accent arcs, painted in black and white as a long roadside mural; signed \"@abraham.or\"."
+alt: "A person looking upward, surrounded by hands, flowers, and pink accent arcs, painted in black and white as a long roadside mural; signed \"@abraham.or\"."
 countries: [United Kingdom]
 cities: [London]
 artists: []

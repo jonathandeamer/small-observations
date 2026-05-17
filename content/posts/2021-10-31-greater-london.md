@@ -7,8 +7,8 @@ photo: 2021/10/2021-10-31-greater-london.jpg
 alt: "A woodland installation with a black one-ton weight, red paint, mannequin body parts, and spray cans on the ground."
 countries: [United Kingdom]
 cities: [London]
-artists: []
-tags: []
+artists: [Horace]
+tags: [Halloween, Parkland Walk]
 years: [2021]
 weight: 0
 exif:

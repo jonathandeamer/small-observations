@@ -7,7 +7,7 @@ photo: 2017/08/2017-08-06-greater-london.jpg
 alt: "Stencilled characters standing on a painted balcony against a rough black-and-tan dark wall."
 countries: [United Kingdom]
 cities: [London]
-artists: []
+artists: [Banksy]
 tags: []
 years: [2017]
 weight: 0

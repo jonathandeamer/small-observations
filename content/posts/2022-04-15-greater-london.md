@@ -7,7 +7,7 @@ photo: 2022/04/2022-04-15-greater-london.jpg
 alt: "Two pink flamingo heads painted on a freestanding street box outside a brick building."
 countries: [United Kingdom]
 cities: [London]
-artists: []
+artists: [Frankie Strand]
 tags: []
 years: [2022]
 weight: 0

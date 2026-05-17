@@ -8,7 +8,7 @@ alt: "A blue stylised figure in a yellow \"Hella Resist\" shirt, painted on a co
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: []
+tags: [Clarion Alley Mural Project]
 years: [2018]
 weight: 0
 exif:

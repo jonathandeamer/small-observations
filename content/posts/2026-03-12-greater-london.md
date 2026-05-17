@@ -8,7 +8,7 @@ alt: "A Banksy-style stencil of two police officers searching a Basquiat-style c
 countries: [United Kingdom]
 cities: [London]
 artists: [Banksy]
-tags: []
+tags: [Basquiat, Keith Haring, Barbican]
 years: [2026]
 weight: 0
 exif:
@@ -16,3 +16,4 @@ exif:
   lat: 51.5217
   lon: -0.0943
 ---
+Spotted Banksy's tribute to Basquiat at the Barbican Centre while walking to the office.

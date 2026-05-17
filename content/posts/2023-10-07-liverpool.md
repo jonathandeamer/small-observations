@@ -7,8 +7,8 @@ photo: 2023/10/2023-10-07-liverpool.jpg
 alt: "A dome-headed stylised figure with \"Paddy Wagon / UFC\" on its chest, painted on a metal door surrounded by graffiti; signed \"By Nathan Bowen\"."
 countries: [United Kingdom]
 cities: [Liverpool]
-artists: []
-tags: [favourite]
+artists: [Nathan Bowen]
+tags: [favourite, Paddy Pimblett]
 years: [2023]
 weight: 0
 exif:

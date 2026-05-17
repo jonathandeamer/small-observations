@@ -7,8 +7,8 @@ photo: 2022/04/2022-04-02-greater-london.jpg
 alt: "A black-and-white billboard-style artwork reading \"Imagine peace\" and \"love, yoko 2022\", with a cyclist passing by."
 countries: [United Kingdom]
 cities: [London]
-artists: []
-tags: []
+artists: [Yoko Ono]
+tags: [John Lennon]
 years: [2022]
 weight: 0
 exif:

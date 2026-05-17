@@ -8,7 +8,7 @@ alt: "A child in a green coat holding a lantern in a blue night scene, painted o
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [favourite]
+tags: [favourite, Parkland Walk]
 years: [2022]
 weight: 0
 exif:

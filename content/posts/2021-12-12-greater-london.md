@@ -7,8 +7,8 @@ photo: 2021/12/2021-12-12-greater-london.jpg
 alt: "A plump pink stylised pigeon painted on a red brick pillar over white graffiti."
 countries: [United Kingdom]
 cities: [London]
-artists: []
-tags: []
+artists: [Horace]
+tags: [Parkland Walk]
 years: [2021]
 weight: 0
 exif:

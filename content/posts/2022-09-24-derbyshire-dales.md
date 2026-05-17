@@ -16,3 +16,4 @@ exif:
   lat: 53.2276
   lon: -1.6148
 ---
+From the Chatsworth House exhibition of Burning Man sculptures.

@@ -7,7 +7,7 @@ photo: 2026/01/2026-01-21-city-of-london.jpg
 alt: "A dome-headed stylised figure with \"Stay positive\" on its chest, surrounded by colourful geometric shapes, painted on a wall panel; signed \"By Nathan Bowen\"."
 countries: [United Kingdom]
 cities: [London]
-artists: []
+artists: [Nathan Bowen]
 tags: []
 years: [2026]
 weight: 0

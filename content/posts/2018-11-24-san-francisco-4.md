@@ -8,7 +8,7 @@ alt: "Silhouetted people holding protest signs including \"Abolish ICE\", \"Blac
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: []
+tags: [Clarion Alley Mural Project]
 years: [2018]
 weight: 0
 exif:

@@ -4,7 +4,7 @@ slug: "2021-07-02-greater-london"
 date: 2021-07-02T11:43:55Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/07/2021-07-02-greater-london.jpg
-alt: "A colourful abstract bird with \"NHS\" lettering beside it, painted on a white wall; signed \"Safedale\" and \"Camino C+C\"."
+alt: "A colourful abstract bird with \"NHS\" lettering beside it, painted on a white wall."
 countries: [United Kingdom]
 cities: [London]
 artists: []

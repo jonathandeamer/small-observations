@@ -8,7 +8,7 @@ alt: "The words \"With FREEDOM, BOOKS, FLOWERS and the MOON, who could not be HA
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: []
+tags: [Little Free Library]
 years: [2016]
 weight: 0
 exif:

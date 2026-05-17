@@ -7,8 +7,8 @@ photo: 2022/04/2022-04-07-greater-london.jpg
 alt: "A large pink flamingo painted on a graffiti-covered bridge support, beside a path running under the bridge."
 countries: [United Kingdom]
 cities: [London]
-artists: []
-tags: []
+artists: [Frankie Strand]
+tags: [Parkland Walk]
 years: [2022]
 weight: 0
 exif:
