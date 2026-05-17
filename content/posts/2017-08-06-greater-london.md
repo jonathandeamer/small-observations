@@ -8,7 +8,7 @@ alt: "Stencilled characters standing on a painted balcony against a rough black-
 countries: [United Kingdom]
 cities: [London]
 artists: [Banksy]
-tags: [stencil, Banksy-style]
+tags: [stencil]
 years: [2017]
 weight: 0
 exif:

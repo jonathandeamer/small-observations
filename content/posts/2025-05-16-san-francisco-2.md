@@ -8,7 +8,7 @@ alt: "A baby in a police uniform holding a pistol, with a pink toy camera attach
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [favourite, baby, anti-war]
+tags: [favourite, baby, police]
 years: [2025]
 weight: 0
 exif:
