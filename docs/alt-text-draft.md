@@ -2,7 +2,7 @@
 
 Draft alt text for the image files in `assets/img`, based on one-image-at-a-time visual review. Filename/path context such as date and location may inform wording, but the visible image is the primary source.
 - `assets/img/2005/09/2005-09-02.jpg`: A blue stencil portrait of Kurt Cobain on a white wall covered in graffiti, including the name "Lucila", dates, and surrounding tags.
-- `assets/img/2010/06/2010-06-03-brighton.jpg`: A tall James Brown mural on the side of a building, with large red "JAMES BROWN" lettering, portraits, comic-style figures, and a speech bubble reading "This's because he's the Godfather."
+- `assets/img/2010/06/2010-06-03-brighton.jpg`: A tall James Brown mural on the side of a building, with large red "JAMES BROWN" lettering, portraits, comic-style figures, and a speech bubble reading "That's because he's the Godfather."
 - `assets/img/2015/10/2015-10-12-greater-london.jpg`: The words "War is over! If you want it." stencilled on a plain white street cabinet against a brick wall.
 - `assets/img/2016/04/2016-04-15-dublin.jpg`: A pub window painted with a comic-style figure posting a "YES" ballot into a box against a background of repeated "YES" text and the words "MARRIAGE EQUALITY", beside a second window reading "YES"; signed "Niall O'Lochlainn".
 - `assets/img/2016/05/2016-05-04-berlin.jpg`: A weary ape with a speech bubble reading "Destroy all smartphones", painted on a red wall beside part of a large yellow shape; signed "MTO + OTAK".
