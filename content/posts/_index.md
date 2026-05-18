@@ -1,4 +1,4 @@
 ---
 title: "Latest posts"
-description: "Everything, newest first."
+description: "All street art photos, newest first."
 ---
