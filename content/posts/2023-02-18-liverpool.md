@@ -5,7 +5,7 @@ publishDate: 2026-05-15T14:53:33Z
 photo: 2023/02/2023-02-18-liverpool.jpg
 title: "Golden Sankofa bird on a utility box, Liverpool"
 description: "Photo of a large golden Sankofa bird among flame-like red and pink patterns, painted on a utility box in Liverpool."
-alt: "A large golden Sankofu bird among flame-like red and pink patterns, painted on a utility box."
+alt: "A large golden Sankofa bird among flame-like red and pink patterns, painted on a utility box."
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []

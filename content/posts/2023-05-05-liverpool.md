@@ -3,9 +3,9 @@ slug: "2023-05-05-liverpool"
 date: 2023-05-05T11:23:40Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2023/05/2023-05-05-liverpool.jpg
-title: "Face squeezed between two hands, end wall mural, Liverpool"
-description: "Photo of a realistic painted face of a man being squeezed between two hands, covering the end wall of an old brick building in Liverpool."
-alt: "A realistic painted face of a man being squeezed between two hands, covering the end wall of an old brick building."
+title: "Face pulled by two hands, end wall mural, Liverpool"
+description: "Photo of a realistic painted face of a man being pulled in two directions by his own hands, on an end wall in Liverpool."
+alt: "A realistic painted face of a man being pulled in two directions by his own hands, covering the end wall of an old brick building."
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
