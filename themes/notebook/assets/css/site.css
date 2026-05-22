@@ -190,6 +190,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* taxonomy pages */
 .taxonomy-count { color: var(--muted); margin: 0 0 0.5rem; font-size: 0.82rem; }
+.taxonomy-count a { color: var(--link); text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 1px; }
+.taxonomy-count a:hover { color: var(--coral); border-color: var(--coral); }
 
 /* terms index */
 .terms { list-style: none; padding: 0; margin: 0; max-width: var(--measure); border-top: 1px solid var(--rule); }

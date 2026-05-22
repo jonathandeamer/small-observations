@@ -8,7 +8,11 @@
     <span class="glyph">✦</span>
   </header>
 
-  <p class="taxonomy-count smallcaps">{{ len .Pages }} {{ if eq (len .Pages) 1 }}photo{{ else }}photos{{ end }}</p>
+  <p class="taxonomy-count smallcaps">
+    {{ len .Pages }} {{ if eq (len .Pages) 1 }}photo{{ else }}photos{{ end }}
+    <span class="terms-sort-sep">·</span>
+    <a href="{{ printf "/%s/" .Data.Plural | relURL }}">all {{ .Data.Plural }}</a>
+  </p>
 
   <div class="gallery-grid">
     {{ range .Pages.ByDate.Reverse }}
