@@ -75,7 +75,7 @@ cities: London · Liverpool · New York · San Francisco · Toronto · more citi
 
 The exact term set should be generated from taxonomy data rather than hand-written content. Use a restrained limit so the section stays short:
 
-- tags: the first six terms from `site.Taxonomies.tags.ByCount`, excluding reserved or purely structural terms if any are introduced later
+- tags: the first six terms from `site.Taxonomies.tags.ByCount`, excluding `favourite` plus any reserved or purely structural terms introduced later
 - cities: the first six terms from `site.Taxonomies.cities.ByCount`
 - each row ends with a link to the full index, such as "more tags" and "more cities"
 
