@@ -1,4 +1,4 @@
 ---
 title: "Small Observations"
-description: "A loose notebook of street art photographed since 2014, browsable by city, artist, year, and tag."
+description: "A notebook of street art I've enjoyed and photographed since 2005, browsable by city, artist, year, and tag."
 ---
