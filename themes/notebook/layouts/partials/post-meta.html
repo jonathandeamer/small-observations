@@ -5,22 +5,26 @@
 */}}
 
 <dl class="post-meta">
+  {{ $page := . }}
+  {{ $yearTerms := $page.GetTerms "years" }}
+  {{ $cityTerms := $page.GetTerms "cities" }}
+  {{ $countryTerms := $page.GetTerms "countries" }}
+
   <div class="row">
     <dt>Taken</dt>
     <dd>
       <time datetime="{{ .Date.Format "2006-01-02" }}" class="tnum">
-        {{ .Date.Format "January 2006" }}
+        {{ .Date.Format "January " }}{{ with index $yearTerms 0 }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ else }}{{ $page.Date.Format "2006" }}{{ end }}
       </time>
     </dd>
   </div>
 
-  {{ $place := slice }}
-  {{ with .Params.cities }}{{ $place = $place | append (index . 0) }}{{ end }}
-  {{ with .Params.countries }}{{ $place = $place | append (index . 0) }}{{ end }}
-  {{ with $place }}
+  {{ if or $cityTerms $countryTerms }}
   <div class="row">
     <dt>Place</dt>
-    <dd>{{ delimit . ", " }}</dd>
+    <dd>
+      {{ range $i, $term := $cityTerms }}{{ if $i }}, {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}{{ if and $cityTerms $countryTerms }}, {{ end }}{{ range $i, $term := $countryTerms }}{{ if $i }}, {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}
+    </dd>
   </div>
   {{ end }}
 
