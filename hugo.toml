@@ -30,6 +30,13 @@ pagination.pagerSize = 20
 [outputFormats.RSS]
   baseName = "feed"
 
+[deployment]
+
+[[deployment.targets]]
+  name = "production"
+  URL = "s3://smallobservations.net?region=eu-west-2"
+  cloudFrontDistributionID = "E25Q9EQNA4D7K1"
+
 # Image processing defaults — high-quality JPEG, lanczos resampling.
 [imaging]
   quality = 82

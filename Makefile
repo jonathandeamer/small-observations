@@ -5,7 +5,7 @@
 # to public/ without removing orphans). Always go through these targets.
 
 .DEFAULT_GOAL := help
-.PHONY: help dev build check clean ingest ingest-dry test venv
+.PHONY: help dev build check clean deploy deploy-dry ingest ingest-dry test venv
 
 help:  ## list available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-14s %s\n", $$1, $$2}'
@@ -68,6 +68,12 @@ check: build  ## build then sanity-check the rendered site
 
 clean:  ## remove all generated output
 	rm -rf public resources/_gen .hugo_build.lock
+
+deploy: build  ## deploy production build to S3 and invalidate CloudFront
+	AWS_PROFILE=small-observations-deploy hugo deploy --target production
+
+deploy-dry: build  ## show production deploy changes without uploading
+	AWS_PROFILE=small-observations-deploy hugo deploy --target production --dryRun
 
 ingest:  ## ingest photos from _ingest/ (moves originals on success)
 	. .venv/bin/activate && python -m ingest
