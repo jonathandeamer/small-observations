@@ -26,26 +26,26 @@
 <nav class="home-explore" aria-label="Explore tags and cities">
   <p>
     <span class="home-explore-label smallcaps">tags</span>
+    <span class="home-explore-terms">
     {{ $shownTags := 0 }}
     {{ range site.Taxonomies.tags.ByCount }}
       {{ if and (ne .Page.Title "favourite") (lt $shownTags 6) }}
-        {{ if gt $shownTags 0 }}<span aria-hidden="true">·</span>{{ end }}
-        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        <span class="home-explore-item"><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></span>
         {{ $shownTags = add $shownTags 1 }}
       {{ end }}
     {{ end }}
-    <span aria-hidden="true">·</span>
-    <a href="{{ "/tags/" | relURL }}">more tags</a>
+    </span>
+    <a class="home-explore-more" href="{{ "/tags/" | relURL }}">more tags</a>
   </p>
 
   <p>
     <span class="home-explore-label smallcaps">cities</span>
+    <span class="home-explore-terms">
     {{ range $index, $term := first 6 site.Taxonomies.cities.ByCount }}
-      {{ if gt $index 0 }}<span aria-hidden="true">·</span>{{ end }}
-      <a href="{{ $term.Page.RelPermalink }}">{{ $term.Page.Title }}</a>
+      <span class="home-explore-item"><a href="{{ $term.Page.RelPermalink }}">{{ $term.Page.Title }}</a></span>
     {{ end }}
-    <span aria-hidden="true">·</span>
-    <a href="{{ "/cities/" | relURL }}">more cities</a>
+    </span>
+    <a class="home-explore-more" href="{{ "/cities/" | relURL }}">more cities</a>
   </p>
 </nav>
 {{ end }}
