@@ -1,0 +1,28 @@
+{{ define "title" }}{{ .Title }} · {{ site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="list-page terms-page">
+  <header class="section-head">
+    <h2>{{ .Title }}</h2>
+    <span class="rule"></span>
+    <span class="glyph">✦</span>
+  </header>
+
+  <ul class="terms">
+    {{ range .Data.Terms.Alphabetical }}
+      {{ $country := "" }}
+      {{ with index .Pages 0 }}
+        {{ with .Params.countries }}
+          {{ $country = index . 0 }}
+        {{ end }}
+      {{ end }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">
+          <span class="term-name">{{ .Page.Title }}{{ with $country }}, {{ . }}{{ end }}</span>
+          <span class="term-count smallcaps">{{ .Count }}</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
