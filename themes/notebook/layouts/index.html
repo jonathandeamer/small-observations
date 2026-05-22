@@ -18,17 +18,34 @@
 </div>
 
 <div class="section-head">
-  <h2>Browse</h2>
+  <h2>Explore</h2>
   <span class="rule"></span>
   <span class="glyph">✦</span>
 </div>
 
-<ul class="browse">
-  <li><a href="{{ "/posts/" | relURL }}"><span class="num tnum">01</span><span class="label">Latest posts</span><span class="count smallcaps">{{ len (where site.RegularPages "Section" "posts") }}</span></a></li>
-  <li><a href="{{ "/years/" | relURL }}"><span class="num tnum">02</span><span class="label">By year</span><span class="count smallcaps">{{ len site.Taxonomies.years }}</span></a></li>
-  <li><a href="{{ "/countries/" | relURL }}"><span class="num tnum">03</span><span class="label">By country</span><span class="count smallcaps">{{ len site.Taxonomies.countries }}</span></a></li>
-  <li><a href="{{ "/cities/" | relURL }}"><span class="num tnum">04</span><span class="label">By city</span><span class="count smallcaps">{{ len site.Taxonomies.cities }}</span></a></li>
-  <li><a href="{{ "/artists/" | relURL }}"><span class="num tnum">05</span><span class="label">By artist</span><span class="count smallcaps">{{ len site.Taxonomies.artists }} known</span></a></li>
-  <li><a href="{{ "/tags/" | relURL }}"><span class="num tnum">06</span><span class="label">By tag</span><span class="count smallcaps">{{ len site.Taxonomies.tags }}</span></a></li>
-</ul>
+<nav class="home-explore" aria-label="Explore tags and cities">
+  <p>
+    <span class="home-explore-label smallcaps">tags</span>
+    {{ $shownTags := 0 }}
+    {{ range site.Taxonomies.tags.ByCount }}
+      {{ if and (ne .Page.Title "favourite") (lt $shownTags 6) }}
+        {{ if gt $shownTags 0 }}<span aria-hidden="true">·</span>{{ end }}
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+        {{ $shownTags = add $shownTags 1 }}
+      {{ end }}
+    {{ end }}
+    <span aria-hidden="true">·</span>
+    <a href="{{ "/tags/" | relURL }}">more tags</a>
+  </p>
+
+  <p>
+    <span class="home-explore-label smallcaps">cities</span>
+    {{ range $index, $term := first 6 site.Taxonomies.cities.ByCount }}
+      {{ if gt $index 0 }}<span aria-hidden="true">·</span>{{ end }}
+      <a href="{{ $term.Page.RelPermalink }}">{{ $term.Page.Title }}</a>
+    {{ end }}
+    <span aria-hidden="true">·</span>
+    <a href="{{ "/cities/" | relURL }}">more cities</a>
+  </p>
+</nav>
 {{ end }}

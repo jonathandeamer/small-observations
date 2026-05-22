@@ -3,4 +3,21 @@
     <h1>Small<span class="amp">·</span>Observations</h1>
   </a>
   <p class="tagline">a notebook of street art I've enjoyed</p>
+  {{ if .IsHome }}
+    <nav class="masthead-browse" aria-label="Browse the archive">
+      <a href="{{ "/posts/" | relURL }}">latest</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ "/tags/favourite/" | relURL }}">favourites</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ "/tags/" | relURL }}">tags</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ "/cities/" | relURL }}">cities</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ "/years/" | relURL }}">years</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ "/countries/" | relURL }}">countries</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ "/artists/" | relURL }}">artists</a>
+    </nav>
+  {{ end }}
 </header>

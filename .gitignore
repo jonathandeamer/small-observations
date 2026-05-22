@@ -9,6 +9,7 @@
 # Scratch / throwaway work
 /tmp/
 /.worktrees/
+.superpowers/
 
 # OS / editor
 .DS_Store
