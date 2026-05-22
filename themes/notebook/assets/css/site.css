@@ -115,6 +115,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .site-footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
 .site-footer a:hover { color: var(--coral); border-color: var(--coral); }
+.site-footer a.footer-icon { border-bottom: 0; display: inline-flex; vertical-align: middle; }
+.site-footer a.footer-icon svg { display: block; }
 
 /* 404 */
 .notfound { max-width: var(--measure); margin: 3rem 0; }
