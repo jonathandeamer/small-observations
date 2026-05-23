@@ -1,5 +1,5 @@
 ---
-slug: "2017-08-04-greater-london"
+slug: "london-chuck-berry"
 date: 2017-08-04T17:17:11Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2017/08/2017-08-04-greater-london.jpg

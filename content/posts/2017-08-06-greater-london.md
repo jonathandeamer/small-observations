@@ -1,5 +1,5 @@
 ---
-slug: "2017-08-06-greater-london"
+slug: "london-banksy-balcony"
 date: 2017-08-06T14:43:35Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2017/08/2017-08-06-greater-london.jpg

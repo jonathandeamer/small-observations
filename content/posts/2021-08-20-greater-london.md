@@ -1,5 +1,5 @@
 ---
-slug: "2021-08-20-greater-london"
+slug: "london-black-lives-matter-flamingo"
 date: 2021-08-20T15:14:39Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/08/2021-08-20-greater-london.jpg

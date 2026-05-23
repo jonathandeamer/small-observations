@@ -1,5 +1,5 @@
 ---
-slug: "2021-06-28-greater-london"
+slug: "london-frankie-strand-flamingos"
 date: 2021-06-28T19:17:07Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/06/2021-06-28-greater-london.jpg

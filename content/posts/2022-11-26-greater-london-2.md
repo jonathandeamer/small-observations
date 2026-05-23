@@ -1,5 +1,5 @@
 ---
-slug: "2022-11-26-greater-london-2"
+slug: "london-landmarks-circle"
 date: 2022-11-26T12:21:59Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/11/2022-11-26-greater-london-2.jpg

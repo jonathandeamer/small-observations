@@ -1,5 +1,5 @@
 ---
-slug: "2025-05-17-san-francisco-2"
+slug: "san-francisco-white-cat-red-robe"
 date: 2025-05-17T09:11:51Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/05/2025-05-17-san-francisco-2.jpg

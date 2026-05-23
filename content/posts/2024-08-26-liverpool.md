@@ -1,5 +1,5 @@
 ---
-slug: "2024-08-26-liverpool"
+slug: "liverpool-paul-curtis-hurdler"
 date: 2024-08-26T10:33:57Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2024/08/2024-08-26-liverpool.jpg

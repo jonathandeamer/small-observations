@@ -1,5 +1,5 @@
 ---
-slug: "2025-04-27-liverpool"
+slug: "liverpool-robbie-fowler"
 date: 2025-04-27T18:12:57Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/04/2025-04-27-liverpool.jpg

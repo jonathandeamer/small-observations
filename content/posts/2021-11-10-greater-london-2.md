@@ -1,5 +1,5 @@
 ---
-slug: "2021-11-10-greater-london-2"
+slug: "london-salmon-nigiri"
 date: 2021-11-10T20:33:44Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/11/2021-11-10-greater-london-2.jpg

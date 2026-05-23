@@ -1,5 +1,5 @@
 ---
-slug: "2022-03-15-greater-london"
+slug: "london-grit-determination"
 date: 2022-03-15T13:39:56Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/03/2022-03-15-greater-london.jpg

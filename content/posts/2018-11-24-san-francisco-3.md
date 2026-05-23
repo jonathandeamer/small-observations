@@ -1,5 +1,5 @@
 ---
-slug: "2018-11-24-san-francisco-3"
+slug: "san-francisco-zap-comix-7"
 date: 2018-11-24T11:54:14Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2018/11/2018-11-24-san-francisco-3.jpg

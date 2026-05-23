@@ -1,5 +1,5 @@
 ---
-slug: "2024-08-23-liverpool"
+slug: "liverpool-turquoise-bird"
 date: 2024-08-23T12:05:05Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2024/08/2024-08-23-liverpool.jpg

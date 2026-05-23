@@ -1,5 +1,5 @@
 ---
-slug: "2025-07-26-reykjavikurborg"
+slug: "reykjavik-vampire-icelandic-text"
 date: 2025-07-26T09:22:24Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/07/2025-07-26-reykjavikurborg.jpg

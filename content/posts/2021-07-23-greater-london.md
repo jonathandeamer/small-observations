@@ -1,5 +1,5 @@
 ---
-slug: "2021-07-23-greater-london"
+slug: "london-colourful-square-frames"
 date: 2021-07-23T10:19:38Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/07/2021-07-23-greater-london.jpg

@@ -1,5 +1,5 @@
 ---
-slug: "2017-04-22-greater-london"
+slug: "london-protest-bird-scroll"
 date: 2017-04-22T15:28:00Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2017/04/2017-04-22-greater-london.jpg

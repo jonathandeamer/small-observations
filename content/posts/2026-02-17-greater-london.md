@@ -1,5 +1,5 @@
 ---
-slug: "2026-02-17-greater-london"
+slug: "london-frog-skull-mushrooms"
 date: 2026-02-17T19:14:22Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2026/02/2026-02-17-greater-london.jpg

@@ -1,5 +1,5 @@
 ---
-slug: "2018-11-24-san-francisco-2"
+slug: "san-francisco-house-keys-not-handcuffs"
 date: 2018-11-24T11:52:37Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2018/11/2018-11-24-san-francisco-2.jpg

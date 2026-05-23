@@ -1,5 +1,5 @@
 ---
-slug: "2018-11-24-san-francisco-4"
+slug: "san-francisco-abolish-ice-signs"
 date: 2018-11-24T11:55:53Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2018/11/2018-11-24-san-francisco-4.jpg

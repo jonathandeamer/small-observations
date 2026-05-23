@@ -1,5 +1,5 @@
 ---
-slug: "2022-07-03-greater-london"
+slug: "london-horace-devil-horns-hand"
 date: 2022-07-03T08:13:50Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/07/2022-07-03-greater-london.jpg

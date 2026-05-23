@@ -1,5 +1,5 @@
 ---
-slug: "2024-03-01-liverpool"
+slug: "liverpool-slava-ukraini-flamingos"
 date: 2024-03-01T12:18:52Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2024/03/2024-03-01-liverpool.jpg

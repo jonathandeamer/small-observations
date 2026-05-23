@@ -1,5 +1,5 @@
 ---
-slug: "2025-05-16-san-francisco-3"
+slug: "san-francisco-save-humans-robot"
 date: 2025-05-16T12:19:13Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/05/2025-05-16-san-francisco-3.jpg

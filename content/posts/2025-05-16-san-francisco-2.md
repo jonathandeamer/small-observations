@@ -1,5 +1,5 @@
 ---
-slug: "2025-05-16-san-francisco-2"
+slug: "san-francisco-baby-police-pistol"
 date: 2025-05-16T11:26:34Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/05/2025-05-16-san-francisco-2.jpg

@@ -1,5 +1,5 @@
 ---
-slug: "2021-07-11-greater-london"
+slug: "london-pale-blue-dot"
 date: 2021-07-11T11:03:33Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/07/2021-07-11-greater-london.jpg

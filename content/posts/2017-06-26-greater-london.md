@@ -1,5 +1,5 @@
 ---
-slug: "2017-06-26-greater-london"
+slug: "london-charlie-chaplin-felix-cat"
 date: 2017-06-26T14:51:39Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2017/06/2017-06-26-greater-london.jpg

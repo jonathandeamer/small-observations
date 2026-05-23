@@ -1,5 +1,5 @@
 ---
-slug: "2022-01-16-greater-london"
+slug: "london-horace-wake-up-rooster"
 date: 2022-01-16T11:11:55Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/01/2022-01-16-greater-london.jpg

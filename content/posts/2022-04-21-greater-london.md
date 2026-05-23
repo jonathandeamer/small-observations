@@ -1,5 +1,5 @@
 ---
-slug: "2022-04-21-greater-london"
+slug: "london-tall-stylised-figure"
 date: 2022-04-21T19:39:41Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/04/2022-04-21-greater-london.jpg

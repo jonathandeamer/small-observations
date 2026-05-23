@@ -1,5 +1,5 @@
 ---
-slug: "2022-04-23-greater-london"
+slug: "london-greyscale-portrait-red-circle"
 date: 2022-04-23T11:57:45Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/04/2022-04-23-greater-london.jpg

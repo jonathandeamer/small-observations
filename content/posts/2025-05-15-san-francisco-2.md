@@ -1,5 +1,5 @@
 ---
-slug: "2025-05-15-san-francisco-2"
+slug: "san-francisco-unicorn-headed-figures"
 date: 2025-05-15T19:48:50Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/05/2025-05-15-san-francisco-2.jpg

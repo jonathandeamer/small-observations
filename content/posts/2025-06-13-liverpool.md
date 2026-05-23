@@ -1,5 +1,5 @@
 ---
-slug: "2025-06-13-liverpool"
+slug: "liverpool-chinese-paifang-gate"
 date: 2025-06-13T14:11:19Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/06/2025-06-13-liverpool.jpg
