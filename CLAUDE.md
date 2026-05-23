@@ -17,6 +17,8 @@ make dev          # hugo server (in-memory, doesn't touch public/)
 make build        # clean production build + path-warning checks
 make check        # build, then run a battery of audits (see "Accessibility & web standards" below)
 make clean        # wipe public/, resources/_gen/, .hugo_build.lock
+make deploy       # production build then push to S3 + CloudFront invalidate
+make deploy-dry   # show what `make deploy` would upload, without uploading
 make ingest       # python -m ingest (moves originals to _processed/ on success)
 make ingest-dry   # python -m ingest --dry-run
 make test         # pytest for the ingest package
@@ -46,7 +48,7 @@ Merge/revert/fixup commits are exempt. If a commit fails the hook, fix the messa
 - **No JavaScript anywhere.** Interactions are HTML+CSS only.
 - **One stylesheet** (`themes/notebook/assets/css/site.css`), inlined into `<head>` via Hugo's resource pipeline. Hand-written, no preprocessor.
 - **One self-hosted font** (`themes/notebook/static/fonts/fraunces-latin.woff2`) — Fraunces variable with all four axes (opsz, wght, SOFT, WONK). 134 KB. This exceeds the 80 KB budget in the spec; the overage was a deliberate choice — the SOFT and WONK axes are load-bearing for the masthead and browse-hover effect.
-- **Image pipeline** lives in `layouts/partials/photo.html` and `post-card.html`. Generates WebP + JPEG at three widths via `image.Process`. **AVIF is not used** — Hugo 0.161 extended on macOS doesn't ship with libavif.
+- **Image pipeline** lives in `layouts/partials/photo.html` (post pages, three widths 600/1000/1600) and `gallery-card.html` (thumbnails, two widths 200/400). Both produce WebP + JPEG via `image.Process`. The first gallery card on the homepage is rendered with `eager=true` so its `<img>` gets `loading="eager"` + `fetchpriority="high"` to win the LCP race — preserve that when refactoring the partial. **AVIF is not used** — Hugo 0.161 extended on macOS doesn't ship with libavif.
 - **Taxonomies** are `tags`, `countries`, `cities`, `artists`, `years`. Favourites is a regular `tag` (`favourite`), not its own taxonomy — this was refactored away because `/favourites/favourite/` was an ugly URL.
 - **Post URLs** are `/<year>/<month>/<slug>/`. Year and month come from `date` (the *taken* date), not `publishDate`.
 
@@ -151,7 +153,7 @@ The site aims to remain a "good web citizen" — keyboard-navigable, screen-read
 
 In sandboxed agent sessions, `pa11y` may fail to launch Chromium unless `make check` is rerun with normal local permissions. Treat that as a sandbox/browser-launch issue, not an accessibility failure.
 
-Lighthouse CLI is installed globally (`lighthouse 13.3.0`) for Chrome-style audits, but it is intentionally **not** wired into `make check`. Run it manually against the live production URL after CloudFront/S3 is online; local Hugo performance numbers are not representative.
+Lighthouse CLI is installed globally (`lighthouse 13.3.0`) for Chrome-style audits, but it is intentionally **not** wired into `make check`. Run it manually against the live production URL; local Hugo performance numbers are not representative.
 
 **Invariants in the design that compliance depends on:**
 
@@ -171,8 +173,9 @@ Lighthouse CLI is installed globally (`lighthouse 13.3.0`) for Chrome-style audi
 - **Hugo's `humanize` filter** was removed from `_default/terms.html` and `_default/taxonomy.html`. It treats numeric strings as ordinals (`"2018"` → `"2,018th"`). Don't re-add it without a non-numeric guard.
 - **RSS feed** is custom (`themes/notebook/layouts/_default/rss.xml`) and lives at `/feed.xml` only — section/taxonomy/term RSS outputs are disabled in `hugo.toml`. It sorts by `publishDate` descending using `site.RegularPages` (so the feed reflects publishing order, not photo chronology). The `<link rel="alternate">` autodiscovery tag in `baseof.html` always points to the home feed regardless of which page the visitor is on.
 - **`robots.txt`** is a Hugo template (`themes/notebook/layouts/robots.txt`), not a static file, so the `Sitemap:` URL stays in sync with `baseURL`. Don't put one in `static/` — `enableRobotsTXT = true` will override it with an empty default.
-- **Two single-page layouts.** `_default/single.html` is photo-centric and used for posts (it errors if `.Params.photo` is missing). Non-photo root pages like the colophon use `layouts/page/single.html` and must declare `type: "page"` in their front matter to opt into that template — Hugo's lookup for root-level pages doesn't auto-discover `layouts/page/`.
+- **Two single-page layouts.** `_default/single.html` is photo-centric and used for posts (it errors if `.Params.photo` is missing). Non-photo root pages — currently only the 404 page — use `layouts/page/single.html` and must declare `type: "page"` in their front matter to opt into that template, since Hugo's lookup for root-level pages doesn't auto-discover `layouts/page/`.
 - **Favicon trio** in `themes/notebook/static/`: `favicon.svg` (modern), `favicon.ico` (multi-res 16/32/48 fallback), `apple-touch-icon.png` (iOS home-screen, 180×180 with opaque cream background since iOS ignores transparency). All wired up via `<link>` tags in `baseof.html`. The design is the coral star glyph (`✦`) from homepage section headings on the cream page background — keep it in sync if `--coral` or `--bg` ever changes.
+- **Long-cache headers on images and fonts.** `hugo.toml`'s `[[deployment.matchers]]` blocks set `Cache-Control: max-age=31536000` on `.jpg/.jpeg/.png/.gif/.webp/.svg` and `.woff/.woff2`. Safe because Hugo's resource pipeline fingerprints filenames — a new render produces a new URL. Don't add long-cache matchers for `.html`, the RSS feed, or the sitemap, since those need to revalidate on every deploy.
 
 ## When in doubt
 
