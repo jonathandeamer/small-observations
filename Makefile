@@ -31,6 +31,9 @@ check: build  ## build then sanity-check the rendered site
 	@echo "→ rendered post metadata:"
 	@python3 scripts/check_rendered_metadata.py public
 	@echo
+	@echo "→ RSS and sitemap URL contracts:"
+	@python3 scripts/check_feed_sitemap.py public content/posts
+	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
 		echo "→ htmltest (internal link check):"; \
 		htmltest -s public 2>&1 | tail -15; \
@@ -66,7 +69,7 @@ check: build  ## build then sanity-check the rendered site
 	@echo "→ sitemap:"
 	@test -s public/sitemap.xml \
 		&& xmllint --noout public/sitemap.xml 2>&1 \
-		&& echo "    ok ($(shell grep -c '<loc>' public/sitemap.xml) URLs)" \
+		&& echo "    ok ($$(grep -o '<loc>' public/sitemap.xml | wc -l | tr -d ' ') URLs)" \
 		|| echo "    INVALID or missing — see errors above"
 	@echo
 	@echo "→ RSS feed validity:"

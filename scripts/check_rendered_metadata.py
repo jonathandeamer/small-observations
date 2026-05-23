@@ -15,6 +15,7 @@ class MetadataParser(HTMLParser):
         self.title_parts: list[str] = []
         self.canonical = ""
         self.rss = ""
+        self.is_alias_redirect = False
         self.meta: dict[tuple[str, str], str] = {}
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -32,6 +33,8 @@ class MetadataParser(HTMLParser):
             return
         if tag == "meta":
             content = attr_map.get("content", "").strip()
+            if attr_map.get("http-equiv", "").lower() == "refresh" and content.startswith("0; url="):
+                self.is_alias_redirect = True
             if "property" in attr_map:
                 self.meta[("property", attr_map["property"])] = content
             if "name" in attr_map:
@@ -59,6 +62,8 @@ def audit_page(path: Path, public_dir: Path) -> list[str]:
     parser.feed(path.read_text())
     label = path.relative_to(public_dir).as_posix()
     errors: list[str] = []
+    if parser.is_alias_redirect:
+        return errors
 
     if not parser.title:
         errors.append(f"{label}: missing non-empty <title>")

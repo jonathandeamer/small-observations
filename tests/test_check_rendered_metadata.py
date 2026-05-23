@@ -4,7 +4,7 @@ from scripts.check_rendered_metadata import audit_rendered_posts
 
 
 def write_page(path: Path, head: str) -> None:
-    path.parent.mkdir(parents=True)
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(f"<!doctype html><html><head>{head}</head><body></body></html>")
 
 
@@ -20,6 +20,20 @@ VALID_HEAD = """
 
 
 def test_accepts_post_with_required_rendered_metadata(tmp_path: Path) -> None:
+    write_page(tmp_path / "public/2025/12/london-brown-bird/index.html", VALID_HEAD)
+
+    assert audit_rendered_posts(tmp_path / "public") == []
+
+
+def test_ignores_hugo_alias_redirect_pages(tmp_path: Path) -> None:
+    write_page(
+        tmp_path / "public/2025/12/old-slug/index.html",
+        """
+<title>https://smallobservations.net/2025/12/london-brown-bird/</title>
+<link rel="canonical" href="https://smallobservations.net/2025/12/london-brown-bird/">
+<meta http-equiv="refresh" content="0; url=https://smallobservations.net/2025/12/london-brown-bird/">
+""",
+    )
     write_page(tmp_path / "public/2025/12/london-brown-bird/index.html", VALID_HEAD)
 
     assert audit_rendered_posts(tmp_path / "public") == []
