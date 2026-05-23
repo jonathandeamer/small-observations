@@ -34,12 +34,22 @@ pagination.pagerSize = 20
   limit = 20
 
 [deployment]
+  # HTML pages, the sitemap, and the RSS feed must revalidate on every deploy.
+  # CloudFront's invalidation step covers edges; must-revalidate stops browsers
+  # from heuristic-caching stale HTML between deploys. (force = true was set
+  # once to backfill the cacheControl metadata on existing objects, then removed
+  # — see CLAUDE.md's deployment-matcher note for why it shouldn't stay.)
   [[deployment.matchers]]
     pattern = "^sitemap\\.xml$"
     contentType = "application/xml"
+    cacheControl = "public, max-age=0, must-revalidate"
   [[deployment.matchers]]
     pattern = "^feed\\.xml$"
     contentType = "application/rss+xml"
+    cacheControl = "public, max-age=0, must-revalidate"
+  [[deployment.matchers]]
+    pattern = "^.+\\.html$"
+    cacheControl = "public, max-age=0, must-revalidate"
   [[deployment.matchers]]
     pattern = "^.+\\.(?:jpg|jpeg|png|gif|webp|svg)$"
     cacheControl = "max-age=31536000, no-transform, public"
