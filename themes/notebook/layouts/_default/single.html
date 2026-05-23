@@ -5,9 +5,9 @@
   {{ partial "photo.html" (dict "page" . "eager" true) }}
 
   {{ if .Params.headline }}
-    <h2 class="post-title">{{ .Params.headline }}</h2>
+    <h1 class="post-title">{{ .Params.headline }}</h1>
   {{ else if .Title }}
-    <h2 class="post-title sr-only">{{ .Title }}</h2>
+    <h1 class="post-title sr-only">{{ .Title }}</h1>
   {{ end }}
 
   {{ with .Content }}
