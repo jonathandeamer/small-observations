@@ -118,11 +118,14 @@ img { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
   border-bottom: 1px solid var(--rule);
 }
+.masthead-browse a + a {
+  padding-left: 0.62rem;
+  border-left: 1px solid var(--rule);
+}
 .masthead-browse a:hover {
   color: var(--coral);
   border-color: var(--coral);
 }
-.masthead-browse span { color: var(--coral); }
 
 /* footer */
 .site-footer {
