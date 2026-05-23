@@ -1,7 +1,7 @@
 ---
 slug: "london-chuck-berry"
 date: 2017-08-04T17:17:11Z
-publishDate: 2026-05-22T23:48:00Z
+publishDate: 2026-05-15T14:53:33Z
 photo: 2017/08/2017-08-04-greater-london.jpg
 title: "Chuck Berry stencil, London"
 description: "White stencil, guitar in hand, beside text: \"THE FOUNDING FATHER OF ROCK N ROLL #ROCKNROLLLIVESON\". 2017."

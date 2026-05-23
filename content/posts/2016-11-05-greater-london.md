@@ -1,7 +1,7 @@
 ---
 slug: "london-parkland-walk-faces"
 date: 2016-11-05T10:42:24Z
-publishDate: 2026-05-22T23:53:00Z
+publishDate: 2026-05-15T14:53:33Z
 photo: 2016/11/2016-11-05-greater-london.jpg
 title: "Row of monochrome faces under a bridge on Parkland Walk, London"
 description: "Painted on a blue brick wall, surrounded by graffiti. 2016."

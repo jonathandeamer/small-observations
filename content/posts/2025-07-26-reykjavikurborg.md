@@ -1,7 +1,7 @@
 ---
 slug: "reykjavik-vampire-icelandic-text"
 date: 2025-07-26T09:22:24Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-21T08:00:00Z
 photo: 2025/07/2025-07-26-reykjavikurborg.jpg
 title: "Vampire mural with Icelandic text, Reykjavik"
 description: "Pale figure biting a woman's neck, with text: \"Þeim var eg verst er eg unni mest.\" 2025."

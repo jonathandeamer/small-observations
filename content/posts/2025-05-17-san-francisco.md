@@ -1,7 +1,7 @@
 ---
 slug: "san-francisco-orange-warbler"
 date: 2025-05-17T09:06:38Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-20T17:00:00Z
 photo: 2025/05/2025-05-17-san-francisco.jpg
 title: "Orange Warbler on a blue utility box, San Francisco"
 description: "Yellow-green bird perched on a dark branch, labelled \"Orange Warbler\". 2025."

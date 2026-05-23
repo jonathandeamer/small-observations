@@ -1,7 +1,7 @@
 ---
 slug: "liverpool-chinese-paifang-gate"
 date: 2025-06-13T14:11:19Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-20T23:00:00Z
 photo: 2025/06/2025-06-13-liverpool.jpg
 title: "Chinese paifang gate drawing, Chinatown, Liverpool"
 description: "Fine line drawing partly crossed by a drainpipe; a Liverpool Biennial and Pagoda Arts commission. 2025."

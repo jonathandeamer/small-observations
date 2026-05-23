@@ -1,7 +1,7 @@
 ---
 slug: "san-francisco-save-humans-robot"
 date: 2025-05-16T12:19:13Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-20T14:00:00Z
 photo: 2025/05/2025-05-16-san-francisco-3.jpg
 title: "\"Save the humans\" robot on a utility box, San Francisco"
 description: "Black-and-white robot with winged hearts, signed \"@ddigglesworth\". 2025."

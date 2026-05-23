@@ -1,7 +1,7 @@
 ---
 slug: "reykjavik-falcon-head"
 date: 2025-07-26T10:32:18Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-21T11:00:00Z
 photo: 2025/07/2025-07-26-reykjavikurborg-2.jpg
 title: "Falcon head with flowing line patterns, Reykjavik"
 description: "Grey head among flowing grey, white, and yellow lines on a pale wall. 2025."

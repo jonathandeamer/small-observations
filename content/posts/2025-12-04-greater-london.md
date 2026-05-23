@@ -1,7 +1,7 @@
 ---
 slug: "london-brown-bird"
 date: 2025-12-04T08:24:43Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T14:00:00Z
 photo: 2025/12/2025-12-04-greater-london.jpg
 title: "Brown bird on a branch amid abstract graffiti, London"
 description: "Painted within a framed wall mural surrounded by bright shapes. 2025."

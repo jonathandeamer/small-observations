@@ -1,7 +1,7 @@
 ---
 slug: "london-war-is-over"
 date: 2015-10-12T14:34:26Z
-publishDate: 2026-05-22T23:57:00Z
+publishDate: 2026-05-15T14:53:33Z
 photo: 2015/10/2015-10-12-greater-london.jpg
 title: "\"War is over\" anti-war stencil, London"
 description: "Yoko Ono and John Lennon's \"War is over! If you want it.\" on a white street cabinet. 2015."

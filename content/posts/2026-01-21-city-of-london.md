@@ -1,7 +1,7 @@
 ---
 slug: "london-nathan-bowen-stay-positive"
 date: 2026-01-21T13:06:37Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T17:00:00Z
 photo: 2026/01/2026-01-21-city-of-london.jpg
 title: "\"Stay positive\" figure by Nathan Bowen, London"
 description: "Dome-headed figure surrounded by colourful geometric shapes on a wall panel. 2026."

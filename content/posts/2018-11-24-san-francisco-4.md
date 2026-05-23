@@ -1,7 +1,7 @@
 ---
 slug: "san-francisco-abolish-ice-signs"
 date: 2018-11-24T11:55:53Z
-publishDate: 2026-05-22T23:42:00Z
+publishDate: 2026-05-15T14:53:33Z
 photo: 2018/11/2018-11-24-san-francisco-4.jpg
 title: "Protest signs mural, Clarion Alley, San Francisco"
 description: "Black-and-white silhouettes with signs including \"Families Belong Together\", \"Abortion is Freedom\", \"No One is Illegal\". 2018."

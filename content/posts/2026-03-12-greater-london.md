@@ -1,7 +1,7 @@
 ---
 slug: "london-banksy-basquiat-figure"
 date: 2026-03-12T08:40:26Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T23:00:00Z
 photo: 2026/03/2026-03-12-greater-london.jpg
 title: "Banksy stencil of officers searching a Basquiat figure, London"
 description: "Also a Keith Haring-style figure; on Golden Lane EC2, behind clear panels. 2026."
