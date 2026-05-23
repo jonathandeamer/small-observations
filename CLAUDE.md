@@ -153,7 +153,7 @@ The site aims to remain a "good web citizen" — keyboard-navigable, screen-read
 
 In sandboxed agent sessions, `pa11y` may fail to launch Chromium unless `make check` is rerun with normal local permissions. Treat that as a sandbox/browser-launch issue, not an accessibility failure.
 
-Lighthouse CLI is installed globally (`lighthouse 13.3.0`) for Chrome-style audits, but it is intentionally **not** wired into `make check`. Run it manually against the live production URL; local Hugo performance numbers are not representative.
+Lighthouse CLI is installed globally (`lighthouse 13.3.0`) for Chrome-style audits, but it is intentionally **not** wired into `make check` — local Hugo perf numbers aren't representative. After a `make deploy` that touches CSS, layout templates, the image pipeline, font loading, or `<head>` content, suggest running `lighthouse https://smallobservations.net --view` against the live URL and flag any score regression versus the previous run.
 
 **Invariants in the design that compliance depends on:**
 
