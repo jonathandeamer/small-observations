@@ -19,8 +19,7 @@ build:  ## production build with orphan cleanup
 check: build  ## build then sanity-check the rendered site
 	@echo
 	@echo "→ posts with empty alt text on their photo:"
-	@grep -rL 'alt="[^"]\+"' public/2*/*/*/index.html 2>/dev/null | head -20 \
-		| sed 's|^|    |' || echo "    (none — all posts have alt text, or no post pages exist)"
+	@python3 scripts/check_photo_alt.py public
 	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
 		echo "→ htmltest (internal link check):"; \
