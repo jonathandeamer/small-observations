@@ -37,19 +37,15 @@ pagination.pagerSize = 20
   [[deployment.matchers]]
     pattern = "^sitemap\\.xml$"
     contentType = "application/xml"
-    force = true
   [[deployment.matchers]]
     pattern = "^feed\\.xml$"
     contentType = "application/rss+xml"
-    force = true
   [[deployment.matchers]]
     pattern = "^.+\\.(?:jpg|jpeg|png|gif|webp|svg)$"
     cacheControl = "max-age=31536000, no-transform, public"
-    force = true
   [[deployment.matchers]]
     pattern = "^.+\\.(?:woff2|woff)$"
     cacheControl = "max-age=31536000, no-transform, public"
-    force = true
 
 [[deployment.targets]]
   name = "production"
