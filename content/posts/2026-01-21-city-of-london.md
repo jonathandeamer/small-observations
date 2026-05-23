@@ -1,5 +1,5 @@
 ---
-slug: "2026-01-21-city-of-london"
+slug: "london-nathan-bowen-stay-positive"
 date: 2026-01-21T13:06:37Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2026/01/2026-01-21-city-of-london.jpg

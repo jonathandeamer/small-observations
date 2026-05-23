@@ -1,5 +1,5 @@
 ---
-slug: "2025-05-15-san-francisco"
+slug: "san-francisco-narcania-vs-death"
 date: 2025-05-15T19:47:38Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/05/2025-05-15-san-francisco.jpg

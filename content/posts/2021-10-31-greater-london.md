@@ -1,5 +1,5 @@
 ---
-slug: "2021-10-31-greater-london"
+slug: "london-horace-halloween"
 date: 2021-10-31T14:40:49Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/10/2021-10-31-greater-london.jpg

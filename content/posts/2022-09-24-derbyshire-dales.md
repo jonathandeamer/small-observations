@@ -1,5 +1,5 @@
 ---
-slug: "2022-09-24-derbyshire-dales"
+slug: "derbyshire-dales-burning-man-head"
 date: 2022-09-24T14:59:14Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/09/2022-09-24-derbyshire-dales.jpg
