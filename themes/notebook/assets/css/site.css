@@ -136,7 +136,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* 404 */
 .notfound { max-width: var(--measure); margin: 3rem 0; }
-.notfound h2 { font-weight: 460; font-size: 1.5rem; margin: 0 0 0.6rem; }
+.notfound h1 { font-weight: 460; font-size: 1.5rem; margin: 0 0 0.6rem; }
 .notfound p  { color: var(--ink-soft); }
 
 /* photos */
