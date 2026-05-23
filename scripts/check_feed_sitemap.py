@@ -101,6 +101,18 @@ def rss_self_link(feed: ET.Element) -> str:
     return ""
 
 
+def rss_contact_errors(feed: ET.Element) -> list[str]:
+    channel = feed.find("channel")
+    if channel is None:
+        return []
+    errors: list[str] = []
+    for tag in ("managingEditor", "webMaster"):
+        value = (channel.findtext(tag) or "").strip()
+        if value and "@" not in value:
+            errors.append(f"feed.xml: {tag} must be omitted or contain an email address")
+    return errors
+
+
 def sitemap_entries(sitemap: ET.Element) -> dict[str, str]:
     entries: dict[str, str] = {}
     for url in sitemap.findall("sm:url", SITEMAP_NS):
@@ -119,6 +131,7 @@ def audit_feed_and_sitemap(public_dir: Path, posts_dir: Path) -> list[str]:
     self_link = rss_self_link(feed)
     if self_link != FEED_URL:
         errors.append(f"feed.xml: atom self link must be {FEED_URL}")
+    errors.extend(rss_contact_errors(feed))
 
     items = rss_items(feed)
     if len(items) > MAX_RSS_ITEMS:

@@ -72,6 +72,8 @@ publishDate: 2026-05-15T14:53:33Z
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <atom:link href="https://smallobservations.net/" rel="self" type="application/rss+xml"/>
+    <managingEditor>Jonathan</managingEditor>
+    <webMaster>Jonathan</webMaster>
     <item>
       <link>https://smallobservations.net/2025/12/london-brown-bird/</link>
       <pubDate>Fri, 15 May 2026 14:53:33 +0000</pubDate>
@@ -100,6 +102,8 @@ publishDate: 2026-05-15T14:53:33Z
 
     assert audit_feed_and_sitemap(public, content) == [
         "feed.xml: atom self link must be https://smallobservations.net/feed.xml",
+        "feed.xml: managingEditor must be omitted or contain an email address",
+        "feed.xml: webMaster must be omitted or contain an email address",
         "feed.xml: RSS item is not a photo post: https://smallobservations.net/404/",
         "feed.xml: RSS item is not a photo post: https://smallobservations.net/tags/by-count/",
         "sitemap.xml: must not include https://smallobservations.net/404/",

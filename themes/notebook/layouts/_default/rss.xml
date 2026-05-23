@@ -8,8 +8,6 @@
     <link>{{ site.BaseURL }}</link>
     <description>{{ site.Params.description }}</description>
     <language>{{ site.Language.Lang }}</language>
-    <managingEditor>{{ site.Params.author | default site.Title }}</managingEditor>
-    <webMaster>{{ site.Params.author | default site.Title }}</webMaster>
     <lastBuildDate>{{ with $pages }}{{ (index . 0).PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}{{ end }}</lastBuildDate>
     {{- with site.Home.OutputFormats.Get "rss" }}
     <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
