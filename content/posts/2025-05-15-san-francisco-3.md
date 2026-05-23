@@ -3,8 +3,8 @@ slug: "2025-05-15-san-francisco-3"
 date: 2025-05-15T19:50:27Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/05/2025-05-15-san-francisco-3.jpg
-title: "Memorial mural for George Floyd and Breonna Taylor, Clarion Alley"
-description: "Photo of a George Floyd and Breonna Taylor memorial mural with portraits and \"Black Lives Matter\" text, in Clarion Alley, San Francisco."
+title: "Memorial mural for George Floyd and Breonna Taylor in Clarion Alley, San Francisco"
+description: "Portraits with dates 1974–2020 and 1993–2020, raised fists, and \"I can't breathe\", on an orange brick wall. 2025."
 alt: "A memorial mural reading \"In memory of George Floyd 1974–2020 / Breonna Taylor 1993–2020\", with their portraits, raised fists, and \"Black Lives Matter\" and \"I can't breathe\" text, on an orange brick wall."
 countries: [United States]
 cities: [San Francisco]

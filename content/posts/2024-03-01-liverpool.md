@@ -4,7 +4,7 @@ date: 2024-03-01T12:18:52Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2024/03/2024-03-01-liverpool.jpg
 title: "Flamingos and \"Slava Ukraini\" mural, Baltic Triangle, Liverpool"
-description: "Photo of flying flamingos on a blue mural and \"Slava Ukraini\" in yellow and blue, on a building wall in the Baltic Triangle, Liverpool."
+description: "Flying flamingos above; \"Slava Ukraini\" in yellow and blue below, on a graffiti-covered wall. 2024."
 alt: "Flying flamingos on a blue upper mural and \"Slava Ukraini\" painted in yellow and blue below, on a graffiti-covered building wall."
 countries: [United Kingdom]
 cities: [Liverpool]

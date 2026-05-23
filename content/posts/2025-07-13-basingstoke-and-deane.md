@@ -4,7 +4,7 @@ date: 2025-07-13T16:13:38Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2025/07/2025-07-13-basingstoke-and-deane.jpg
 title: "Hare, robin, blue tit, and peacock butterfly mural, Basingstoke"
-description: "Photo of a hare, a robin, a blue tit in flight, echinacea flowers, and a peacock butterfly against a turquoise background, in Basingstoke."
+description: "Blue tit in flight among echinacea flowers, against a turquoise background. 2025."
 alt: "A hare, a robin, a blue tit in flight, echinacea flowers, and a peacock butterfly painted against a turquoise background as a bright wildlife mural."
 countries: [United Kingdom]
 cities: [Basingstoke]

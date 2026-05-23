@@ -4,7 +4,7 @@ date: 2021-07-02T11:43:55Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/07/2021-07-02-greater-london.jpg
 title: "Colourful NHS bird mural, London"
-description: "Photo of a colourful abstract bird with \"NHS\" lettering painted on a white wall in London."
+description: "Abstract bird with \"NHS\" lettering beside it, on a white wall. 2021."
 alt: "A colourful abstract bird with \"NHS\" lettering beside it, painted on a white wall."
 countries: [United Kingdom]
 cities: [London]

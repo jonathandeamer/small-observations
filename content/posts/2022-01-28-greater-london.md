@@ -3,8 +3,8 @@ slug: "2022-01-28-greater-london"
 date: 2022-01-28T12:04:07Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/01/2022-01-28-greater-london.jpg
-title: "\"Jolly good show!\" figure on a brick wall, Parkland Walk"
-description: "Photo of a pink round-headed figure in a top hat beside \"Jolly good show!\" painted on a white brick wall on Parkland Walk, London."
+title: "\"Jolly good show!\" figure on a brick wall, Parkland Walk, London"
+description: "Pink round-headed figure in a top hat, signed \"@zal.188\". 2022."
 alt: "A pink round-headed stylised figure in a top hat beside the words \"Jolly good show!\" painted on a white brick wall; signed \"@zal.188\"."
 countries: [United Kingdom]
 cities: [London]

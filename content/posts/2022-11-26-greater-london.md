@@ -4,7 +4,7 @@ date: 2022-11-26T12:21:38Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2022/11/2022-11-26-greater-london.jpg
 title: "\"Employ me\" figure by Nathan Bowen, London"
-description: "Photo of a stylised dome-headed figure with \"Employ me\" on its chest by Nathan Bowen, painted on a black wall in London."
+description: "Dome-headed figure in blue and red, on a black wall. 2022."
 alt: "A stylised dome-headed figure in blue and red with \"Employ me\" on its chest, painted on a black wall and signed \"By Nathan Bowen\"."
 countries: [United Kingdom]
 cities: [London]

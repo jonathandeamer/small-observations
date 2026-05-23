@@ -4,7 +4,7 @@ date: 2017-09-20T16:37:17Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2017/09/2017-09-20-greater-london.jpg
 title: "Brexit \"FUTURE\" stencil, London"
-description: "Photo of a small stencil of a figure in an orange vest reading \"FUTURE\" with a partial EU flag above, on a dark brick wall in London."
+description: "Small figure in a high-visibility vest, partial EU flag above, beside a red metal window grille. 2017."
 alt: "A small stencil of a figure in an orange high-visibility vest reading \"FUTURE\", with a partial EU flag above, on a dark brick wall beside a red metal window grille."
 countries: [United Kingdom]
 cities: [London]

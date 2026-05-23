@@ -4,7 +4,7 @@ date: 2021-08-20T15:14:39Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2021/08/2021-08-20-greater-london.jpg
 title: "Black Lives Matter flamingo by Frankie Strand, London"
-description: "Photo of a large pink bird with teal feathers carrying \"Black Lives Matter\" and \"Justice\", by Frankie Strand, on a brick wall in London."
+description: "Pink and teal flamingo also carrying \"Justice\", on a graffiti-covered brick wall. 2021."
 alt: "A large pink bird with teal ribbon-like feathers carrying the words \"Black Lives Matter\" and \"Justice\", on a brick wall covered in surrounding graffiti."
 countries: [United Kingdom]
 cities: [London]
