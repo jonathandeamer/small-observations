@@ -98,7 +98,7 @@ Draft alt text for the image files in `assets/img`, based on one-image-at-a-time
 - `assets/img/2025/07/2025-07-25-reykjavikurborg.jpg`: A large watermelon slice with green vines growing from it and red puddles beneath, painted on a white wall.
 - `assets/img/2025/07/2025-07-26-reykjavikurborg-2.jpg`: A grey falcon head surrounded by flowing grey, white, and yellow line patterns, painted on a pale wall.
 - `assets/img/2025/07/2025-07-26-reykjavikurborg.jpg`: A pale vampire-like figure biting a woman's neck, with Icelandic text reading "Þeim var eg verst er eg unni mest." underneath, painted as a large mural on a grey wall.
-- `assets/img/2025/08/2025-08-06-new-york.jpg`: A black silhouette of a child swinging a large brush, painted on a beige brick wall beside red fire-sprinkler signs.
+- `assets/img/2025/08/2025-08-06-new-york.jpg`: A black silhouette of a child swinging a large mallet, painted on a beige brick wall beside red fire-sprinkler signs.
 - `assets/img/2025/08/2025-08-08-new-york-2.jpg`: Mr. Monopoly tipping his hat beside New York landmarks including the Statue of Liberty and the Chrysler Building, painted as a bright mural.
 - `assets/img/2025/08/2025-08-08-new-york.jpg`: Black-and-white portraits of the Beastie Boys over a red-and-orange "Lee's Sportswear" background, painted on a storefront; signed "@DannelMonroe" and "@LoveDoorSavers".
 - `assets/img/2025/11/2025-11-03-chicago-2.jpg`: A blue-and-white patterned deer-like animal among green vines, pink berries, and flowers, painted as a huge building mural.

@@ -75,7 +75,7 @@ For each post, pick *one* of these as the hook's anchor (not stacked):
 
 1. **Named subject** — the most famous identifiable thing in the photo. Person, animal, band, named landmark. Examples: `kurt-cobain`, `picasso`, `ringo-starr`, `beatles`.
 2. **Quote-fragment** — the most distinctive piece of text on the artwork, when the text is the post. Examples: `hella-resist`, `tangerines-are-better`, `war-is-over`.
-3. **Named artist + brief subject** — when the maker is the strongest hook. Examples: `niall-olochlainn-yes`, `banksy-child-with-brush`, `nathan-bowen-stay-positive`.
+3. **Named artist + brief subject** — when the maker is the strongest hook. Examples: `niall-olochlainn-yes`, `banksy-child-with-mallet`, `nathan-bowen-stay-positive`.
 4. **Named theme** — a recognised movement, event, or campaign already in `tags`. Examples: `marriage-equality`, `extinction-rebellion`, `palestine-watermelon`.
 5. **Visual hook** — a short visual descriptor from `alt`, used when nothing more specific exists. Examples: `pink-flamingo`, `vampire`, `brown-bird`.
 
@@ -131,7 +131,7 @@ There is no requirement that slugs be globally unique across the whole archive �
 | "Tangerines are better" figure, Bucharest | `bucharest-tangerines-are-better` | Quote-fragment |
 | Halloween woodland installation by Horace on Parkland Walk, London | `london-horace-halloween` | Named artist + theme |
 | Rust metal head sculpture from Burning Man at Chatsworth, Derbyshire Dales | `derbyshire-dales-burning-man-head` | Named theme + subject |
-| Banksy child swinging a brush, New York | `new-york-banksy-child-with-brush` | Named artist + subject |
+| Banksy child swinging a mallet, New York | `new-york-banksy-child-with-mallet` | Named artist + subject |
 | Mr. Monopoly beside the Statue of Liberty, New York | `new-york-mr-monopoly` | Named subject |
 | Brown bird on a branch amid abstract graffiti, London | `london-brown-bird` | Visual hook |
 | "War is over" anti-war stencil, London | `london-war-is-over` | Quote-fragment |
