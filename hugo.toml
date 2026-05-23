@@ -1,6 +1,6 @@
 baseURL = "https://smallobservations.net/"
-locale = "en-us"
-defaultContentLanguage = "en"
+defaultContentLanguage = "en-gb"
+locale = "en-gb"
 title = "Small Observations"
 enableRobotsTXT = true
 theme = "notebook"
