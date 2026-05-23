@@ -5,9 +5,11 @@ Full review of the rendered static site (`public/`) across performance, accessib
 ## Fixed in this pass
 
 ### 1. `/404.html` was missing at the site root — **fixed**
-**Symptom:** `themes/notebook/layouts/404.html` is a perfectly good template (browse links to home/posts/years/countries/cities/tags), but `content/404.md` with `type: "page"` was overriding Hugo's special 404 handling. Output went to `/404/index.html` instead of `/404.html`. S3 + CloudFront error-page integration expects `/404.html` at the root — without it, broken URLs serve S3's default XML error.
+**Symptom:** `themes/notebook/layouts/404.html` is a perfectly good template (browse links to home/posts/years/countries/cities/tags), but `content/404.md` with `type: "page"` was overriding Hugo's special 404 handling. Output went to `/404/index.html` instead of `/404.html`. CloudFront's "Custom error responses" was already configured to serve `/404.html` — but the file didn't exist, so broken URLs were falling through to S3's default response.
 
-**Fix:** Deleted `content/404.md`. Hugo now emits `layouts/404.html` straight to `public/404.html`. If CloudFront's "Custom error responses" was previously pointing at `/404/index.html`, it should be re-pointed at `/404.html`.
+**Fix:** Deleted `content/404.md`. Hugo now emits `layouts/404.html` straight to `public/404.html`. CloudFront's Custom Error Response (configured outside the repo, in the AWS distribution settings) picks it up automatically: verified live by fetching several fresh broken URLs (`/totally-random-…/`, `/2099/01/fake-post/`, `/tags/this-tag-does-not-exist/`, `/cities/atlantis/`) — all return HTTP 404 with the friendly `/404.html` body (`<title>404: page not found · Small Observations</title>`, `<h1>Page not found.</h1>`, masthead browse nav, explore links).
+
+> Diagnostic note for future audits: when CloudFront's Custom Error Response is active, S3's headers still pass through (`server: AmazonS3`, `x-amz-error-code: NoSuchKey`, etc.) even though the *body* is the custom error page. Don't diagnose from headers alone — fetch the body and inspect the `<title>` / `<h1>`.
 
 ### 2. Insecure HTTP link in every page footer — **fixed**
 **Symptom:** `<a href="http://jonathandeamer.com">Jonathan</a>` on all 271 HTML pages — mixed-content warnings, extra redirect hop.
@@ -57,31 +59,36 @@ The home page hierarchy stays clean (`<h1>` = site, `<h2>` = sections). Every ot
 
 **Fix:** `head-og.html` now picks the first favourite by weight for the homepage and uses its photo (plus alt text) for OG and Twitter image meta. The homepage uses the same image-resize pipeline (1200px wide, q82) as post pages, so the OG image inherits long-cache headers.
 
+### 10. No `Cache-Control` header on HTML, sitemap, or feed — **fixed (found via post-deploy crawl)**
+**Symptom:** Deploy matchers in `hugo.toml` set long-cache on images and fonts but nothing was set on `.html` / `sitemap.xml` / `feed.xml`. The origin returned no `Cache-Control`, so both CloudFront and browsers fell back to heuristic TTLs (typically hours). CloudFront's invalidation step on deploy handled the edges, but browser caches could continue serving stale HTML.
+
+**Fix:** Added three deploy matchers emitting `Cache-Control: public, max-age=0, must-revalidate` for HTML, sitemap, and feed. Browsers still cache, but always send a conditional GET — etag-based, returns `304 Not Modified` cheaply (verified live). Images and fonts keep their 1-year long-cache. The matchers were deployed once with `force = true` to backfill the metadata on existing S3 objects; that flag is removed for steady state per CLAUDE.md's deployment-matcher note.
+
 ## Findings not addressed (yet)
 
 Listed roughly by impact so future passes can pick what to do next.
 
 ### Medium-impact
 
-- **10. Hugo aliases use meta-refresh redirects, not real 301s.** `2025/08/new-york-banksy-child-brush/` and `/posts/page/1/` emit `<meta http-equiv=refresh content="0; url=…">`. Browsers and Googlebot generally treat these as 301-equivalent but it isn't ideal. Proper 301s would need CloudFront redirect rules.
+- **11. Hugo aliases use meta-refresh redirects, not real 301s.** `2025/08/new-york-banksy-child-brush/` and `/posts/page/1/` emit `<meta http-equiv=refresh content="0; url=…">`. Browsers and Googlebot generally treat these as 301-equivalent but it isn't ideal. Proper 301s would need CloudFront redirect rules.
 
-- **11. Long taxonomy/term pages don't paginate.** `/cities/london/` has 48 cards on one page; `/tags/animals/` has 39. Only `/posts/` paginates. Lazy-loading limits the cost, but pages will keep growing.
+- **12. Long taxonomy/term pages don't paginate.** `/cities/london/` has 48 cards on one page; `/tags/animals/` has 39. Only `/posts/` paginates. Lazy-loading limits the cost, but pages will keep growing.
 
 ### Polish / accessibility nits pa11y doesn't catch
 
-- **12. Bare `|` pipe characters between masthead browse links.** Screen readers will read each one ("pipe" or "vertical bar"). Either wrap in `<span aria-hidden="true">` or replace with CSS `::after` borders/dots. Now that the nav is shown on every page (#4 above), this is more pages-per-user-affected than before.
+- **13. Bare `|` pipe characters between masthead browse links.** Screen readers will read each one ("pipe" or "vertical bar"). Either wrap in `<span aria-hidden="true">` or replace with CSS `::after` borders/dots. Now that the nav is shown on every page (#4 above), this is more pages-per-user-affected than before.
 
-- **13. Decorative `<span class="glyph">✦</span>` and masthead `<span class="amp">·</span>` lack `aria-hidden="true"`.** Screen readers announce them ("black four-pointed star", "middle dot"). `pa11y.json` suppresses the glyph from automated audits but the underlying SR experience isn't changed. Adding `aria-hidden` lets the pa11y suppression go.
+- **14. Decorative `<span class="glyph">✦</span>` and masthead `<span class="amp">·</span>` lack `aria-hidden="true"`.** Screen readers announce them ("black four-pointed star", "middle dot"). `pa11y.json` suppresses the glyph from automated audits but the underlying SR experience isn't changed. Adding `aria-hidden` lets the pa11y suppression go.
 
-- **14. No `<meta name="theme-color">`.** Would tint the Android Chrome address bar and Safari tab strip to `--coral` or `--bg`.
+- **15. No `<meta name="theme-color">`.** Would tint the Android Chrome address bar and Safari tab strip to `--coral` or `--bg`.
 
 ### Polish / SEO / structure
 
-- **15. Two tag URLs use non-standard characters:** `/tags/j%C3%BCrgen-klopp/` (UTF-8 percent-encoded `ü`) and `/tags/mr.-monopoly/` (period in path). Both legal, but cleaner slugs (`jurgen-klopp`, `mr-monopoly`) would be more portable across link previewers and older clients.
+- **16. Two tag URLs use non-standard characters:** `/tags/j%C3%BCrgen-klopp/` (UTF-8 percent-encoded `ü`) and `/tags/mr.-monopoly/` (period in path). Both legal, but cleaner slugs (`jurgen-klopp`, `mr-monopoly`) would be more portable across link previewers and older clients.
 
-- **16. No JSON-LD structured data.** A `BlogPosting` / `ImageObject` schema per post (title, datePublished, image, alt, geo) would unlock rich snippets. Not essential for a personal site, but inexpensive to add.
+- **17. No JSON-LD structured data.** A `BlogPosting` / `ImageObject` schema per post (title, datePublished, image, alt, geo) would unlock rich snippets. Not essential for a personal site, but inexpensive to add.
 
-- **17. RSS items duplicate the description.** It appears as `<description>` and as the first paragraph inside `<content:encoded>`. Some readers will show it twice. Could remove from `<content:encoded>` (it's already in the post body) or from `<description>`.
+- **18. RSS items duplicate the description.** It appears as `<description>` and as the first paragraph inside `<content:encoded>`. Some readers will show it twice. Could remove from `<content:encoded>` (it's already in the post body) or from `<description>`.
 
 ### Knowingly accepted (intentional design, not bugs)
 
@@ -92,10 +99,20 @@ Listed roughly by impact so future passes can pick what to do next.
 
 ## Verification
 
-All `make check` audits still pass after the fixes:
+Local `make check` audits passed throughout (all fixes were either in-template or config-only):
 
 - `htmltest` — 273 documents, no broken internal links.
 - `pa11y` — no issues on homepage or sample post.
 - `vnu` — HTML validation clean on homepage + post.
 - `xmllint` — sitemap (265 URLs) and RSS feed both valid.
 - ingest tests not run (no Python changes in this pass).
+
+Live-site verification after deploy:
+
+- 18 hand-picked entry points (home, all archive indexes, paginator pages, feeds, sitemap, robots, sample term pages) — all 200.
+- 44 random sitemap URLs — all 200.
+- 126 internal links from home + a post + tags index — all 200.
+- UTF-8 tag URL (`/tags/jürgen-klopp/` → `/tags/j%C3%BCrgen-klopp/`) and dot-in-path URL (`/tags/mr.-monopoly/`) — both 200.
+- Four fresh broken URLs — all return HTTP 404 with the friendly `/404.html` body (CloudFront Custom Error Response confirmed working).
+- Cache-Control headers — HTML/sitemap/feed/404 carry `public, max-age=0, must-revalidate`; images and fonts keep `max-age=31536000`. Conditional GET with matching etag returns `304 Not Modified`.
+- Lighthouse (live homepage): Performance 76, Accessibility 100, Best Practices 100, SEO 100, Agentic Browsing 100. LCP 2.8 s (mostly Style & Layout cost from the 4-axis variable font and the inline CSS — both documented design trade-offs).
