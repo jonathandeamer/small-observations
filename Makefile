@@ -18,8 +18,18 @@ build:  ## production build with orphan cleanup
 
 check: build  ## build then sanity-check the rendered site
 	@echo
+	@echo "→ photo post front matter:"
+	@python3 scripts/check_post_frontmatter.py content/posts
+	@echo
+	@echo "→ photo post slugs:"
+	@python3 scripts/audit_slugs.py
+	@echo "    ok"
+	@echo
 	@echo "→ posts with empty alt text on their photo:"
 	@python3 scripts/check_photo_alt.py public
+	@echo
+	@echo "→ rendered post metadata:"
+	@python3 scripts/check_rendered_metadata.py public
 	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
 		echo "→ htmltest (internal link check):"; \
