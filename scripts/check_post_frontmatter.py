@@ -65,6 +65,19 @@ def list_values(value: str) -> list[str]:
     return [strip_quotes(item.strip()) for item in value.split(",")]
 
 
+def alias_errors(label: str, value: str) -> list[str]:
+    if not is_inline_list(value):
+        return [f"{label}: 'aliases' must be an inline list"]
+
+    errors: list[str] = []
+    for alias in list_values(value):
+        if alias.startswith("http://") or alias.startswith("https://"):
+            errors.append(f"{label}: aliases must be absolute site paths, not full URLs: {alias}")
+        elif not alias.startswith("/") or not alias.endswith("/"):
+            errors.append(f"{label}: aliases must be absolute site paths with trailing slash: {alias}")
+    return errors
+
+
 def audit_post(path: Path) -> list[str]:
     frontmatter = parse_front_matter(path.read_text())
     label = path.name
@@ -81,6 +94,9 @@ def audit_post(path: Path) -> list[str]:
     for key in INLINE_LIST_KEYS:
         if key in frontmatter and not is_inline_list(frontmatter[key]):
             errors.append(f"{label}: '{key}' must be an inline list")
+
+    if "aliases" in frontmatter:
+        errors.extend(alias_errors(label, frontmatter["aliases"]))
 
     if "date" in frontmatter and "years" in frontmatter and is_inline_list(frontmatter["years"]):
         year_match = DATE_YEAR_RE.match(strip_quotes(frontmatter["date"]))

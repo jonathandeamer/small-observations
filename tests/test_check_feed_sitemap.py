@@ -111,6 +111,56 @@ publishDate: 2026-05-15T14:53:33Z
     ]
 
 
+def test_reports_non_apex_feed_and_sitemap_urls(tmp_path: Path) -> None:
+    public = tmp_path / "public"
+    content = tmp_path / "content/posts"
+    write(
+        content / "post.md",
+        """
+---
+slug: "london-brown-bird"
+date: 2025-12-04T08:24:43Z
+publishDate: 2026-05-15T14:53:33Z
+---
+""",
+    )
+    write(
+        public / "feed.xml",
+        """
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <atom:link href="https://foo.smallobservations.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <link>https://www.smallobservations.net/2025/12/london-brown-bird/</link>
+      <pubDate>Fri, 15 May 2026 14:53:33 +0000</pubDate>
+      <content:encoded><![CDATA[
+        <p><a href="https://www.smallobservations.net/2025/12/london-brown-bird/"><img src="https://foo.smallobservations.net/images/bird.jpg" alt="A brown bird on a wall."></a></p>
+      ]]></content:encoded>
+    </item>
+  </channel>
+</rss>
+""",
+    )
+    write(
+        public / "sitemap.xml",
+        """
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.smallobservations.net/2025/12/london-brown-bird/</loc>
+    <lastmod>2026-05-15T14:53:33+00:00</lastmod>
+  </url>
+</urlset>
+""",
+    )
+
+    errors = audit_feed_and_sitemap(public, content)
+
+    assert "feed.xml: URL must use apex domain https://smallobservations.net: https://foo.smallobservations.net/feed.xml" in errors
+    assert "feed.xml: URL must use apex domain https://smallobservations.net: https://www.smallobservations.net/2025/12/london-brown-bird/" in errors
+    assert "feed.xml: URL must use apex domain https://smallobservations.net: https://foo.smallobservations.net/images/bird.jpg" in errors
+    assert "sitemap.xml: URL must use apex domain https://smallobservations.net: https://www.smallobservations.net/2025/12/london-brown-bird/" in errors
+
+
 def test_reports_rss_limit_order_and_reader_image_regressions(tmp_path: Path) -> None:
     public = tmp_path / "public"
     content = tmp_path / "content/posts"

@@ -10,6 +10,7 @@ from datetime import datetime
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlparse
 
 SITE = "https://smallobservations.net"
 FEED_URL = f"{SITE}/feed.xml"
@@ -113,6 +114,26 @@ def rss_contact_errors(feed: ET.Element) -> list[str]:
     return errors
 
 
+def is_small_observations_url(value: str) -> bool:
+    parsed = urlparse(value)
+    return parsed.scheme in {"http", "https"} and parsed.hostname is not None and parsed.hostname.endswith(
+        "smallobservations.net"
+    )
+
+
+def apex_domain_errors(source: str, urls: list[str]) -> list[str]:
+    errors: list[str] = []
+    seen: set[str] = set()
+    for url in urls:
+        if not is_small_observations_url(url) or url.startswith(f"{SITE}/"):
+            continue
+        if url in seen:
+            continue
+        seen.add(url)
+        errors.append(f"{source}: URL must use apex domain {SITE}: {url}")
+    return errors
+
+
 def sitemap_entries(sitemap: ET.Element) -> dict[str, str]:
     entries: dict[str, str] = {}
     for url in sitemap.findall("sm:url", SITEMAP_NS):
@@ -134,6 +155,7 @@ def audit_feed_and_sitemap(public_dir: Path, posts_dir: Path) -> list[str]:
     errors.extend(rss_contact_errors(feed))
 
     items = rss_items(feed)
+    feed_urls = [self_link]
     if len(items) > MAX_RSS_ITEMS:
         errors.append(f"feed.xml: RSS feed must contain no more than {MAX_RSS_ITEMS} items")
 
@@ -145,10 +167,13 @@ def audit_feed_and_sitemap(public_dir: Path, posts_dir: Path) -> list[str]:
 
     for item in items:
         link = rss_item_link(item)
+        feed_urls.append(link)
+        image = rss_content_image(item)
+        if image.image_src:
+            feed_urls.append(image.image_src)
         if link not in expected_urls:
             errors.append(f"feed.xml: RSS item is not a photo post: {link}")
             continue
-        image = rss_content_image(item)
         if not image.image_src:
             errors.append(f"feed.xml: {link} content must include an image")
             continue
@@ -156,9 +181,11 @@ def audit_feed_and_sitemap(public_dir: Path, posts_dir: Path) -> list[str]:
             errors.append(f"feed.xml: {link} content image src must be absolute")
         if not image.image_alt:
             errors.append(f"feed.xml: {link} content image must have non-empty alt text")
+    errors.extend(apex_domain_errors("feed.xml", feed_urls))
 
     sitemap = ET.parse(public_dir / "sitemap.xml").getroot()
     entries = sitemap_entries(sitemap)
+    errors.extend(apex_domain_errors("sitemap.xml", list(entries)))
     not_found_url = f"{SITE}/404/"
     if not_found_url in entries:
         errors.append(f"sitemap.xml: must not include {not_found_url}")

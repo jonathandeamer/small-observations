@@ -39,6 +39,25 @@ def test_ignores_hugo_alias_redirect_pages(tmp_path: Path) -> None:
     assert audit_rendered_posts(tmp_path / "public") == []
 
 
+def test_ignores_banksy_brush_alias_redirect_to_mallet_slug(tmp_path: Path) -> None:
+    write_page(
+        tmp_path / "public/2025/08/new-york-banksy-child-brush/index.html",
+        """
+<title>https://smallobservations.net/2025/08/new-york-banksy-child-mallet/</title>
+<link rel="canonical" href="https://smallobservations.net/2025/08/new-york-banksy-child-mallet/">
+<meta http-equiv="refresh" content="0; url=https://smallobservations.net/2025/08/new-york-banksy-child-mallet/">
+""",
+    )
+    write_page(
+        tmp_path / "public/2025/08/new-york-banksy-child-mallet/index.html",
+        VALID_HEAD.replace("Brown bird", "Banksy child swinging a mallet")
+        .replace("london-brown-bird", "new-york-banksy-child-mallet")
+        .replace("Brown bird on a branch", "Black silhouette painted beside red fire-sprinkler signs"),
+    )
+
+    assert audit_rendered_posts(tmp_path / "public") == []
+
+
 def test_reports_missing_and_empty_rendered_metadata(tmp_path: Path) -> None:
     write_page(
         tmp_path / "public/2025/12/london-brown-bird/index.html",

@@ -72,3 +72,18 @@ def test_reports_list_shape_and_year_mismatch(tmp_path: Path) -> None:
         "broken.md: 'tags' must be an inline list",
         "broken.md: 'years' must include date year 2025",
     ]
+
+
+def test_reports_invalid_alias_paths(tmp_path: Path) -> None:
+    write_post(
+        tmp_path / "content/posts/broken.md",
+        VALID_FRONTMATTER + """
+aliases: ["/2025/12/old-slug", "2025/12/relative-slug/", "https://smallobservations.net/2025/12/full-url/"]
+""",
+    )
+
+    assert audit_posts(tmp_path / "content/posts") == [
+        "broken.md: aliases must be absolute site paths with trailing slash: /2025/12/old-slug",
+        "broken.md: aliases must be absolute site paths with trailing slash: 2025/12/relative-slug/",
+        "broken.md: aliases must be absolute site paths, not full URLs: https://smallobservations.net/2025/12/full-url/",
+    ]
