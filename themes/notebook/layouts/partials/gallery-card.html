@@ -1,11 +1,13 @@
-{{ $rel := printf "img/%s" .Params.photo }}
+{{ $eager := .eager | default false }}
+{{ $page := .page }}
+{{ $rel := printf "img/%s" $page.Params.photo }}
 {{ $orig := resources.Get $rel }}
 {{ if $orig }}
   {{ $thumb200 := $orig.Resize "200x q82" }}
   {{ $thumb400 := $orig.Resize "400x q82" }}
   {{ $thumb200Webp := $orig.Process "resize 200x webp q80" }}
   {{ $thumb400Webp := $orig.Process "resize 400x webp q80" }}
-  <a class="gallery-card" href="{{ .RelPermalink }}">
+  <a class="gallery-card" href="{{ $page.RelPermalink }}">
     <picture class="gallery-frame">
       <source type="image/webp"
               srcset="{{ $thumb200Webp.RelPermalink }} 200w, {{ $thumb400Webp.RelPermalink }} 400w"
@@ -14,12 +16,14 @@
            srcset="{{ $thumb200.RelPermalink }} 200w, {{ $thumb400.RelPermalink }} 400w"
            sizes="(max-width: 640px) calc(50vw - 1.5rem), 250px"
            width="{{ $thumb400.Width }}" height="{{ $thumb400.Height }}"
-           alt="{{ .Params.alt | default "" }}"
-           loading="lazy" decoding="async">
+           alt="{{ $page.Params.alt | default "" }}"
+           loading="{{ if $eager }}eager{{ else }}lazy{{ end }}"
+           {{ if $eager }}fetchpriority="high"{{ end }}
+           decoding="async">
     </picture>
     <div class="gallery-meta">
-      <span class="gallery-date smallcaps">{{ .Date.Format "2006 · 01" }}</span>
-      <span class="gallery-place">{{ with .Params.cities }}{{ index . 0 }}{{ end }}{{ with .Params.countries }}, {{ index . 0 }}{{ end }}</span>
+      <span class="gallery-date smallcaps">{{ $page.Date.Format "2006 · 01" }}</span>
+      <span class="gallery-place">{{ with $page.Params.cities }}{{ index . 0 }}{{ end }}{{ with $page.Params.countries }}, {{ index . 0 }}{{ end }}</span>
     </div>
   </a>
 {{ end }}

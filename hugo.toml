@@ -31,6 +31,12 @@ pagination.pagerSize = 20
   baseName = "feed"
 
 [deployment]
+  [[deployment.matchers]]
+    pattern = "^.+\\.(?:jpg|jpeg|png|gif|webp|svg)$"
+    cacheControl = "max-age=31536000, no-transform, public"
+  [[deployment.matchers]]
+    pattern = "^.+\\.(?:woff2|woff)$"
+    cacheControl = "max-age=31536000, no-transform, public"
 
 [[deployment.targets]]
   name = "production"

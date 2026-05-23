@@ -15,8 +15,8 @@
   </p>
 
   <div class="gallery-grid">
-    {{ range .Pages.ByDate.Reverse }}
-      {{ partial "gallery-card.html" . }}
+    {{ range $index, $page := .Pages.ByDate.Reverse }}
+      {{ partial "gallery-card.html" (dict "page" $page "eager" (eq $index 0)) }}
     {{ end }}
   </div>
 </section>

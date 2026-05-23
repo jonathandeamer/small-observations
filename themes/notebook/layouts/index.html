@@ -9,8 +9,8 @@
 </div>
 
 <div class="gallery-grid">
-  {{ range first 8 $favs }}
-    {{ partial "gallery-card.html" . }}
+  {{ range $index, $page := first 8 $favs }}
+    {{ partial "gallery-card.html" (dict "page" $page "eager" (eq $index 0)) }}
   {{ end }}
   <div class="gallery-more">
     <a href="{{ "/tags/favourite/" | relURL }}">see all favourites →</a>

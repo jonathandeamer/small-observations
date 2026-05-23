@@ -12,8 +12,8 @@
 
   {{ $paginator := .Paginate (.Pages.ByDate.Reverse) }}
   <div class="gallery-grid">
-    {{ range $paginator.Pages }}
-      {{ partial "gallery-card.html" . }}
+    {{ range $index, $page := $paginator.Pages }}
+      {{ partial "gallery-card.html" (dict "page" $page "eager" (eq $index 0)) }}
     {{ end }}
   </div>
 
