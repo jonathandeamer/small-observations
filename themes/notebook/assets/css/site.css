@@ -103,11 +103,6 @@ img { max-width: 100%; height: auto; display: block; }
 .masthead .tagline::before { content: "— "; color: var(--coral); font-style: normal; }
 .masthead-browse {
   margin: 0.45rem 0 0 0.15rem;
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 0.42rem;
-  row-gap: 0.18rem;
-  align-items: baseline;
   font-variant-caps: all-small-caps;
   letter-spacing: 0.08em;
   font-size: 0.9rem;
@@ -117,10 +112,6 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink-soft);
   text-decoration: none;
   border-bottom: 1px solid var(--rule);
-}
-.masthead-browse a + a {
-  padding-left: 0.62rem;
-  border-left: 1px solid var(--rule);
 }
 .masthead-browse a:hover {
   color: var(--coral);
@@ -243,7 +234,15 @@ img { max-width: 100%; height: auto; display: block; }
 .gallery-date { font-size: 0.78rem; color: var(--muted); }
 .gallery-place { color: var(--ink-soft); font-style: italic; font-size: 0.88rem; }
 .gallery-more { grid-column: 1 / -1; margin-top: 0.4rem; text-align: right; }
-.gallery-more a { color: var(--link); font-style: italic; text-decoration: none; border-bottom: 1px solid var(--link); padding-bottom: 1px; }
+.gallery-more a {
+  color: var(--link);
+  text-decoration: none;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.08em;
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+.gallery-more a:hover { color: var(--coral); }
 
 /* homepage — explore links */
 .home-explore {
@@ -293,7 +292,7 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--coral);
   border-color: var(--coral);
 }
-.home-explore-more {
+a.home-explore-more {
   justify-self: end;
   white-space: nowrap;
   color: var(--link);
@@ -301,6 +300,7 @@ img { max-width: 100%; height: auto; display: block; }
   letter-spacing: 0.08em;
   font-size: 0.84rem;
   font-weight: 500;
+  border-bottom: none;
 }
 @media (max-width: 760px) {
   .gallery-grid {
@@ -355,7 +355,6 @@ img { max-width: 100%; height: auto; display: block; }
 
   .masthead-browse {
     font-size: 0.86rem;
-    column-gap: 0.36rem;
   }
 
   .home-explore p {
