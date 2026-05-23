@@ -11,6 +11,7 @@
   {{ end }}
 
   {{ with site.Home.OutputFormats.Get "rss" }}
+    {{ "<!-- Feed sorts by publish date; gallery and archive pages sort by photo date. -->" | safeHTML }}
     <link rel="alternate" type="application/rss+xml" title="{{ site.Title }}" href="{{ .Permalink }}">
   {{ end }}
 

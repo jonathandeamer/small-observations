@@ -64,6 +64,7 @@ pagination.pagerSize = 20
   minifyOutput = true
   [minify.tdewolff.html]
     keepWhitespace = true   # don't collapse whitespace inside <pre>
+    keepComments = true     # preserve safeHTML-wrapped <!-- --> notes left for view-source readers
 
 [params]
   author = "Jonathan"
