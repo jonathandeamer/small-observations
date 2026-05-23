@@ -30,6 +30,9 @@ pagination.pagerSize = 20
 [outputFormats.RSS]
   baseName = "feed"
 
+[services.rss]
+  limit = 20
+
 [deployment]
   [[deployment.matchers]]
     pattern = "^.+\\.(?:jpg|jpeg|png|gif|webp|svg)$"

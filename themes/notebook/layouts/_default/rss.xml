@@ -1,8 +1,8 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
-{{- $pages := site.RegularPages.ByPublishDate.Reverse -}}
+{{- $pages := (where site.RegularPages "Section" "posts").ByPublishDate.Reverse -}}
 {{- $limit := site.Config.Services.RSS.Limit -}}
 {{- if ge $limit 1 }}{{ $pages = $pages | first $limit }}{{ end -}}
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>{{ site.Title }}</title>
     <link>{{ site.BaseURL }}</link>
@@ -11,14 +11,29 @@
     <managingEditor>{{ site.Params.author | default site.Title }}</managingEditor>
     <webMaster>{{ site.Params.author | default site.Title }}</webMaster>
     <lastBuildDate>{{ with $pages }}{{ (index . 0).PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}{{ end }}</lastBuildDate>
+    {{- with site.Home.OutputFormats.Get "rss" }}
     <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+    {{- end }}
     {{- range $pages }}
+    {{- $rel := printf "img/%s" .Params.photo }}
+    {{- $orig := resources.Get $rel }}
+    {{- if not $orig }}{{ errorf "photo not found in assets/: %s (post: %s)" $rel .RelPermalink }}{{ end }}
+    {{- $feedImage := $orig.Resize "1000x q82" }}
     <item>
       <title>{{ .Title | default (.Date.Format "2 January 2006") }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
-      <guid>{{ .Permalink }}</guid>
+      <guid isPermaLink="true">{{ .Permalink }}</guid>
       {{- with .Description }}<description>{{ . | html }}</description>{{ end }}
+      <content:encoded>{{ "<![CDATA[" | safeHTML }}
+        <p><a href="{{ .Permalink }}"><img src="{{ $feedImage.Permalink }}" width="{{ $feedImage.Width }}" height="{{ $feedImage.Height }}" alt="{{ .Params.alt | html }}"></a></p>
+        {{- with .Description }}
+        <p>{{ . | html }}</p>
+        {{- end }}
+        {{- with .Content }}
+        {{ . }}
+        {{- end }}
+      {{ "]]>" | safeHTML }}</content:encoded>
     </item>
     {{- end }}
   </channel>
