@@ -74,18 +74,20 @@ Reports, for every post in content/posts/*.md:
     - slug has leading/trailing hyphen or double hyphen
     - slug exceeds 70 characters
     - slug collides with another post in the same year+month bucket
+    - hook token is not grounded in this post's title/alt/tags/artists
+      (catches misapplied slugs — wrong slug in wrong file)
   Soft warnings (printed, exit stays 0):
-    - slug does not start with a known city prefix
+    - slug does not start with the expected city prefix
     - slug is the legacy YYYY-MM-DD-<city> shape (not yet rewritten)
 """
 from __future__ import annotations
-import re, sys, pathlib
+import re, sys, pathlib, unicodedata
 from collections import defaultdict
 
 POSTS = pathlib.Path("content/posts")
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
 SLUG_CHARSET_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
-LEGACY_SHAPE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}-")
+LEGACY_SHAPE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}($|-)")
 
 # Maps cities[] value to expected slug prefix. Mirrors the spec table.
 CITY_PREFIXES = {
@@ -139,6 +141,44 @@ def expected_prefix(cities: list[str]) -> str | None:
     return CITY_PREFIXES.get(city, kebab(city))
 
 
+def normalize(s: str) -> str:
+    """Lowercase, strip diacritics, keep only [a-z0-9]."""
+    nfkd = unicodedata.normalize("NFKD", s.lower())
+    ascii_only = nfkd.encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^a-z0-9]", "", ascii_only)
+
+
+def grounding_corpus(fm: dict) -> str:
+    """One big normalized string of every field a slug hook may draw from."""
+    parts = [
+        strip_quotes(fm.get("title", "")),
+        strip_quotes(fm.get("alt", "")),
+    ]
+    parts.extend(parse_list(fm.get("tags", "[]")))
+    parts.extend(parse_list(fm.get("artists", "[]")))
+    return normalize(" ".join(parts))
+
+
+def check_grounding(slug: str, prefix: str | None, fm: dict) -> list[str]:
+    """For each hook token (after the city prefix), verify it appears in the
+    post's own grounding fields. Catches the wrong-slug-wrong-file class of
+    misapplication: e.g. `seville-kurt-cobain` applied to the Dublin file
+    fails because `kurt` and `cobain` are not substrings of Dublin's fields."""
+    hook = slug
+    if prefix and (slug == prefix or slug.startswith(prefix + "-")):
+        hook = slug[len(prefix):].lstrip("-")
+    if not hook:
+        return []
+    corpus = grounding_corpus(fm)
+    failures: list[str] = []
+    for token in hook.split("-"):
+        if not token:
+            continue
+        if normalize(token) not in corpus:
+            failures.append(f"hook token '{token}' not grounded in title/alt/tags/artists")
+    return failures
+
+
 def year_month_from_date(date_str: str) -> str | None:
     m = re.match(r"(\d{4})-(\d{2})", date_str.strip())
     return f"{m.group(1)}-{m.group(2)}" if m else None
@@ -165,6 +205,7 @@ def audit_post(path: pathlib.Path) -> tuple[list[str], list[str], str | None, st
         prefix = expected_prefix(cities)
         if prefix and not slug.startswith(prefix + "-") and slug != prefix:
             soft.append(f"slug '{slug}' does not start with expected city prefix '{prefix}'")
+        hard.extend(check_grounding(slug, prefix, fm))
     return hard, soft, ym, slug
 
 
@@ -274,13 +315,14 @@ The expected new slugs for these ten posts, drawn from the worked examples in th
 | 2025-05-15-san-francisco | `2025-05-15-san-francisco` | `san-francisco-narcania-vs-death` |
 | 2026-01-21-city-of-london | `2026-01-21-city-of-london` | `london-nathan-bowen-stay-positive` |
 
-- [ ] **Step 3: Apply each edit with `Edit`**
+- [ ] **Step 3: Apply each edit mechanically from the table**
 
-One `Edit` per post. Replace only the `slug:` line. Do not touch any other front-matter field. Example for the first post:
+The table in Step 2 is the source of truth. Do not re-derive any slug at this step — for each row, `Edit` the named file and replace its `slug:` line with the proposed value. One `Edit` per post. Do not touch any other front-matter field. Example for the first row:
 
 ```
-Old: slug: "2005-09-02"
-New: slug: "seville-kurt-cobain"
+File: content/posts/2005-09-02.md
+Old:  slug: "2005-09-02"
+New:  slug: "seville-kurt-cobain"
 ```
 
 - [ ] **Step 4: Run the audit on the pilot subset**
@@ -350,13 +392,25 @@ YEAR=2017   # change per batch
 ls content/posts/${YEAR}-*.md
 ```
 
-- [ ] **Step 2: Read each post's front matter and draft the new slug**
+- [ ] **Step 2: Draft a slug table for the batch (review before editing any file)**
 
-For each post: apply the same editorial discipline as the pilot. Mentally verify each hook word against `title`, `alt`, `tags`, `artists`. If two posts in the same year+month would collide, vary the later one's hook.
+Build a small markdown table for the year batch listing `filename`, `current slug`, `proposed new slug`, and a one-line grounding note naming the source fields each hook token came from. Example for a hypothetical 2017 batch:
 
-Use `Edit` to replace only the `slug:` line.
+```markdown
+| File | Current | Proposed | Grounding |
+|---|---|---|---|
+| 2017-04-22-greater-london.md | 2017-04-22-greater-london | london-protest-bird-scroll | "bird" ← alt/title; "scroll" ← alt; "protest" ← tags |
+| 2017-06-26-greater-london.md | 2017-06-26-greater-london | london-charlie-chaplin | "charlie"/"chaplin" ← title + alt + tags |
+| ... | ... | ... | ... |
+```
 
-- [ ] **Step 3: Run the audit on the year batch**
+Save this as a scratch file under `/tmp/slug-batch-${YEAR}.md` (do not commit; it is a workflow artefact, not project material). Present the table to the user. Wait for go-ahead before applying any `Edit`. This is the single point at which the human reviews the editorial pairing, so the table must be complete and correct before moving on.
+
+- [ ] **Step 3: Apply the table mechanically with `Edit`**
+
+For each row of the approved table, use `Edit` to replace only the `slug:` line of the named file. Do not draft new slugs at this step — work strictly from the table. One `Edit` per file.
+
+- [ ] **Step 4: Run the audit on the year batch**
 
 ```bash
 YEAR=2017
@@ -375,9 +429,9 @@ if hard or soft:
 done
 ```
 
-Expected: zero HARD. Soft warnings about the legacy shape are acceptable for posts you haven't yet rewritten *in other year batches*; within the current year batch every post should be clean. Investigate and fix any HARD violation before committing.
+Expected: zero HARD. Soft warnings about the legacy shape are acceptable for posts you haven't yet rewritten *in other year batches*; within the current year batch every post should be clean. A HARD grounding-token failure here strongly suggests a slug was applied to the wrong file — investigate and fix before committing.
 
-- [ ] **Step 4: Run `make build`**
+- [ ] **Step 5: Run `make build`**
 
 ```bash
 make build
@@ -385,7 +439,7 @@ make build
 
 Expected: exit 0.
 
-- [ ] **Step 5: Eyeball the diff**
+- [ ] **Step 6: Eyeball the diff**
 
 ```bash
 git diff content/posts/${YEAR}-*.md
@@ -393,7 +447,7 @@ git diff content/posts/${YEAR}-*.md
 
 Look for: any slug whose hook you cannot defend against a source field; any slug that ended up too long; any slug that doesn't lead with the expected city prefix; any colliding slug within the year+month.
 
-- [ ] **Step 6: Commit the year batch**
+- [ ] **Step 7: Commit the year batch**
 
 ```bash
 YEAR=2017
