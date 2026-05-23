@@ -1,7 +1,7 @@
 ---
 slug: "london-brexit-future"
 date: 2017-09-20T16:37:17Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T23:46:00Z
 photo: 2017/09/2017-09-20-greater-london.jpg
 title: "Brexit \"FUTURE\" stencil, London"
 description: "Small figure in a high-visibility vest, partial EU flag above, beside a red metal window grille. 2017."

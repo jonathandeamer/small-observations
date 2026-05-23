@@ -1,7 +1,7 @@
 ---
 slug: "london-charlie-chaplin-felix-cat"
 date: 2017-06-26T14:51:39Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T23:49:00Z
 photo: 2017/06/2017-06-26-greater-london.jpg
 title: "Charlie Chaplin and Felix the Cat mural, London"
 description: "Chaplin holding a cane, with other silent-era comic figures on a red brick wall. 2017."

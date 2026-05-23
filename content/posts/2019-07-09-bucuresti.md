@@ -1,7 +1,7 @@
 ---
 slug: "bucharest-tangerines-are-better"
 date: 2019-07-09T17:17:19Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T23:41:00Z
 photo: 2019/07/2019-07-09-bucuresti.jpg
 title: "\"Tangerines are better\" figure, Bucharest"
 description: "Blue figure on a red wall beneath barred windows; full line: \"I'm tired of people, tangerines are better.\" 2019."

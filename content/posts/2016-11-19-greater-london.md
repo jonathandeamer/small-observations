@@ -1,7 +1,7 @@
 ---
 slug: "london-bring-back-dem-days"
 date: 2016-11-19T13:56:44Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T23:51:00Z
 photo: 2016/11/2016-11-19-greater-london.jpg
 title: "Painted quote on a brick wall, London"
 description: "Large white text: \"If I could bring back dem days dat made me who I am I wouldn't change a fing.\" 2016."

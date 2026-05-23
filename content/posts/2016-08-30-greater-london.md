@@ -1,7 +1,7 @@
 ---
 slug: "london-oscar-wilde-books"
 date: 2016-08-30T18:24:11Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T23:55:00Z
 photo: 2016/08/2016-08-30-greater-london.jpg
 title: "Oscar Wilde quote on a Little Free Library, London"
 description: "Painted on a pale blue flower-decorated box: \"With FREEDOM, BOOKS, FLOWERS and the MOON, who could not be HAPPY?\" 2016."

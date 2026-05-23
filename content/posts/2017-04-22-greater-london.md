@@ -1,7 +1,7 @@
 ---
 slug: "london-protest-bird-scroll"
 date: 2017-04-22T15:28:00Z
-publishDate: 2026-05-15T14:53:33Z
+publishDate: 2026-05-22T23:50:00Z
 photo: 2017/04/2017-04-22-greater-london.jpg
 title: "Bird with protest scroll, Parkland Walk, London"
 description: "Black-and-white bird, full scroll: \"Today we are slaves of Ridiculous Kings\". 2017."
