@@ -1,5 +1,5 @@
 ---
-slug: "2015-10-12-greater-london"
+slug: "london-war-is-over"
 date: 2015-10-12T14:34:26Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2015/10/2015-10-12-greater-london.jpg

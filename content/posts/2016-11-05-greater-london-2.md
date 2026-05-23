@@ -1,5 +1,5 @@
 ---
-slug: "2016-11-05-greater-london-2"
+slug: "london-lichtenstein-style-face"
 date: 2016-11-05T12:56:40Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2016/11/2016-11-05-greater-london-2.jpg

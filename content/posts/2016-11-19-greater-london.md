@@ -1,5 +1,5 @@
 ---
-slug: "2016-11-19-greater-london"
+slug: "london-bring-back-dem-days"
 date: 2016-11-19T13:56:44Z
 publishDate: 2026-05-15T14:53:33Z
 photo: 2016/11/2016-11-19-greater-london.jpg
