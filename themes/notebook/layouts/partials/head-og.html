@@ -7,7 +7,20 @@
 <meta property="og:description" content="{{ .Description | default site.Params.description }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ if eq .Kind "page" }}article{{ else }}website{{ end }}">
-{{ with .Params.photo }}
+<meta property="og:locale" content="en_GB">
+
+{{/* Pick the OG photo: post's own photo, or for the homepage the first favourite. */}}
+{{ $photo := .Params.photo }}
+{{ $photoAlt := .Params.alt }}
+{{ if and .IsHome (not $photo) }}
+  {{ $favs := where (where site.RegularPages "Section" "posts") "Params.tags" "intersect" (slice "favourite") }}
+  {{ with index ($favs.ByWeight) 0 }}
+    {{ $photo = .Params.photo }}
+    {{ $photoAlt = .Params.alt }}
+  {{ end }}
+{{ end }}
+
+{{ with $photo }}
   {{ $rel := printf "img/%s" . }}
   {{ $orig := resources.Get $rel }}
   {{ if $orig }}
@@ -15,8 +28,10 @@
     <meta property="og:image" content="{{ $og.Permalink }}">
     <meta property="og:image:width" content="{{ $og.Width }}">
     <meta property="og:image:height" content="{{ $og.Height }}">
+    {{ with $photoAlt }}<meta property="og:image:alt" content="{{ . }}">{{ end }}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="{{ $og.Permalink }}">
+    {{ with $photoAlt }}<meta name="twitter:image:alt" content="{{ . }}">{{ end }}
   {{ end }}
 {{ else }}
   <meta name="twitter:card" content="summary">
