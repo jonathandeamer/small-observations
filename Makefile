@@ -82,10 +82,10 @@ clean:  ## remove all generated output
 	rm -rf public resources/_gen .hugo_build.lock
 
 deploy: build  ## deploy production build to S3 and invalidate CloudFront
-	AWS_PROFILE=small-observations-deploy hugo deploy --target production
+	AWS_PROFILE=hugo-deploy hugo deploy --target production
 
 deploy-dry: build  ## show production deploy changes without uploading
-	AWS_PROFILE=small-observations-deploy hugo deploy --target production --dryRun
+	AWS_PROFILE=hugo-deploy hugo deploy --target production --dryRun
 
 ingest:  ## ingest photos from _ingest/ (moves originals on success)
 	. .venv/bin/activate && python -m ingest
