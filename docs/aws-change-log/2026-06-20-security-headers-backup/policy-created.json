@@ -1,0 +1,46 @@
+{
+    "Location": "https://cloudfront.amazonaws.com/2020-05-31/response-header-policy/8bf658c2-7896-4b78-be46-e93460368078",
+    "ETag": "E23ZP02F085DFQ",
+    "ResponseHeadersPolicy": {
+        "Id": "8bf658c2-7896-4b78-be46-e93460368078",
+        "LastModifiedTime": "2026-06-20T18:45:16.892000+00:00",
+        "ResponseHeadersPolicyConfig": {
+            "Comment": "Security headers for the static no-JS site. Created 2026-06-20.",
+            "Name": "small-observations-security-headers",
+            "SecurityHeadersConfig": {
+                "XSSProtection": {},
+                "FrameOptions": {
+                    "Override": true,
+                    "FrameOption": "DENY"
+                },
+                "ReferrerPolicy": {
+                    "Override": true,
+                    "ReferrerPolicy": "strict-origin-when-cross-origin"
+                },
+                "ContentSecurityPolicy": {
+                    "Override": true,
+                    "ContentSecurityPolicy": "default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+                },
+                "ContentTypeOptions": {
+                    "Override": true
+                },
+                "StrictTransportSecurity": {
+                    "Override": true,
+                    "IncludeSubdomains": true,
+                    "Preload": false,
+                    "AccessControlMaxAgeSec": 63072000
+                }
+            },
+            "CustomHeadersConfig": {
+                "Quantity": 1,
+                "Items": [
+                    {
+                        "Header": "Permissions-Policy",
+                        "Value": "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), usb=(), xr-spatial-tracking=()",
+                        "Override": true
+                    }
+                ]
+            }
+        }
+    }
+}
