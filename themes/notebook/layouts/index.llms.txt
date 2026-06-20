@@ -1,0 +1,28 @@
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+Small Observations is a static Hugo photo archive. Each post is one photographed artwork or street-art sighting. Post dates are the dates the photos were taken; the RSS feed is ordered by publish date. Alt text describes what is visible in each image.
+
+This file is a navigation aid for agents and readers. It is not a licence grant and does not replace robots.txt.
+
+## Core
+
+- [Home]({{ "/" | absURL }}): Curated favourite photos and entry points into the archive.
+- [Latest posts]({{ "/posts/" | absURL }}): All photo posts, ordered by photo date.
+- [RSS feed]({{ "/feed.xml" | absURL }}): Newest published posts.
+- [Sitemap]({{ "/sitemap.xml" | absURL }}): Complete indexable URL list.
+
+## Browse the archive
+
+- [Favourites]({{ "/tags/favourite/" | absURL }}): Selected photos the author keeps coming back to.
+- [Tags]({{ "/tags/" | absURL }}): Subjects, themes, context, and styles.
+- [Tags by count]({{ "/tags/by-count/" | absURL }}): Tags ordered by frequency.
+- [Cities]({{ "/cities/" | absURL }}): Posts grouped by city.
+- [Countries]({{ "/countries/" | absURL }}): Posts grouped by country.
+- [Years]({{ "/years/" | absURL }}): Posts grouped by year photographed.
+- [Artists]({{ "/artists/" | absURL }}): Posts grouped by identified artist.
+
+## About the author
+
+- [Jonathan Deamer](https://jonathandeamer.com/): Maintainer of this site. His personal homepage links to professional background, Wikipedia editing, software projects, social profiles, and contact details.

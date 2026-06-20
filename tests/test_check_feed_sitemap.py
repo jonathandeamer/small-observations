@@ -8,9 +8,46 @@ def write(path: Path, text: str) -> None:
     path.write_text(text.strip() + "\n")
 
 
+def write_valid_llms_txt(public: Path) -> None:
+    write(
+        public / "llms.txt",
+        """
+# Small Observations
+
+> A notebook of street art I've enjoyed and photographed since 2005, browsable by city, artist, year, and tag.
+
+Small Observations is a static Hugo photo archive. Each post is one photographed artwork or street-art sighting. Post dates are the dates the photos were taken; the RSS feed is ordered by publish date. Alt text describes what is visible in each image.
+
+This file is a navigation aid for agents and readers. It is not a licence grant and does not replace robots.txt.
+
+## Core
+
+- [Home](https://smallobservations.net/): Curated favourite photos and entry points into the archive.
+- [Latest posts](https://smallobservations.net/posts/): All photo posts, ordered by photo date.
+- [RSS feed](https://smallobservations.net/feed.xml): Newest published posts.
+- [Sitemap](https://smallobservations.net/sitemap.xml): Complete indexable URL list.
+
+## Browse the archive
+
+- [Favourites](https://smallobservations.net/tags/favourite/): Selected photos the author keeps coming back to.
+- [Tags](https://smallobservations.net/tags/): Subjects, themes, context, and styles.
+- [Tags by count](https://smallobservations.net/tags/by-count/): Tags ordered by frequency.
+- [Cities](https://smallobservations.net/cities/): Posts grouped by city.
+- [Countries](https://smallobservations.net/countries/): Posts grouped by country.
+- [Years](https://smallobservations.net/years/): Posts grouped by year photographed.
+- [Artists](https://smallobservations.net/artists/): Posts grouped by identified artist.
+
+## About the author
+
+- [Jonathan Deamer](https://jonathandeamer.com/): Maintainer of this site. His personal homepage links to professional background, Wikipedia editing, software projects, social profiles, and contact details.
+""",
+    )
+
+
 def test_accepts_feed_and_sitemap_contract(tmp_path: Path) -> None:
     public = tmp_path / "public"
     content = tmp_path / "content/posts"
+    write_valid_llms_txt(public)
     write(
         content / "post.md",
         """
@@ -56,6 +93,7 @@ publishDate: 2026-05-15T14:53:33Z
 def test_reports_feed_and_sitemap_regressions(tmp_path: Path) -> None:
     public = tmp_path / "public"
     content = tmp_path / "content/posts"
+    write_valid_llms_txt(public)
     write(
         content / "post.md",
         """
@@ -114,6 +152,7 @@ publishDate: 2026-05-15T14:53:33Z
 def test_reports_non_apex_feed_and_sitemap_urls(tmp_path: Path) -> None:
     public = tmp_path / "public"
     content = tmp_path / "content/posts"
+    write_valid_llms_txt(public)
     write(
         content / "post.md",
         """
@@ -161,9 +200,192 @@ publishDate: 2026-05-15T14:53:33Z
     assert "sitemap.xml: URL must use apex domain https://smallobservations.net: https://www.smallobservations.net/2025/12/london-brown-bird/" in errors
 
 
+def test_reports_missing_llms_txt(tmp_path: Path) -> None:
+    public = tmp_path / "public"
+    content = tmp_path / "content/posts"
+    write(
+        content / "post.md",
+        """
+---
+slug: "london-brown-bird"
+date: 2025-12-04T08:24:43Z
+publishDate: 2026-05-15T14:53:33Z
+---
+""",
+    )
+    write(
+        public / "feed.xml",
+        """
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <atom:link href="https://smallobservations.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <link>https://smallobservations.net/2025/12/london-brown-bird/</link>
+      <pubDate>Fri, 15 May 2026 14:53:33 +0000</pubDate>
+      <content:encoded><![CDATA[
+        <p><a href="https://smallobservations.net/2025/12/london-brown-bird/"><img src="https://smallobservations.net/images/bird.jpg" alt="A brown bird on a wall."></a></p>
+      ]]></content:encoded>
+    </item>
+  </channel>
+</rss>
+""",
+    )
+    write(
+        public / "sitemap.xml",
+        """
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://smallobservations.net/2025/12/london-brown-bird/</loc>
+    <lastmod>2026-05-15T14:53:33+00:00</lastmod>
+  </url>
+</urlset>
+""",
+    )
+
+    assert audit_feed_and_sitemap(public, content) == ["llms.txt: missing"]
+
+
+def test_reports_llms_txt_contract_regressions(tmp_path: Path) -> None:
+    public = tmp_path / "public"
+    content = tmp_path / "content/posts"
+    write(
+        content / "post.md",
+        """
+---
+slug: "london-brown-bird"
+date: 2025-12-04T08:24:43Z
+publishDate: 2026-05-15T14:53:33Z
+---
+""",
+    )
+    write(
+        public / "llms.txt",
+        """
+# Small Observations draft
+
+> A notebook of street art.
+
+## Core
+
+- [Home](https://www.smallobservations.net/): Wrong hostname.
+""",
+    )
+    write(
+        public / "feed.xml",
+        """
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <atom:link href="https://smallobservations.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <link>https://smallobservations.net/2025/12/london-brown-bird/</link>
+      <pubDate>Fri, 15 May 2026 14:53:33 +0000</pubDate>
+      <content:encoded><![CDATA[
+        <p><a href="https://smallobservations.net/2025/12/london-brown-bird/"><img src="https://smallobservations.net/images/bird.jpg" alt="A brown bird on a wall."></a></p>
+      ]]></content:encoded>
+    </item>
+  </channel>
+</rss>
+""",
+    )
+    write(
+        public / "sitemap.xml",
+        """
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://smallobservations.net/2025/12/london-brown-bird/</loc>
+    <lastmod>2026-05-15T14:53:33+00:00</lastmod>
+  </url>
+</urlset>
+""",
+    )
+
+    errors = audit_feed_and_sitemap(public, content)
+
+    assert "llms.txt: first line must be # Small Observations" in errors
+    assert "llms.txt: missing required URL https://smallobservations.net/posts/" in errors
+    assert "llms.txt: URL must use apex domain https://smallobservations.net: https://www.smallobservations.net/" in errors
+
+
+def test_reports_missing_llms_author_link(tmp_path: Path) -> None:
+    public = tmp_path / "public"
+    content = tmp_path / "content/posts"
+    write(
+        content / "post.md",
+        """
+---
+slug: "london-brown-bird"
+date: 2025-12-04T08:24:43Z
+publishDate: 2026-05-15T14:53:33Z
+---
+""",
+    )
+    write(
+        public / "llms.txt",
+        """
+# Small Observations
+
+> A notebook of street art I've enjoyed and photographed since 2005, browsable by city, artist, year, and tag.
+
+Small Observations is a static Hugo photo archive. Each post is one photographed artwork or street-art sighting. Post dates are the dates the photos were taken; the RSS feed is ordered by publish date. Alt text describes what is visible in each image.
+
+This file is a navigation aid for agents and readers. It is not a licence grant and does not replace robots.txt.
+
+## Core
+
+- [Home](https://smallobservations.net/): Curated favourite photos and entry points into the archive.
+- [Latest posts](https://smallobservations.net/posts/): All photo posts, ordered by photo date.
+- [RSS feed](https://smallobservations.net/feed.xml): Newest published posts.
+- [Sitemap](https://smallobservations.net/sitemap.xml): Complete indexable URL list.
+
+## Browse the archive
+
+- [Favourites](https://smallobservations.net/tags/favourite/): Selected photos the author keeps coming back to.
+- [Tags](https://smallobservations.net/tags/): Subjects, themes, context, and styles.
+- [Tags by count](https://smallobservations.net/tags/by-count/): Tags ordered by frequency.
+- [Cities](https://smallobservations.net/cities/): Posts grouped by city.
+- [Countries](https://smallobservations.net/countries/): Posts grouped by country.
+- [Years](https://smallobservations.net/years/): Posts grouped by year photographed.
+- [Artists](https://smallobservations.net/artists/): Posts grouped by identified artist.
+""",
+    )
+    write(
+        public / "feed.xml",
+        """
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <atom:link href="https://smallobservations.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <link>https://smallobservations.net/2025/12/london-brown-bird/</link>
+      <pubDate>Fri, 15 May 2026 14:53:33 +0000</pubDate>
+      <content:encoded><![CDATA[
+        <p><a href="https://smallobservations.net/2025/12/london-brown-bird/"><img src="https://smallobservations.net/images/bird.jpg" alt="A brown bird on a wall."></a></p>
+      ]]></content:encoded>
+    </item>
+  </channel>
+</rss>
+""",
+    )
+    write(
+        public / "sitemap.xml",
+        """
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://smallobservations.net/2025/12/london-brown-bird/</loc>
+    <lastmod>2026-05-15T14:53:33+00:00</lastmod>
+  </url>
+</urlset>
+""",
+    )
+
+    errors = audit_feed_and_sitemap(public, content)
+
+    assert "llms.txt: missing required URL https://jonathandeamer.com/" in errors
+
+
 def test_reports_rss_limit_order_and_reader_image_regressions(tmp_path: Path) -> None:
     public = tmp_path / "public"
     content = tmp_path / "content/posts"
+    write_valid_llms_txt(public)
     for index in range(21):
         write(
             content / f"post-{index}.md",

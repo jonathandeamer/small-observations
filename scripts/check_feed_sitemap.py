@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check rendered RSS and sitemap URL contracts."""
+"""Check rendered RSS, sitemap, and llms.txt URL contracts."""
 
 from __future__ import annotations
 
@@ -18,7 +18,22 @@ SITEMAP_NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 ATOM_NS = "{http://www.w3.org/2005/Atom}"
 CONTENT_NS = "{http://purl.org/rss/1.0/modules/content/}"
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
+MARKDOWN_LINK_URL_RE = re.compile(r"\]\((https?://[^)\s]+)\)")
 MAX_RSS_ITEMS = 20
+REQUIRED_LLMS_URLS = [
+    f"{SITE}/",
+    f"{SITE}/posts/",
+    f"{SITE}/feed.xml",
+    f"{SITE}/sitemap.xml",
+    f"{SITE}/tags/favourite/",
+    f"{SITE}/tags/",
+    f"{SITE}/tags/by-count/",
+    f"{SITE}/cities/",
+    f"{SITE}/countries/",
+    f"{SITE}/years/",
+    f"{SITE}/artists/",
+    "https://jonathandeamer.com/",
+]
 
 
 class FeedContentParser(HTMLParser):
@@ -134,6 +149,24 @@ def apex_domain_errors(source: str, urls: list[str]) -> list[str]:
     return errors
 
 
+def llms_txt_errors(public_dir: Path) -> list[str]:
+    llms_path = public_dir / "llms.txt"
+    if not llms_path.exists():
+        return ["llms.txt: missing"]
+
+    errors: list[str] = []
+    text = llms_path.read_text()
+    urls = MARKDOWN_LINK_URL_RE.findall(text)
+    first_line = text.splitlines()[0].strip() if text.splitlines() else ""
+    if first_line != "# Small Observations":
+        errors.append("llms.txt: first line must be # Small Observations")
+    for url in REQUIRED_LLMS_URLS:
+        if url not in urls:
+            errors.append(f"llms.txt: missing required URL {url}")
+    errors.extend(apex_domain_errors("llms.txt", urls))
+    return errors
+
+
 def sitemap_entries(sitemap: ET.Element) -> dict[str, str]:
     entries: dict[str, str] = {}
     for url in sitemap.findall("sm:url", SITEMAP_NS):
@@ -147,6 +180,7 @@ def sitemap_entries(sitemap: ET.Element) -> dict[str, str]:
 def audit_feed_and_sitemap(public_dir: Path, posts_dir: Path) -> list[str]:
     errors: list[str] = []
     expected_urls = expected_post_urls(posts_dir)
+    errors.extend(llms_txt_errors(public_dir))
 
     feed = ET.parse(public_dir / "feed.xml").getroot()
     self_link = rss_self_link(feed)

@@ -21,7 +21,7 @@ pagination.pagerSize = 20
 
 # Output formats: HTML pages everywhere; one RSS feed at /feed.xml.
 [outputs]
-  home = ["HTML", "RSS"]
+  home = ["HTML", "RSS", "LLMS"]
   section = ["HTML"]
   taxonomy = ["HTML"]
   term = ["HTML"]
@@ -29,6 +29,15 @@ pagination.pagerSize = 20
 # Serve the feed at /feed.xml instead of Hugo's default /index.xml.
 [outputFormats.RSS]
   baseName = "feed"
+
+[mediaTypes."text/plain"]
+  suffixes = ["txt"]
+
+[outputFormats.LLMS]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  notAlternative = true
 
 [services.rss]
   limit = 20
@@ -46,6 +55,10 @@ pagination.pagerSize = 20
   [[deployment.matchers]]
     pattern = "^feed\\.xml$"
     contentType = "application/rss+xml"
+    cacheControl = "public, max-age=0, must-revalidate"
+  [[deployment.matchers]]
+    pattern = "^llms\\.txt$"
+    contentType = "text/plain"
     cacheControl = "public, max-age=0, must-revalidate"
   [[deployment.matchers]]
     pattern = "^.+\\.html$"

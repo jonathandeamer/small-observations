@@ -31,7 +31,7 @@ check: build  ## build then sanity-check the rendered site
 	@echo "→ rendered post metadata:"
 	@python3 scripts/check_rendered_metadata.py public
 	@echo
-	@echo "→ RSS and sitemap URL contracts:"
+	@echo "→ RSS, sitemap, and llms.txt URL contracts:"
 	@python3 scripts/check_feed_sitemap.py public content/posts
 	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
