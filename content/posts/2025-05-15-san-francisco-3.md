@@ -9,7 +9,7 @@ alt: "A memorial mural reading \"In memory of George Floyd 1974–2020 / Breonna
 countries: [United States]
 cities: [San Francisco]
 artists: []
-tags: [George Floyd, Breonna Taylor, Black Lives Matter, Clarion Alley Mural Project, protest]
+tags: [George Floyd, Breonna Taylor, Black Lives Matter, Clarion Alley Mural Project, protest, memorial]
 years: [2025]
 weight: 0
 exif:

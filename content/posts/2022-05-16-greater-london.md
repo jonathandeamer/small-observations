@@ -9,7 +9,7 @@ alt: "A black-and-white crowned face of Amy Winehouse beside the words \"The que
 countries: [United Kingdom]
 cities: [London]
 artists: [Horace]
-tags: [favourite, Amy Winehouse, Parkland Walk, music]
+tags: [favourite, Amy Winehouse, Parkland Walk, music, memorial]
 years: [2022]
 weight: 0
 exif:
