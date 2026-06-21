@@ -27,6 +27,43 @@ make venv         # (re)create .venv with dev deps
 
 `make test` runs only ingest tests — there is no template-level test suite. Hugo template correctness is verified manually by `make dev` + browser.
 
+## Local analytics reports — GoAccess over CloudFront logs
+
+The live site has no JavaScript analytics. CloudFront standard access logs are delivered to a private S3 bucket for local GoAccess reports:
+
+- Bucket: `smallobservations-cloudfront-logs`
+- Prefix: `cloudfront/E25Q9EQNA4D7K1/`
+- Retention: 30 days via S3 lifecycle
+- Change log and rollback notes: `docs/aws-change-log/2026-06-21-goaccess-logging.md`
+
+Use the ignored `tmp/` tree for local logs and reports:
+
+```
+mkdir -p tmp/goaccess/logs tmp/goaccess/reports
+
+aws s3 sync \
+  s3://smallobservations-cloudfront-logs/cloudfront/E25Q9EQNA4D7K1/ \
+  tmp/goaccess/logs/
+```
+
+Generate the HTML report:
+
+```
+CF_LOG_FORMAT='%d\t%t\t%^\t%b\t%h\t%m\t%^\t%U\t%s\t%R\t%u\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^\t%^'
+
+find tmp/goaccess/logs -name '*.gz' -exec gzip -dc {} + |
+  goaccess - \
+    --no-global-config \
+    --date-format='%Y-%m-%d' \
+    --time-format='%H:%M:%S' \
+    --log-format="$CF_LOG_FORMAT" \
+    -o tmp/goaccess/reports/smallobservations.html
+
+open tmp/goaccess/reports/smallobservations.html
+```
+
+Important: don't use GoAccess's built-in `CLOUDFRONT` preset here. In the Homebrew `goaccess 1.10.2` build it maps the URI field like an older full request line and can generate a report while counting zero rows. The explicit field format above was tested against the delivered CloudFront logs.
+
 ## Commit format — strictly enforced by hook
 
 `.githooks/commit-msg` rejects anything that doesn't match `type(scope): subject`.
