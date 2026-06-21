@@ -36,25 +36,7 @@
     {{ end }}
   {{ end }}
 
-  {{/* 3. VisualArtwork */}}
-  {{ $artwork := "" }}
-  {{ with .Params.artists }}
-    {{ if gt (len .) 0 }}
-      {{ $artists := slice }}
-      {{ range . }}
-        {{ $artists = $artists | append (dict "@type" "Person" "name" .) }}
-      {{ end }}
-      {{ $artwork = dict "@type" "VisualArtwork" "name" (or $.Params.headline $.Title) "creator" $artists }}
-      {{ if $place }}
-        {{ $artwork = merge $artwork (dict "locationCreated" $place) }}
-      {{ end }}
-      {{ if $imageObj }}
-        {{ $artwork = merge $artwork (dict "image" $imageObj.contentUrl) }}
-      {{ end }}
-    {{ end }}
-  {{ end }}
-
-  {{/* 4. Fallback Headline */}}
+  {{/* 3. Headline (with fallback) — computed before VisualArtwork so it can reuse it */}}
   {{ $headline := .Params.headline }}
   {{ if not $headline }}
     {{ $dateStr := .Date.Format "2 January 2006" }}
@@ -66,10 +48,28 @@
     {{ end }}
   {{ end }}
 
+  {{/* 4. VisualArtwork */}}
+  {{ $artwork := "" }}
+  {{ with .Params.artists }}
+    {{ if gt (len .) 0 }}
+      {{ $artists := slice }}
+      {{ range . }}
+        {{ $artists = $artists | append (dict "@type" "Person" "name" .) }}
+      {{ end }}
+      {{ $artwork = dict "@type" "VisualArtwork" "name" (or $.Params.headline $.Title $headline) "creator" $artists }}
+      {{ if $place }}
+        {{ $artwork = merge $artwork (dict "locationCreated" $place) }}
+      {{ end }}
+      {{ if $imageObj }}
+        {{ $artwork = merge $artwork (dict "image" $imageObj) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
   {{/* 5. Assemble Posting */}}
-  {{ $post := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" $headline "datePublished" (.PublishDate.Format "2006-01-02T15:04:05Z") "dateCreated" (.Date.Format "2006-01-02T15:04:05Z") "author" $author "publisher" $publisher }}
+  {{ $post := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" $headline "datePublished" (.PublishDate.Format "2006-01-02T15:04:05Z07:00") "dateCreated" (.Date.Format "2006-01-02T15:04:05Z07:00") "author" $author "publisher" $publisher }}
   {{ if $imageObj }}
-    {{ $post = merge $post (dict "image" $imageObj.contentUrl) }}
+    {{ $post = merge $post (dict "image" $imageObj) }}
   {{ end }}
   {{ if $place }}
     {{ $post = merge $post (dict "spatialCoverage" $place) }}
