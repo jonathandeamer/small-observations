@@ -1,17 +1,17 @@
 {{ define "title" }}{{ with .Title }}{{ . }} · {{ end }}{{ site.Title }}{{ end }}
 
 {{ define "main" }}
-<article class="post">
+<article class="post h-entry">
   {{ partial "photo.html" (dict "page" . "eager" true) }}
 
   {{ if .Params.headline }}
-    <h1 class="post-title">{{ .Params.headline }}</h1>
+    <h1 class="post-title p-name">{{ .Params.headline }}</h1>
   {{ else if .Title }}
-    <h1 class="post-title sr-only">{{ .Title }}</h1>
+    <h1 class="post-title sr-only p-name">{{ .Title }}</h1>
   {{ end }}
 
   {{ with .Content }}
-  <div class="post-body">
+  <div class="post-body e-content">
     {{ . }}
   </div>
   {{ end }}
@@ -19,8 +19,9 @@
   {{ partial "post-meta.html" . }}
 
   <p class="post-colophon">
-    Posted <time datetime="{{ .PublishDate.Format "2006-01-02" }}" class="tnum">{{ .PublishDate.Format "January 2006" }}</time>.
+    Posted <time datetime="{{ .PublishDate.Format "2006-01-02" }}" class="tnum dt-published">{{ .PublishDate.Format "January 2006" }}</time>.
     <a href="{{ "/posts/" | relURL }}">← all posts</a>
   </p>
+  <a rel="author" class="p-author h-card" href="https://jonathandeamer.com" title="Jonathan Deamer" style="display: none;">Jonathan Deamer</a>
 </article>
 {{ end }}
