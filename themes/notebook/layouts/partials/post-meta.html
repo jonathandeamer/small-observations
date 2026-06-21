@@ -13,7 +13,7 @@
   <div class="row">
     <dt>Taken</dt>
     <dd>
-      <time datetime="{{ .Date.Format "2006-01-02" }}" class="tnum">
+      <time datetime="{{ .Date.Format "2006-01-02" }}" class="tnum dt-created">
         {{ .Date.Format "January " }}{{ with index $yearTerms 0 }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ else }}{{ $page.Date.Format "2006" }}{{ end }}
       </time>
     </dd>
