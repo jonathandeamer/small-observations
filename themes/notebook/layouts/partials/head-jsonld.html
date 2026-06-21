@@ -1,0 +1,82 @@
+{{ if .IsHome }}
+  {{ $author := dict "@type" "Person" "name" "Jonathan Deamer" "url" "https://jonathandeamer.com" }}
+  {{ $publisher := dict "@type" "Organization" "name" "Small Observations" "logo" (dict "@type" "ImageObject" "url" (absURL "/apple-touch-icon.png")) }}
+  {{ $blog := dict "@context" "https://schema.org" "@type" "Blog" "name" "Small Observations" "description" (.Description | default site.Params.description) "url" site.BaseURL "author" $author "publisher" $publisher }}
+  <script type="application/ld+json">{{ $blog | jsonify (dict "indent" "  ") | safeJS }}</script>
+{{ else if .IsPage }}
+  {{ $author := dict "@type" "Person" "name" "Jonathan Deamer" "url" "https://jonathandeamer.com" }}
+  {{ $publisher := dict "@type" "Organization" "name" "Small Observations" "logo" (dict "@type" "ImageObject" "url" (absURL "/apple-touch-icon.png")) }}
+  
+  {{/* 1. Image Object */}}
+  {{ $imageObj := "" }}
+  {{ $rel := printf "img/%s" .Params.photo }}
+  {{ $orig := resources.Get $rel }}
+  {{ if $orig }}
+    {{ $img := $orig.Resize "1600x q82" }}
+    {{ $imageObj = dict "@type" "ImageObject" "contentUrl" $img.Permalink "url" $img.Permalink "width" (printf "%d" $img.Width) "height" (printf "%d" $img.Height) "caption" (.Params.alt | default "") }}
+  {{ end }}
+
+  {{/* 2. Place / Location */}}
+  {{ $place := "" }}
+  {{ if or .Params.cities .Params.countries }}
+    {{ $placeName := "" }}
+    {{ with .Params.cities }}{{ $placeName = index . 0 }}{{ end }}
+    {{ with .Params.countries }}{{ if $placeName }}{{ $placeName = printf "%s, %s" $placeName (index . 0) }}{{ else }}{{ $placeName = index . 0 }}{{ end }}{{ end }}
+    
+    {{ $geo := "" }}
+    {{ with .Params.exif }}
+      {{ if and .lat .lon }}
+        {{ $geo = dict "@type" "GeoCoordinates" "latitude" .lat "longitude" .lon }}
+      {{ end }}
+    {{ end }}
+    
+    {{ $place = dict "@type" "Place" "name" $placeName }}
+    {{ if $geo }}
+      {{ $place = merge $place (dict "geo" $geo) }}
+    {{ end }}
+  {{ end }}
+
+  {{/* 3. VisualArtwork */}}
+  {{ $artwork := "" }}
+  {{ with .Params.artists }}
+    {{ if gt (len .) 0 }}
+      {{ $artists := slice }}
+      {{ range . }}
+        {{ $artists = $artists | append (dict "@type" "Person" "name" .) }}
+      {{ end }}
+      {{ $artwork = dict "@type" "VisualArtwork" "name" (or $.Params.headline $.Title) "creator" $artists }}
+      {{ if $place }}
+        {{ $artwork = merge $artwork (dict "locationCreated" $place) }}
+      {{ end }}
+      {{ if $imageObj }}
+        {{ $artwork = merge $artwork (dict "image" $imageObj.contentUrl) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* 4. Fallback Headline */}}
+  {{ $headline := .Params.headline }}
+  {{ if not $headline }}
+    {{ $dateStr := .Date.Format "2 January 2006" }}
+    {{ $placeStr := "" }}
+    {{ with .Params.cities }}{{ $placeStr = index . 0 }}{{ end }}
+    {{ $headline = printf "Photo taken %s" $dateStr }}
+    {{ if $placeStr }}
+      {{ $headline = printf "Photo taken in %s on %s" $placeStr $dateStr }}
+    {{ end }}
+  {{ end }}
+
+  {{/* 5. Assemble Posting */}}
+  {{ $post := dict "@context" "https://schema.org" "@type" "BlogPosting" "headline" $headline "datePublished" (.PublishDate.Format "2006-01-02T15:04:05Z") "dateCreated" (.Date.Format "2006-01-02T15:04:05Z") "author" $author "publisher" $publisher }}
+  {{ if $imageObj }}
+    {{ $post = merge $post (dict "image" $imageObj.contentUrl) }}
+  {{ end }}
+  {{ if $place }}
+    {{ $post = merge $post (dict "spatialCoverage" $place) }}
+  {{ end }}
+  {{ if $artwork }}
+    {{ $post = merge $post (dict "about" $artwork) }}
+  {{ end }}
+  
+  <script type="application/ld+json">{{ $post | jsonify (dict "indent" "  ") | safeJS }}</script>
+{{ end }}
