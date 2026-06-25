@@ -187,6 +187,15 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .post-colophon a { color: var(--ink-soft); border-bottom: 1px solid var(--rule); text-decoration: none; }
 
+/* related-posts strip (foot of single post pages) */
+.related { margin-top: 2.5rem; padding-top: 0.25rem; border-top: 1px solid var(--rule); }
+.related .section-head { margin-top: 1rem; }
+/* Desktop: a tidy row of three. On narrower widths .gallery-grid's own
+   breakpoints (3-up ≤760px, 2-up ≤640px) take over, so this stays min-width. */
+@media (min-width: 761px) {
+  .related-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 
 /* section heads */
 .section-head { display: flex; align-items: baseline; gap: 0.9rem; margin: clamp(1.25rem, 3vw, 2rem) 0 0.9rem 0; }

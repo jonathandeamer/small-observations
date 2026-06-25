@@ -4,14 +4,19 @@
   Caller passes the page as the context. Renders nothing when there are no
   related posts — no heading, no wrapper.
 
+  Reuses the site's section-head heading pattern and gallery-grid layout.
   Cards reuse gallery-card.html with eager=false: the LCP image is the post
   photo above, so related thumbnails must never claim fetchpriority.
 */}}
 {{ $related := first 3 (site.RegularPages.Related .) }}
 {{ with $related }}
 <aside class="related" aria-label="Related posts">
-  <h2 class="related-head">Related</h2>
-  <div class="gallery related-grid">
+  <header class="section-head">
+    <h2>Related</h2>
+    <span class="rule"></span>
+    <span class="glyph">✦</span>
+  </header>
+  <div class="gallery-grid related-grid">
     {{ range . }}
       {{ partial "gallery-card.html" (dict "page" . "eager" false) }}
     {{ end }}
