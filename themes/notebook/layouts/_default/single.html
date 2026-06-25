@@ -18,6 +18,8 @@
 
   {{ partial "post-meta.html" . }}
 
+  {{ partial "related.html" . }}
+
   <p class="post-colophon">
     Posted <time datetime="{{ .PublishDate.Format "2006-01-02" }}" class="tnum dt-published">{{ .PublishDate.Format "January 2006" }}</time>.
     <a href="{{ "/posts/" | relURL }}">← all posts</a>

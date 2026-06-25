@@ -19,6 +19,24 @@ pagination.pagerSize = 20
 [permalinks]
   posts = "/:year/:month/:slug/"
 
+# Related-posts similarity engine (drives the "Related" strip on post pages).
+# toLower MUST stay false: tags/artists are mixed-case by design (e.g.
+# "John Lennon", "Liverpool FC") and index names must match taxonomy names
+# exactly. includeNewer=true so relations work both directions in the archive.
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = false
+  [[related.indices]]
+    name = "artists"
+    weight = 90
+  [[related.indices]]
+    name = "tags"
+    weight = 70
+  [[related.indices]]
+    name = "cities"
+    weight = 40
+
 # Output formats: HTML pages everywhere; one RSS feed at /feed.xml.
 [outputs]
   home = ["HTML", "RSS", "LLMS"]
