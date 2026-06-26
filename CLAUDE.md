@@ -33,8 +33,8 @@ The live site has no JavaScript analytics. CloudFront standard access logs are d
 
 - Bucket: `smallobservations-cloudfront-logs`
 - Prefix: `cloudfront/E25Q9EQNA4D7K1/`
-- Retention: 30 days via S3 lifecycle
-- Change log and rollback notes: `docs/aws-change-log/2026-06-21-goaccess-logging.md`
+- Retention: logs accumulate indefinitely. The original 30-day expiry lifecycle rule was removed on 2026-06-26 so all-time analytics are possible; cost is negligible (~8 MB/month, cents/year). The only practical downside is the growing count of tiny per-hour log files slowing `aws s3 sync` and the GoAccess parse over time.
+- Change log and rollback notes: `docs/aws-change-log/2026-06-21-goaccess-logging.md` (logging setup) and `docs/aws-change-log/2026-06-26-remove-log-lifecycle.md` (lifecycle removal)
 
 Use the ignored `tmp/` tree for local logs and reports:
 
