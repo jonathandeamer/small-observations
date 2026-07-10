@@ -9,7 +9,7 @@ alt: "A huge black-and-white portrait of Ringo Starr, surrounded by colourful Ye
 countries: [United Kingdom]
 cities: [Liverpool]
 artists: []
-tags: [favourite, Beatles, Ringo Starr]
+tags: [favourite, Beatles, Ringo Starr, music]
 years: [2024]
 weight: 7
 exif:
