@@ -49,6 +49,7 @@ Alternatively, to manually fetch logs and generate the full interactive HTML rep
 mkdir -p tmp/goaccess/logs tmp/goaccess/reports
 
 aws s3 sync \
+  --profile smallobservations-analytics \
   s3://smallobservations-cloudfront-logs/cloudfront/E25Q9EQNA4D7K1/ \
   tmp/goaccess/logs/
 ```
