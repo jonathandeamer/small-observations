@@ -23,6 +23,7 @@ make ingest       # python -m ingest (moves originals to _processed/ on success)
 make ingest-dry   # python -m ingest --dry-run
 make test         # pytest for the ingest package
 make venv         # (re)create .venv with dev deps
+make stats        # generate weekly traffic report from CloudFront logs
 ```
 
 `make test` runs only ingest tests — there is no template-level test suite. Hugo template correctness is verified manually by `make dev` + browser.
@@ -36,7 +37,13 @@ The live site has no JavaScript analytics. CloudFront standard access logs are d
 - Retention: logs accumulate indefinitely. The original 30-day expiry lifecycle rule was removed on 2026-06-26 so all-time analytics are possible; cost is negligible (~8 MB/month, cents/year). The only practical downside is the growing count of tiny per-hour log files slowing `aws s3 sync` and the GoAccess parse over time.
 - Change log and rollback notes: `docs/aws-change-log/2026-06-21-goaccess-logging.md` (logging setup) and `docs/aws-change-log/2026-06-26-remove-log-lifecycle.md` (lifecycle removal)
 
-Use the ignored `tmp/` tree for local logs and reports:
+To automatically sync logs and generate the weekly markdown traffic report (`traffic_report_this_week.md`), run:
+
+```
+make stats
+```
+
+Alternatively, to manually fetch logs and generate the full interactive HTML report in the ignored `tmp/` tree:
 
 ```
 mkdir -p tmp/goaccess/logs tmp/goaccess/reports

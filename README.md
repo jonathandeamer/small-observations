@@ -25,6 +25,7 @@ Everything goes through `make` — never plain `hugo` (it leaves orphans in `pub
 | `make ingest`   | Process new photos in `_ingest/`           |
 | `make test`     | Run ingest tests                           |
 | `make deploy`   | Build and push to S3 + CloudFront          |
+| `make stats`    | Generate weekly traffic report from logs   |
 
 ## Auditing
 
