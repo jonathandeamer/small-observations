@@ -10,6 +10,7 @@
 /tmp/
 /.worktrees/
 .superpowers/
+/traffic_report_this_week.md
 
 # OS / editor
 .DS_Store

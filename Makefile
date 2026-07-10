@@ -5,7 +5,7 @@
 # to public/ without removing orphans). Always go through these targets.
 
 .DEFAULT_GOAL := help
-.PHONY: help dev build check clean deploy deploy-dry ingest ingest-dry test venv
+.PHONY: help dev build check clean deploy deploy-dry ingest ingest-dry test venv stats
 
 help:  ## list available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-14s %s\n", $$1, $$2}'
@@ -37,7 +37,7 @@ check: build  ## build then sanity-check the rendered site
 	@if command -v htmltest >/dev/null 2>&1; then \
 		echo "→ htmltest (internal link check):"; \
 		htmltest -s public 2>&1 | tail -15; \
-	else \
+		else \
 		echo "→ htmltest not installed (skipping link check)"; \
 		echo "    install with: brew install htmltest"; \
 	fi
@@ -51,7 +51,7 @@ check: build  ## build then sanity-check the rendered site
 			echo "→ pa11y (accessibility audit on post page):"; \
 			pa11y --config pa11y.json "file://$(PWD)/$$POST"; \
 		fi; \
-	else \
+		else \
 		echo "→ pa11y not installed (skipping accessibility check)"; \
 		echo "    install with: npm install -g pa11y"; \
 	fi
@@ -61,7 +61,7 @@ check: build  ## build then sanity-check the rendered site
 		POST=$$(find public/[0-9]* -name index.html | head -1); \
 		java -jar ~/.vnu/vnu.jar --skip-non-html "public/index.html" $$POST 2>&1 | head -30 \
 			&& echo "    ok" || true; \
-	else \
+		else \
 		echo "→ vnu HTML validator not installed (skipping)"; \
 		echo "    install: mkdir -p ~/.vnu && curl -sL https://github.com/validator/validator/releases/latest/download/vnu.jar -o ~/.vnu/vnu.jar"; \
 	fi
@@ -99,3 +99,6 @@ test:  ## run ingest tests
 venv:  ## (re)create the python venv with dev deps
 	python3 -m venv .venv
 	. .venv/bin/activate && pip install -q -e ".[dev]"
+
+stats:  ## generate weekly traffic report from CloudFront logs
+	python3 scripts/generate_traffic_report.py
