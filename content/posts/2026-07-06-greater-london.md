@@ -9,7 +9,7 @@ alt: "Two large black-and-white paste-up portraits of Lou Reed and Iggy Pop on a
 countries: [United Kingdom]
 cities: [London]
 artists: []
-tags: [Lou Reed, Iggy Pop, music, paste-up]
+tags: [Lou Reed, Iggy Pop, music, paste-up, Shoreditch]
 years: [2026]
 weight: 0
 exif:
