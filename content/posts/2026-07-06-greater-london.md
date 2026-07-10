@@ -1,9 +1,9 @@
 ---
 title: "Lou Reed and Iggy Pop paste-up portraits, Shoreditch, London"
-slug: "2026-07-06-greater-london"
+slug: "london-lou-reed-iggy-pop"
 date: 2026-07-06T21:25:07Z
 publishDate: 2026-07-10T12:31:26Z
-photo: 2026/07/2026-07-06-greater-london.jpg
+photo: 2026/07/london-lou-reed-iggy-pop.jpg
 description: "Black-and-white paste-up portraits of Lou Reed and Iggy Pop, partly blocked by utility boxes. 2026."
 alt: "Two large black-and-white paste-up portraits of Lou Reed and Iggy Pop on a tiled wall, partly blocked by utility boxes."
 countries: [United Kingdom]
