@@ -5,12 +5,12 @@
   <header class="section-head">
     <h1>{{ .Data.Singular | humanize }}: {{ .Title }}</h1>
     <span class="rule"></span>
-    <span class="glyph">✦</span>
+    <span class="glyph" aria-hidden="true">✦</span>
   </header>
 
   <p class="taxonomy-count smallcaps">
     {{ len .Pages }} {{ if eq (len .Pages) 1 }}photo{{ else }}photos{{ end }}
-    <span class="terms-sort-sep">·</span>
+    <span class="terms-sort-sep" aria-hidden="true">·</span>
     <a href="{{ printf "/%s/" .Data.Plural | relURL }}">all {{ .Data.Plural }}</a>
   </p>
 

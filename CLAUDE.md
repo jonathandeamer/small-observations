@@ -191,7 +191,7 @@ The site aims to remain a "good web citizen" — keyboard-navigable, screen-read
 
 **Automated checks** — all run by `make check`:
 
-- `pa11y` audits the homepage *and* a randomly-picked post page (WCAG 2.1 AA). Suppressions live in `pa11y.json` — decorative `.glyph` spans (the small italic flourishes in section headings) are hidden from the audit because they have no semantic label by design.
+- `pa11y` audits the homepage *and* a randomly-picked post page (WCAG 2.1 AA). Suppressions live in `pa11y.json` — decorative `.glyph` spans (the small italic coral flourishes in section headings) are hidden from the contrast audit because they are non-text decoration (`aria-hidden="true"`; coral on cream is intentionally below body-text contrast).
 - `htmltest` checks internal links and flags `<img>` elements with empty alt text. Currently noisy because alt text isn't written yet — that's tracked separately.
 - `xmllint` validates the sitemap at `public/sitemap.xml` and the RSS feed at `public/feed.xml`.
 - `vnu` runs the official W3C HTML validator on the homepage + one post when `~/.vnu/vnu.jar` is installed (it is installed on this machine). If missing on another machine, `make check` prints the install command and skips it.

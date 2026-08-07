@@ -1,18 +1,18 @@
 <header class="masthead">
   <a href="{{ "/" | relURL }}" class="masthead-link">
     {{ if .IsHome }}
-      <h1 class="masthead-title">Small<span class="amp">·</span>Observations</h1>
+      <h1 class="masthead-title">Small<span class="amp" aria-hidden="true">·</span>Observations</h1>
     {{ else }}
-      <p class="masthead-title">Small<span class="amp">·</span>Observations</p>
+      <p class="masthead-title">Small<span class="amp" aria-hidden="true">·</span>Observations</p>
     {{ end }}
   </a>
   <p class="tagline">a notebook of street art I've enjoyed</p>
   <nav class="masthead-browse" aria-label="Browse the archive">
-    <a href="{{ "/posts/" | relURL }}">latest</a>&nbsp;|
-    <a href="{{ "/tags/" | relURL }}">tags</a>&nbsp;|
-    <a href="{{ "/cities/" | relURL }}">cities</a>&nbsp;|
-    <a href="{{ "/years/" | relURL }}">years</a>&nbsp;|
-    <a href="{{ "/countries/" | relURL }}">countries</a>&nbsp;|
+    <a href="{{ "/posts/" | relURL }}">latest</a>&nbsp;<span aria-hidden="true">|</span>
+    <a href="{{ "/tags/" | relURL }}">tags</a>&nbsp;<span aria-hidden="true">|</span>
+    <a href="{{ "/cities/" | relURL }}">cities</a>&nbsp;<span aria-hidden="true">|</span>
+    <a href="{{ "/years/" | relURL }}">years</a>&nbsp;<span aria-hidden="true">|</span>
+    <a href="{{ "/countries/" | relURL }}">countries</a>&nbsp;<span aria-hidden="true">|</span>
     <a href="{{ "/artists/" | relURL }}">artists</a>
   </nav>
 </header>

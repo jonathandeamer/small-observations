@@ -76,9 +76,9 @@ Listed roughly by impact so future passes can pick what to do next.
 
 ### Polish / accessibility nits pa11y doesn't catch
 
-- **13. Bare `|` pipe characters between masthead browse links.** Screen readers will read each one ("pipe" or "vertical bar"). Either wrap in `<span aria-hidden="true">` or replace with CSS `::after` borders/dots. Now that the nav is shown on every page (#4 above), this is more pages-per-user-affected than before.
+- **13. Bare `|` pipe characters between masthead browse links.** Screen readers will read each one ("pipe" or "vertical bar"). Either wrap in `<span aria-hidden="true">` or replace with CSS `::after` borders/dots. Now that the nav is shown on every page (#4 above), this is more pages-per-user-affected than before. **Fixed 2026-08-07:** each `|` is now `<span aria-hidden="true">|</span>`.
 
-- **14. Decorative `<span class="glyph">✦</span>` and masthead `<span class="amp">·</span>` lack `aria-hidden="true"`.** Screen readers announce them ("black four-pointed star", "middle dot"). `pa11y.json` suppresses the glyph from automated audits but the underlying SR experience isn't changed. Adding `aria-hidden` lets the pa11y suppression go.
+- **14. Decorative `<span class="glyph">✦</span>` and masthead `<span class="amp">·</span>` lack `aria-hidden="true"`.** Screen readers announce them ("black four-pointed star", "middle dot"). `pa11y.json` suppresses the glyph from automated audits but the underlying SR experience isn't changed. Adding `aria-hidden` lets the pa11y suppression go. **Fixed 2026-08-07:** `aria-hidden="true"` on glyphs, masthead amp dots, and terms-sort separators. Pa11y still needs `hideElements: ".glyph"` for coral-on-cream contrast (decorative, not body text).
 
 - **15. No `<meta name="theme-color">`.** Would tint the Android Chrome address bar and Safari tab strip to `--coral` or `--bg`.
 
