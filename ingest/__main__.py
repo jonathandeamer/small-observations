@@ -4,12 +4,14 @@ Usage:
     python -m ingest [--ingest DIR] [--dry-run]
 
 Behavior:
-- Scans `_ingest/` (default) for .jpg/.jpeg files (recursively).
+- Scans `_ingest/` (default) for .jpg/.jpeg/.png files (recursively).
 - Skips files inside `_ingest/_processed/`.
 - For each photo, runs the pipeline.
 - On success: moves the original to `_ingest/_processed/`.
 - On skip: appends a line to `_ingest/_missing-location.log`.
 - Prints a summary at the end.
+- With --dry-run: reports what would happen, but writes no posts or images,
+  moves no originals, and appends nothing to the log.
 """
 
 from __future__ import annotations
@@ -39,7 +41,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--cache", type=Path, default=Path(".cache/geocode.json"),
                         help="Geocode cache file (default: .cache/geocode.json)")
     parser.add_argument("--dry-run", action="store_true",
-                        help="Process but do not move originals to _processed/")
+                        help="Report what would happen; write no posts or images and move no originals")
     args = parser.parse_args(argv)
 
     ingest_dir: Path = args.ingest
@@ -72,6 +74,7 @@ def main(argv: list[str] | None = None) -> int:
             existing_slugs=existing_slugs,
             publish_date=publish_date,
             cache_path=args.cache,
+            dry_run=args.dry_run,
         )
         if result.status == "ok":
             ok += 1
@@ -82,15 +85,17 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  ok    {src.name} -> {result.slug}")
         elif result.status == "skip":
             skip += 1
-            log_path.parent.mkdir(parents=True, exist_ok=True)
-            with log_path.open("a") as f:
-                f.write(f"{datetime.now().isoformat()}\t{src}\t{result.reason}\n")
+            if not args.dry_run:
+                log_path.parent.mkdir(parents=True, exist_ok=True)
+                with log_path.open("a") as f:
+                    f.write(f"{datetime.now().isoformat()}\t{src}\t{result.reason}\n")
             print(f"  skip  {src.name} ({result.reason})")
         else:
             err += 1
             print(f"  ERROR {src.name}: {result.reason}", file=sys.stderr)
 
-    print(f"\ndone: {ok} processed, {skip} skipped, {err} errors")
+    summary = f"\ndone: {ok} processed, {skip} skipped, {err} errors"
+    print(summary + (" (dry run: nothing written)" if args.dry_run else ""))
     return 0 if err == 0 else 1
 
 

@@ -35,7 +35,9 @@ def process(
     existing_slugs: Iterable[str],
     publish_date: datetime,
     cache_path: Path,
+    dry_run: bool = False,
 ) -> Result:
+    """Process one photo. With dry_run, compute everything but write no files."""
     data = exif.extract(source)
     if data is None or data.date is None:
         return Result("skip", source, reason="missing exif date")
@@ -47,6 +49,9 @@ def process(
 
     new_slug = slug.build(data.date, city=city, existing=existing_slugs)
     rel_photo = f"{data.date.year:04d}/{data.date.month:02d}/{new_slug}.jpg"
+
+    if dry_run:
+        return Result("ok", source, slug=new_slug)
 
     img_dst = asset_root / rel_photo
     resize.to_web(source, img_dst, max_dim=WEB_MAX_DIM, quality=WEB_QUALITY)

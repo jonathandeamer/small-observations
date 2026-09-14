@@ -90,7 +90,7 @@ deploy-dry: build  ## show production deploy changes without uploading
 ingest:  ## ingest photos from _ingest/ (moves originals on success)
 	. .venv/bin/activate && python -m ingest
 
-ingest-dry:  ## ingest dry-run (doesn't move originals)
+ingest-dry:  ## ingest dry-run (reports slugs; writes and moves nothing)
 	. .venv/bin/activate && python -m ingest --dry-run
 
 test:  ## run ingest tests

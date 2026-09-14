@@ -22,6 +22,13 @@ NOMINATIM_URL = "https://nominatim.openstreetmap.org/reverse"
 # `county` catches rural areas where no settlement key is present.
 _CITY_KEYS = ("city", "town", "village", "hamlet", "suburb", "municipality", "county")
 
+# Zoom 10 (city level) first. Some cities come back at that zoom as a historic
+# boundary with no settlement key at all (e.g. central Belfast), so retry closer in.
+_ZOOMS = (10, 14)
+
+# Nominatim names some cities after their council district. Map to the everyday name.
+_CITY_ALIASES = {"Belfast City District": "Belfast"}
+
 # Nominatim's usage policy is max 1 request/second. We enforce a soft floor.
 _RATE_LIMIT_SECONDS = 1.1
 _last_request_at: float = 0.0
@@ -46,14 +53,14 @@ def _save_cache(path: Path, data: dict) -> None:
     path.write_text(json.dumps(data, indent=2, sort_keys=True, ensure_ascii=False))
 
 
-def _query_nominatim(lat: float, lon: float) -> Optional[dict]:
+def _query_nominatim(lat: float, lon: float, *, zoom: int) -> Optional[dict]:
     """Return the Nominatim payload, or None on transient HTTP failure.
 
     Rate-limited to 1 request per ~1.1s. On 429 we back off and retry once.
     """
     global _last_request_at
 
-    params = urlencode({"lat": lat, "lon": lon, "format": "json", "zoom": 10, "addressdetails": 1})
+    params = urlencode({"lat": lat, "lon": lon, "format": "json", "zoom": zoom, "addressdetails": 1})
     req = Request(f"{NOMINATIM_URL}?{params}", headers={"User-Agent": USER_AGENT})
 
     for attempt in (1, 2):
@@ -78,6 +85,13 @@ def _query_nominatim(lat: float, lon: float) -> Optional[dict]:
     return None
 
 
+def _city_from(address: dict) -> Optional[str]:
+    for k in _CITY_KEYS:
+        if v := address.get(k):
+            return _CITY_ALIASES.get(v, v)
+    return None
+
+
 def reverse(lat: float, lon: float, *, cache_path: Path) -> tuple[Optional[str], Optional[str]]:
     """Return (country, city) for the coordinates. Either may be None if missing.
 
@@ -89,16 +103,17 @@ def reverse(lat: float, lon: float, *, cache_path: Path) -> tuple[Optional[str],
         entry = cache[key]
         return (entry.get("country"), entry.get("city"))
 
-    payload = _query_nominatim(lat, lon)
-    if payload is None:
-        return (None, None)
-    address = payload.get("address", {}) or {}
-
-    country = address.get("country")
+    country = None
     city = None
-    for k in _CITY_KEYS:
-        if v := address.get(k):
-            city = v
+    for zoom in _ZOOMS:
+        payload = _query_nominatim(lat, lon, zoom=zoom)
+        if payload is None:
+            # Transient failure: return what we have, but don't cache it.
+            return (country, city)
+        address = payload.get("address", {}) or {}
+        country = country or address.get("country")
+        city = _city_from(address)
+        if city:
             break
 
     cache[key] = {"country": country, "city": city}

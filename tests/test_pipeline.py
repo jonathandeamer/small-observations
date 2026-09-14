@@ -66,6 +66,28 @@ def test_process_writes_post_with_empty_location_when_gps_missing(fixture_dir: P
     assert 'camera: "iPhone 11"' in md
 
 
+def test_process_dry_run_writes_nothing(fixture_dir: Path, tmp_path: Path):
+    content_root = tmp_path / "content" / "posts"
+    asset_root = tmp_path / "assets" / "img"
+    cache = tmp_path / "geocode.json"
+
+    with patch("ingest.pipeline.reverse_geocode", return_value=("France", "Paris")):
+        result = pipeline.process(
+            source=fixture_dir / "with_gps.jpg",
+            content_root=content_root,
+            asset_root=asset_root,
+            existing_slugs=set(),
+            publish_date=datetime(2026, 5, 15, tzinfo=timezone.utc),
+            cache_path=cache,
+            dry_run=True,
+        )
+
+    assert result.status == "ok"
+    assert result.slug == "2018-07-14-paris"
+    assert not content_root.exists()
+    assert not asset_root.exists()
+
+
 def test_process_returns_skip_when_no_exif(fixture_dir: Path, tmp_path: Path):
     content_root = tmp_path / "content" / "posts"
     asset_root = tmp_path / "assets" / "img"
