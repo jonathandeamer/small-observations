@@ -54,6 +54,9 @@ audit:  ## run every audit against the existing public/ (no rebuild)
 	@echo "→ page structure (h1, skip link, browse nav, head links, preloads):"
 	@python3 scripts/check_page_structure.py public
 	@echo
+	@echo "→ post microformats (h-entry, p-name, u-photo, dt-published, p-author):"
+	@python3 scripts/check_microformats.py public
+	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
 		set -e; \
 		echo "→ htmltest (internal link check):"; \
