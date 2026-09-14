@@ -5,7 +5,11 @@
 # to public/ without removing orphans). Always go through these targets.
 
 .DEFAULT_GOAL := help
-.PHONY: help dev build check clean deploy deploy-dry ingest ingest-dry test venv stats
+.PHONY: help dev build check audit clean deploy deploy-dry ingest ingest-dry test venv stats
+
+# First real post page (alias redirect pages contain http-equiv and are skipped).
+# Recursive (=) so it's evaluated after build has produced public/.
+SAMPLE_POST = $(firstword $(shell grep -L 'http-equiv' public/[0-9]*/*/*/index.html 2>/dev/null))
 
 help:  ## list available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-14s %s\n", $$1, $$2}'
@@ -16,8 +20,11 @@ dev:  ## hugo dev server (memfs, doesn't touch public/)
 build:  ## production build with orphan cleanup
 	hugo --cleanDestinationDir --minify --gc --printPathWarnings
 
-check: build  ## build then sanity-check the rendered site
-	@echo
+check: build  ## build then run every audit; fails on the first failing audit
+	@$(MAKE) --no-print-directory audit
+
+audit:  ## run every audit against the existing public/ (no rebuild)
+	@test -f public/index.html || { echo "public/ is empty — run make build first"; exit 1; }
 	@echo "→ photo post front matter:"
 	@python3 scripts/check_post_frontmatter.py content/posts
 	@echo
@@ -35,47 +42,42 @@ check: build  ## build then sanity-check the rendered site
 	@python3 scripts/check_feed_sitemap.py public content/posts
 	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
+		set -e; \
 		echo "→ htmltest (internal link check):"; \
-		htmltest -s public 2>&1 | tail -15; \
-		else \
+		htmltest -s public; \
+	else \
 		echo "→ htmltest not installed (skipping link check)"; \
 		echo "    install with: brew install htmltest"; \
 	fi
 	@echo
 	@if command -v pa11y >/dev/null 2>&1; then \
-		echo "→ pa11y (accessibility audit on homepage):"; \
-		pa11y --config pa11y.json "file://$(PWD)/public/index.html"; \
-		echo; \
-		POST=$$(find public/[0-9]* -name index.html | head -1); \
-		if [ -n "$$POST" ]; then \
-			echo "→ pa11y (accessibility audit on post page):"; \
-			pa11y --config pa11y.json "file://$(PWD)/$$POST"; \
-		fi; \
-		else \
+		set -e; \
+		for page in public/index.html $(SAMPLE_POST); do \
+			echo "→ pa11y $$page"; \
+			pa11y --config pa11y.json "file://$(CURDIR)/$$page"; \
+		done; \
+	else \
 		echo "→ pa11y not installed (skipping accessibility check)"; \
 		echo "    install with: npm install -g pa11y"; \
 	fi
 	@echo
-	@if command -v vnu >/dev/null 2>&1 || java -jar ~/.vnu/vnu.jar --version >/dev/null 2>&1; then \
+	@if java -jar ~/.vnu/vnu.jar --version >/dev/null 2>&1; then \
+		set -e; \
 		echo "→ vnu HTML validation (homepage + one post):"; \
-		POST=$$(find public/[0-9]* -name index.html | head -1); \
-		java -jar ~/.vnu/vnu.jar --skip-non-html "public/index.html" $$POST 2>&1 | head -30 \
-			&& echo "    ok" || true; \
-		else \
+		java -jar ~/.vnu/vnu.jar --skip-non-html public/index.html $(SAMPLE_POST); \
+		echo "    ok"; \
+	else \
 		echo "→ vnu HTML validator not installed (skipping)"; \
 		echo "    install: mkdir -p ~/.vnu && curl -sL https://github.com/validator/validator/releases/latest/download/vnu.jar -o ~/.vnu/vnu.jar"; \
 	fi
 	@echo
 	@echo "→ sitemap:"
-	@test -s public/sitemap.xml \
-		&& xmllint --noout public/sitemap.xml 2>&1 \
-		&& echo "    ok ($$(grep -o '<loc>' public/sitemap.xml | wc -l | tr -d ' ') URLs)" \
-		|| echo "    INVALID or missing — see errors above"
+	@test -s public/sitemap.xml && xmllint --noout public/sitemap.xml
+	@echo "    ok ($$(grep -o '<loc>' public/sitemap.xml | wc -l | tr -d ' ') URLs)"
 	@echo
 	@echo "→ RSS feed validity:"
-	@xmllint --noout public/feed.xml 2>&1 \
-		&& echo "    ok" \
-		|| echo "    INVALID — see errors above"
+	@xmllint --noout public/feed.xml
+	@echo "    ok"
 	@echo
 
 clean:  ## remove all generated output

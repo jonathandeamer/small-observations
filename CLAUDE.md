@@ -15,7 +15,8 @@ Plain `hugo` adds output to `public/` without removing orphans from deleted cont
 ```
 make dev          # hugo server (in-memory, doesn't touch public/)
 make build        # clean production build + path-warning checks
-make check        # build, then run a battery of audits (see "Accessibility & web standards" below)
+make check        # build, then `make audit`; any failing audit fails the target
+make audit        # run every audit against the existing public/ without rebuilding
 make clean        # wipe public/, resources/_gen/, .hugo_build.lock
 make deploy       # production build then push to S3 + CloudFront invalidate
 make deploy-dry   # show what `make deploy` would upload, without uploading
@@ -189,7 +190,7 @@ See `docs/superpowers/specs/2026-05-17-tag-taxonomy-design.md` for the full desi
 
 The site aims to remain a "good web citizen" — keyboard-navigable, screen-reader-friendly, valid HTML, well-behaved with crawlers. Several invariants are easy to break by accident; keep them in mind when changing design or templates.
 
-**Automated checks** — all run by `make check`:
+**Automated checks** — all run by `make check` / `make audit`, and any failure fails the target:
 
 - `pa11y` audits the homepage *and* a randomly-picked post page (WCAG 2.1 AA). Suppressions live in `pa11y.json` — decorative `.glyph` spans (the small italic coral flourishes in section headings) are hidden from the contrast audit because they are non-text decoration (`aria-hidden="true"`; coral on cream is intentionally below body-text contrast).
 - `htmltest` checks internal links and flags `<img>` elements with empty alt text. Currently noisy because alt text isn't written yet — that's tracked separately.
