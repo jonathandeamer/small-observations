@@ -51,6 +51,9 @@ audit:  ## run every audit against the existing public/ (no rebuild)
 	@echo "→ no JS, no third-party requests, CSS/font budgets, deploy matchers:"
 	@python3 scripts/check_no_third_party.py public hugo.toml
 	@echo
+	@echo "→ page structure (h1, skip link, browse nav, head links, preloads):"
+	@python3 scripts/check_page_structure.py public
+	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
 		set -e; \
 		echo "→ htmltest (internal link check):"; \
