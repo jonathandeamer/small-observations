@@ -104,3 +104,80 @@ def test_html_change_fails_with_readable_diff(tmp_path: Path) -> None:
     report = format_report(diff)
     assert "404.html" in report
     assert "+<h2>" in report
+
+
+from scripts.compare_build import config_errors, make_recipe, makefile_errors
+
+TOML = """
+baseURL = "https://smallobservations.net/"
+theme = "notebook"
+
+[outputs]
+  home = ["HTML", "RSS", "LLMS"]
+
+[[deployment.matchers]]
+  pattern = "^feed\\\\.xml$"
+  cacheControl = "public, max-age=0, must-revalidate"
+
+[params]
+  description = "A notebook of street art."
+  measure = "34rem"
+"""
+
+
+def test_config_identical_passes() -> None:
+    assert config_errors(TOML, TOML) == []
+
+
+def test_config_design_param_may_change() -> None:
+    assert config_errors(TOML, TOML.replace('"34rem"', '"38rem"')) == []
+
+
+def test_config_deployment_change_fails() -> None:
+    errors = config_errors(TOML, TOML.replace("max-age=0", "max-age=60"))
+    assert errors == ["hugo.toml: [deployment] differs from base"]
+
+
+def test_config_non_design_param_change_fails() -> None:
+    errors = config_errors(TOML, TOML.replace("A notebook", "The notebook"))
+    assert errors == ["hugo.toml: params.description differs from base"]
+
+
+def test_config_top_level_scalar_change_fails() -> None:
+    errors = config_errors(TOML, TOML.replace('theme = "notebook"', 'theme = "new"'))
+    assert errors == ["hugo.toml: [theme] differs from base"]
+
+
+MAKEFILE = """
+build:  ## production build
+\thugo --cleanDestinationDir --minify --gc --printPathWarnings
+
+deploy: build  ## deploy
+\tAWS_PROFILE=hugo-deploy hugo deploy --target production
+
+deploy-dry: build  ## dry
+\tAWS_PROFILE=hugo-deploy hugo deploy --target production --dryRun
+
+ingest:  ## ingest
+\t. .venv/bin/activate && python -m ingest
+"""
+
+
+def test_make_recipe_extracts_target_without_matching_prefixes() -> None:
+    assert make_recipe(MAKEFILE, "deploy") == (
+        "deploy: build\n\tAWS_PROFILE=hugo-deploy hugo deploy --target production"
+    )
+
+
+def test_makefile_help_text_change_passes() -> None:
+    assert makefile_errors(MAKEFILE, MAKEFILE.replace("## deploy", "## ship it")) == []
+
+
+def test_makefile_deploy_recipe_change_fails() -> None:
+    errors = makefile_errors(MAKEFILE, MAKEFILE.replace("--target production\n\n", "--target staging\n\n"))
+    assert errors == ["Makefile: `deploy` recipe differs from base"]
+
+
+def test_makefile_missing_target_fails() -> None:
+    errors = makefile_errors(MAKEFILE, MAKEFILE.replace("ingest:", "slurp:"))
+    assert errors == ["Makefile: `ingest` recipe differs from base"]

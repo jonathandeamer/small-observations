@@ -9,8 +9,13 @@ are reported but allowed to change.
 
 from __future__ import annotations
 
+import argparse
 import difflib
 import re
+import shutil
+import subprocess
+import sys
+import tomllib
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
 from pathlib import Path
@@ -164,3 +169,106 @@ def format_report(diff: BuildDiff, max_html_diffs: int = 5, max_diff_lines: int 
         out.append(f"    design assets changed (allowed, {len(diff.design_changes)}):")
         out.extend(f"      {p}" for p in diff.design_changes)
     return "\n".join(out)
+
+
+# hugo.toml [params] keys a redesign may change. Everything else in hugo.toml
+# (deployment matchers, outputs, permalinks, taxonomies, baseURL) is contract.
+DESIGN_PARAMS = frozenset({"measure"})
+
+# Makefile recipes a redesign must not touch.
+PROTECTED_MAKE_TARGETS = ("build", "clean", "deploy", "deploy-dry", "ingest", "ingest-dry")
+
+# Paths a redesign must not touch at all.
+PROTECTED_PATHS = ("ingest", "pyproject.toml")
+
+
+def config_errors(base_toml: str, head_toml: str) -> list[str]:
+    base, head = tomllib.loads(base_toml), tomllib.loads(head_toml)
+    errors: list[str] = []
+    for key in sorted(set(base) | set(head)):
+        if key == "params":
+            base_params, head_params = base.get(key, {}), head.get(key, {})
+            for param in sorted(set(base_params) | set(head_params)):
+                if param in DESIGN_PARAMS:
+                    continue
+                if base_params.get(param) != head_params.get(param):
+                    errors.append(f"hugo.toml: params.{param} differs from base")
+        elif base.get(key) != head.get(key):
+            errors.append(f"hugo.toml: [{key}] differs from base")
+    return errors
+
+
+def make_recipe(makefile: str, target: str) -> str:
+    lines = makefile.splitlines()
+    for index, line in enumerate(lines):
+        if re.match(rf"^{re.escape(target)}:", line):
+            recipe = [line.split("##")[0].rstrip()]
+            for following in lines[index + 1 :]:
+                if not following.startswith("\t"):
+                    break
+                recipe.append(following.rstrip())
+            return "\n".join(recipe)
+    return ""
+
+
+def makefile_errors(base_makefile: str, head_makefile: str) -> list[str]:
+    return [
+        f"Makefile: `{target}` recipe differs from base"
+        for target in PROTECTED_MAKE_TARGETS
+        if make_recipe(base_makefile, target) != make_recipe(head_makefile, target)
+    ]
+
+
+def _git(*args: str) -> str:
+    return subprocess.run(["git", *args], check=True, capture_output=True, text=True).stdout
+
+
+def protected_path_errors(base_ref: str) -> list[str]:
+    changed = _git("diff", "--name-only", base_ref, "--", *PROTECTED_PATHS).split()
+    return [f"{path}: changed since {base_ref} (protected)" for path in changed]
+
+
+def extract_theme(base_ref: str, dest: Path) -> Path:
+    shutil.rmtree(dest, ignore_errors=True)
+    dest.mkdir(parents=True)
+    archive = subprocess.run(["git", "archive", base_ref, "themes"], check=True, capture_output=True).stdout
+    subprocess.run(["tar", "-x", "-C", str(dest)], input=archive, check=True)
+    return dest / "themes"
+
+
+def hugo_build(dest: Path, themes_dir: Path | None = None) -> None:
+    cmd = ["hugo", "--minify", "--cleanDestinationDir", "--quiet", "-d", str(dest)]
+    if themes_dir is not None:
+        cmd += ["--themesDir", str(themes_dir)]
+    subprocess.run(cmd, check=True)
+
+
+def main(argv: list[str]) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--base", default="main", help="git ref whose theme is the baseline (default: main)")
+    parser.add_argument("--workdir", default="tmp/compare", type=Path)
+    args = parser.parse_args(argv[1:])
+
+    errors = config_errors(_git("show", f"{args.base}:hugo.toml"), Path("hugo.toml").read_text())
+    errors += makefile_errors(_git("show", f"{args.base}:Makefile"), Path("Makefile").read_text())
+    errors += protected_path_errors(args.base)
+
+    themes_dir = extract_theme(args.base, args.workdir / "base-src")
+    hugo_build(args.workdir / "base", themes_dir)
+    hugo_build(args.workdir / "head")
+    diff = compare_trees(args.workdir / "base", args.workdir / "head")
+
+    print(f"→ build output vs theme from {args.base} (same content):")
+    for error in errors:
+        print(f"    {error}")
+    report = format_report(diff)
+    if report:
+        print(report)
+    if errors or diff.failed:
+        return 1
+    print("    ok — only CSS, design classes, fonts and favicons differ")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main(sys.argv))

@@ -5,7 +5,7 @@
 # to public/ without removing orphans). Always go through these targets.
 
 .DEFAULT_GOAL := help
-.PHONY: help dev build check audit clean deploy deploy-dry ingest ingest-dry test venv stats
+.PHONY: help dev build check audit compare clean deploy deploy-dry ingest ingest-dry test venv stats
 
 # First real post page (alias redirect pages contain http-equiv and are skipped).
 # Recursive (=) so it's evaluated after build has produced public/.
@@ -86,6 +86,10 @@ audit:  ## run every audit against the existing public/ (no rebuild)
 	@xmllint --noout public/feed.xml
 	@echo "    ok"
 	@echo
+
+BASE ?= main
+compare:  ## compare build output against BASE's theme (default main); non-design changes fail
+	python3 scripts/compare_build.py --base $(BASE)
 
 clean:  ## remove all generated output
 	rm -rf public resources/_gen .hugo_build.lock
