@@ -192,7 +192,7 @@ The site aims to remain a "good web citizen" — keyboard-navigable, screen-read
 
 **Automated checks** — all run by `make check` / `make audit`, and any failure fails the target:
 
-- `pa11y` audits the homepage *and* a randomly-picked post page (WCAG 2.1 AA). Suppressions live in `pa11y.json` — decorative `.glyph` spans (the small italic coral flourishes in section headings) are hidden from the contrast audit because they are non-text decoration (`aria-hidden="true"`; coral on cream is intentionally below body-text contrast).
+- `pa11y` audits one page per template family (WCAG 2.1 AA): home, a post, `/posts/` and its page 2, the tags index and its by-count variant, a tag term, the cities/countries/artists/years indexes, a year term, and the 404. The list is `PA11Y_PAGES` in the Makefile — extend it when adding a template. Suppressions live in `pa11y.json`: decorative `aria-hidden="true"` flourishes in coral (`.glyph` in section headings, `.terms-sort-sep` between sort links) are hidden from the contrast audit because they are non-text decoration and coral on cream is intentionally below body-text contrast.
 - `htmltest` checks internal links and flags `<img>` elements with empty alt text. Currently noisy because alt text isn't written yet — that's tracked separately.
 - `xmllint` validates the sitemap at `public/sitemap.xml` and the RSS feed at `public/feed.xml`.
 - `vnu` runs the official W3C HTML validator on the homepage + one post when `~/.vnu/vnu.jar` is installed (it is installed on this machine). If missing on another machine, `make check` prints the install command and skips it.

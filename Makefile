@@ -11,6 +11,13 @@
 # Recursive (=) so it's evaluated after build has produced public/.
 SAMPLE_POST = $(firstword $(shell grep -L 'http-equiv' public/[0-9]*/*/*/index.html 2>/dev/null))
 
+# One page per template family. Extend when a new template is added.
+PA11Y_PAGES = public/index.html $(SAMPLE_POST) public/posts/index.html \
+	public/posts/page/2/index.html public/tags/index.html public/tags/by-count/index.html \
+	public/tags/favourite/index.html public/cities/index.html public/countries/index.html \
+	public/artists/index.html public/years/index.html public/years/2018/index.html \
+	public/404.html
+
 help:  ## list available targets
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-14s %s\n", $$1, $$2}'
 
@@ -52,7 +59,7 @@ audit:  ## run every audit against the existing public/ (no rebuild)
 	@echo
 	@if command -v pa11y >/dev/null 2>&1; then \
 		set -e; \
-		for page in public/index.html $(SAMPLE_POST); do \
+		for page in $(PA11Y_PAGES); do \
 			echo "→ pa11y $$page"; \
 			pa11y --config pa11y.json "file://$(CURDIR)/$$page"; \
 		done; \
