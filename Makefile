@@ -48,6 +48,9 @@ audit:  ## run every audit against the existing public/ (no rebuild)
 	@echo "→ RSS, sitemap, and llms.txt URL contracts:"
 	@python3 scripts/check_feed_sitemap.py public content/posts
 	@echo
+	@echo "→ no JS, no third-party requests, CSS/font budgets, deploy matchers:"
+	@python3 scripts/check_no_third_party.py public hugo.toml
+	@echo
 	@if command -v htmltest >/dev/null 2>&1; then \
 		set -e; \
 		echo "→ htmltest (internal link check):"; \

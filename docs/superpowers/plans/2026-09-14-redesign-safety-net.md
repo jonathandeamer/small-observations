@@ -37,6 +37,7 @@ Facts established on 2026-09-14 against commit `00cf5da`:
 - Before this plan, every audit passes but `make check` ignores failures from pa11y (home page), vnu (`|| true`), xmllint (`|| echo`) and htmltest (`| tail`).
 - pa11y passes on home, a post, `/posts/`, `/cities/`, `/years/` and `/404.html`. It fails on `/tags/`, `/tags/by-count/`, `/tags/favourite/` and `/years/2018/`, all with the same single issue: the decorative `<span class="terms-sort-sep" aria-hidden="true">·</span>` in `--coral` (3.74:1). That's the same case as the already-suppressed `.glyph`, so it is added to `hideElements`.
 - Make 3.81 was verified to fail a recipe when `set -e;` starts an `if … for … done … fi` block and a command inside the loop fails. `make -n audit` prints recipes with `$(SAMPLE_POST)` expanded, which the verification steps use instead of `--eval`.
+- Amendment found during Task 5 execution: `public/` can contain files Hugo didn't build and won't deploy. The Impeccable plugin writes `public/.impeccable/hook.cache.json`, and `--cleanDestinationDir` leaves it in place. According to `~/hugodocs/content/en/host-and-deploy/deploy-with-hugo-deploy.md`, `hugo deploy` skips `.DS_Store` files and hidden directories except `.well-known`, so `deploy_matcher_errors` applies the same rule before requiring a matcher.
 - Only `favicon.ico` and `robots.txt` in `public/` match no `[[deployment.matchers]]` pattern today.
 - Budgets: inline CSS is 8,567 bytes, so the limit is set at 16,000. `public/fonts/` is 134,244 bytes (already a deliberate overage of the 80 KB spec budget), so the limit is set at 140,000.
 - Layout-geometry testing with Playwright is out of scope for this plan and deferred to a follow-up.
@@ -1156,12 +1157,22 @@ def font_budget_errors(public_dir: Path, max_font_bytes: int = MAX_FONT_BYTES) -
     return [f"fonts/: {total} bytes (budget {max_font_bytes})"] if total > max_font_bytes else []
 
 
+def deployed_by_hugo(rel_path: str) -> bool:
+    # hugo deploy skips .DS_Store files and hidden directories except .well-known.
+    *dirs, name = rel_path.split("/")
+    if name == ".DS_Store":
+        return False
+    return not any(d.startswith(".") and d != ".well-known" for d in dirs)
+
+
 def deploy_matcher_errors(public_dir: Path, hugo_toml: str) -> list[str]:
     config = tomllib.loads(hugo_toml)
     patterns = [re.compile(m["pattern"]) for m in config.get("deployment", {}).get("matchers", [])]
     errors: list[str] = []
     for path in sorted(p for p in public_dir.rglob("*") if p.is_file()):
         rel = path.relative_to(public_dir).as_posix()
+        if not deployed_by_hugo(rel):
+            continue
         if rel in UNMATCHED_OK or any(p.search(rel) for p in patterns):
             continue
         errors.append(
