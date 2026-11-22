@@ -77,10 +77,13 @@ pagination.pagerSize = 20
 
 # Image processing defaults — high-quality JPEG, lanczos resampling.
 [imaging]
-  quality = 82
   resampleFilter = "Lanczos"
-  hint = "photo"
   anchor = "smart"
+  [imaging.jpeg]
+    quality = 82
+  [imaging.webp]
+    quality = 82
+    hint = "photo"
 
 # Allow inlining CSS via resources.Get + minify.
 [minify]
