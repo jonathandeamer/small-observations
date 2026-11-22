@@ -27,7 +27,10 @@ _CITY_KEYS = ("city", "town", "village", "hamlet", "suburb", "municipality", "co
 _ZOOMS = (10, 14)
 
 # Nominatim names some cities after their council district. Map to the everyday name.
-_CITY_ALIASES = {"Belfast City District": "Belfast"}
+_CITY_ALIASES = {
+    "Belfast City District": "Belfast",
+    "County Borough of Belfast": "Belfast",
+}
 
 # Nominatim's usage policy is max 1 request/second. We enforce a soft floor.
 _RATE_LIMIT_SECONDS = 1.1

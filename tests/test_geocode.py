@@ -106,6 +106,19 @@ def test_reverse_retries_at_higher_zoom_when_no_settlement(tmp_path: Path):
     assert seen == [10, 14]
 
 
+# Nominatim now sometimes returns central Belfast at zoom 10 under the
+# "county" key as "County Borough of Belfast", so no zoom-14 retry happens.
+BELFAST_COUNTY_ZOOM_10 = {"address": {"county": "County Borough of Belfast", "country": "United Kingdom"}}
+
+
+def test_reverse_aliases_county_borough_of_belfast(tmp_path: Path):
+    cache = tmp_path / "geocode.json"
+    with patch("ingest.geocode.urlopen", _mock_urlopen(BELFAST_COUNTY_ZOOM_10)), \
+         patch("ingest.geocode._RATE_LIMIT_SECONDS", 0):
+        result = geocode.reverse(54.604, -5.9276, cache_path=cache)
+    assert result == ("United Kingdom", "Belfast")
+
+
 def test_reverse_does_not_retry_when_city_found(tmp_path: Path):
     seen: list[int] = []
     cache = tmp_path / "geocode.json"
